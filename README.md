@@ -91,7 +91,7 @@ python3 tools/verify_package.py --cpu-tests
 
 ## 归档与发布
 
-仓库地址：[KunyuanComputing/gr308-lab](https://github.com/KunyuanComputing/gr308-lab)。仓库为私有，需要组织授予访问权限。
+公开仓库：[KunyuanComputing/gr308-lab](https://github.com/KunyuanComputing/gr308-lab)。
 
 ```bash
 git clone https://github.com/KunyuanComputing/gr308-lab.git
