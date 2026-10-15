@@ -1,0 +1,121 @@
+{
+  "report_date": "2026-09-17",
+  "environment": {
+    "hardware": "4 张 GR308 物理卡 / 8 个逻辑设备",
+    "logical_memory": "57,344 MiB per logical device",
+    "bandwidth": "1008 GB/s per logical device",
+    "cpu": "2 x AMD EPYC 9654",
+    "memory": "约 1 TiB",
+    "os": "Ubuntu 22.04 / Linux 5.15.0-191",
+    "driver": "1.1.0.19",
+    "runtime": "vLLM 0.18.0 / vllm_fant 1.1.0.20",
+    "precision": "BF16"
+  },
+  "reference": {
+    "35B": {"model": "Qwen3.6-35B-A3B", "parallel": "TP2", "input": 3072, "output": 1024, "c1": {"ttft": 1731.87, "decode": 52.91}, "c16": {"ttft": 3487.11, "decode": 12.74}},
+    "9B": {"model": "Qwen3.5-9B", "parallel": "TP2", "input": 3072, "output": 1024, "c1": {"ttft": 1545.07, "decode": 45.09}, "c16": {"ttft": 2487.47, "decode": 11.97}},
+    "30B": {"model": "Qwen3-30B-A3B", "parallel": "EP+TP2", "input": 3072, "output": 1024, "c1": {"ttft": 1245.71, "decode": 26.85}, "c16": {"ttft": 3384.84, "decode": 11.70}},
+    "80B": {"model": "Qwen3-Next-80B-A3B", "parallel": "TP4", "input": 1024, "output": 1024, "c1": {"ttft": 1072.45, "decode": 33.23}, "c16": {"ttft": 6048.71, "decode": 15.02}}
+  },
+  "selected": {
+    "35B": {
+      "model": "Qwen3.6-35B-A3B", "cards": 1,
+      "config": "TP2 / MTP4 / Graph 4-64 / batch4096 / block1088 / auto KV / sync / auto MoE / no EP",
+      "evidence": "short",
+      "c1": {"ttft": 1537.186859, "decode": 50.745855, "aggregate": 47.209316, "completed": 16, "failed": 0},
+      "c16": {"ttft": 3321.474418, "decode": 13.934548, "aggregate": 180.635100, "completed": 32, "failed": 0},
+      "c32": {"ttft": 4909.149529, "decode": 8.197463, "aggregate": 208.080352, "completed": 64, "failed": 0}
+    },
+    "9B": {
+      "model": "Qwen3.5-9B", "cards": 1,
+      "config": "dual TP1 / DP2 / MTP4 / Graph 4-32 / batch4096 / block800 / auto KV / sync",
+      "evidence": "formal C1/C16; short C32",
+      "c1": {"ttft": 2335.930906, "decode": 54.639813, "aggregate": 48.622163, "completed": 64, "failed": 0},
+      "c16": {"ttft": 3501.616017, "decode": 18.904010, "aggregate": 247.162528, "completed": 64, "failed": 0},
+      "c32": {"ttft": 8806.517489, "decode": 12.615596, "aggregate": 287.015624, "completed": 64, "failed": 0}
+    },
+    "30B": {
+      "model": "Qwen3-30B-A3B", "cards": 1,
+      "config": "TP2 / no EP / auto MoE / Graph 4-32 / batch4096 / block800 / 8 GiB KV / async",
+      "evidence": "formal C1/C16; short C32",
+      "c1": {"ttft": 1054.434024, "decode": 26.434389, "aggregate": 25.761106, "completed": 64, "failed": 0},
+      "c16": {"ttft": 4225.690511, "decode": 15.223948, "aggregate": 225.671965, "completed": 64, "failed": 0},
+      "c32": {"ttft": 5616.564864, "decode": 11.326851, "aggregate": 320.897830, "completed": 64, "failed": 0}
+    },
+    "80B": {
+      "model": "Qwen3-Next-80B-A3B-Instruct", "cards": 2,
+      "config": "TP4 / MTP3 / Graph 4-64 / batch2048 / block1088 / 8 GiB KV / sync / no EP",
+      "evidence": "short",
+      "c1": {"ttft": 607.975467, "decode": 48.522532, "aggregate": 47.128471, "completed": 16, "failed": 0},
+      "c16": {"ttft": 3535.559817, "decode": 19.707880, "aggregate": 255.930840, "completed": 32, "failed": 0},
+      "c32": {"ttft": 4141.243553, "decode": 13.744294, "aggregate": 339.260238, "completed": 64, "failed": 0}
+    }
+  },
+  "roof": {
+    "35B": {"c1": 336.0, "ideal": 1066.0, "decode": 864.306220},
+    "9B": {"c1": 56.0, "ideal": 896.0, "decode": 731.242604},
+    "30B": {"c1": 305.0, "ideal": 800.0, "decode": 739.901639},
+    "80B": {"c1": 672.0, "ideal": 1420.0, "decode": 1267.650273}
+  },
+  "rtx5090": {
+    "35B": {
+      "concurrency": "C16/卡", "gr308_tps": 180.64, "rtx5090_per_card_tps": 498.78,
+      "ratio_pct": 36.22,
+      "validity": "RTX 5090 数值由图中 8 卡总吞吐 3990.23 除以 8；实际采用 4×TP2，不是单卡独立运行"
+    },
+    "9B": {
+      "concurrency": "C16", "gr308_tps": 247.16, "rtx5090_per_card_tps": 444.40,
+      "ratio_pct": 55.62,
+      "validity": "同模型、BF16、单卡、C16；但 RTX 5090 使用 ShareGPT / 最大输出 256，GR308 使用固定 3072/1024"
+    }
+  },
+  "tuning": {
+    "9B": [
+      {"group": "A", "change": "MTP3 / G4-32 / b2048 / 8GiB", "c1": 59.40, "c16": 231.81, "c32": null, "verdict": "MTP3 基线"},
+      {"group": "B", "change": "MTP3 / G4-64 / b2048 / 8GiB", "c1": 58.97, "c16": 215.79, "c32": null, "verdict": "Graph64 回归"},
+      {"group": "C", "change": "MTP3 / G4-32 / b4096 / 8GiB", "c1": 60.35, "c16": 237.14, "c32": null, "verdict": "batch4096 有效"},
+      {"group": "D", "change": "MTP3 / G4-32 / b4096 / auto KV", "c1": 59.99, "c16": 239.27, "c32": null, "verdict": "自动 KV 小幅提升"},
+      {"group": "E2", "change": "MTP2 / G4-32 / b4096 / auto KV", "c1": 49.73, "c16": 228.41, "c32": null, "verdict": "MTP2 不选"},
+      {"group": "E4", "change": "MTP4 / G4-32 / b4096 / auto KV", "c1": 66.29, "c16": 234.94, "c32": null, "verdict": "C1 有利"},
+      {"group": "F1", "change": "单 TP1 / MTP4", "c1": 49.66, "c16": 157.67, "c32": null, "verdict": "单副本容量不足"},
+      {"group": "F2", "change": "dual TP1 / DP2 / MTP4", "c1": 49.69, "c16": 247.87, "c32": null, "verdict": "最大结构性收益"},
+      {"group": "Final", "change": "dual TP1 / DP2 / MTP4，正式 C1/C16", "c1": 48.62, "c16": 247.16, "c32": 287.02, "verdict": "最终选定"}
+    ],
+    "30B": [
+      {"group": "A", "change": "G32 / auto / b2048 / block800", "c1": 10.88, "c16": 215.33, "c32": null, "verdict": "基线"},
+      {"group": "B", "change": "G4-32 / auto / b2048", "c1": 24.39, "c16": 216.77, "c32": null, "verdict": "Graph 覆盖有效"},
+      {"group": "C", "change": "G4-32 / Triton / b2048", "c1": 23.44, "c16": 218.10, "c32": 321.35, "verdict": "C32 +0.14%，持平"},
+      {"group": "D", "change": "auto / block1088 / b2048", "c1": 23.46, "c16": 217.38, "c32": null, "verdict": "block1088 无收益"},
+      {"group": "E", "change": "auto / block800 / b4096 / sync", "c1": 26.10, "c16": 218.80, "c32": null, "verdict": "batch4096 有效"},
+      {"group": "F", "change": "auto / block800 / b4096 / async", "c1": 25.52, "c16": 221.52, "c32": null, "verdict": "async 小幅提升"},
+      {"group": "KV", "change": "auto KV", "c1": null, "c16": 223.5, "c32": 319.8, "verdict": "无稳定收益"},
+      {"group": "B6144", "change": "b6144 / 8GiB / async", "c1": null, "c16": 223.54, "c32": 321.10, "verdict": "吞吐微增，TTFT 恶化"},
+      {"group": "EP2", "change": "TP2 + EP2 / linear", "c1": null, "c16": 185.86, "c32": 230.52, "verdict": "明显回归"},
+      {"group": "Final", "change": "auto / b4096 / block800 / 8GiB / async", "c1": 25.76, "c16": 225.67, "c32": 320.90, "verdict": "最终选定"}
+    ],
+    "35B": [
+      {"group": "A", "change": "MTP1 / G32 / b2048", "c1": 16.99, "c16": 153.53, "c32": null, "verdict": "早期基线"},
+      {"group": "C3", "change": "MTP3 / G4-64 / b2048 / 8GiB", "c1": 43.56, "c16": 167.06, "c32": null, "verdict": "MTP3 有效"},
+      {"group": "KV", "change": "MTP3 / b4096 / auto KV", "c1": 44.12, "c16": 167.73, "c32": null, "verdict": "自动 KV 恢复容量"},
+      {"group": "M4-A", "change": "MTP4 / G4-64 / b2048", "c1": 46.70, "c16": 175.57, "c32": null, "verdict": "MTP4 关键收益"},
+      {"group": "M4-B", "change": "MTP4 / G4-128 / b2048", "c1": 46.73, "c16": 176.49, "c32": null, "verdict": "Graph128 收益不足"},
+      {"group": "M4-C", "change": "MTP4 / G4-64 / b3072", "c1": 46.71, "c16": 176.41, "c32": null, "verdict": "中间档"},
+      {"group": "M4-D", "change": "MTP4 / G4-64 / b4096", "c1": 47.21, "c16": 180.64, "c32": 208.08, "verdict": "最终选定"},
+      {"group": "B6144", "change": "MTP4 / b6144", "c1": null, "c16": 179.72, "c32": 209.08, "verdict": "C32 +0.48%，不足采用"},
+      {"group": "Triton", "change": "grouped GEMM + 融合", "c1": null, "c16": 167.69, "c32": 188.63, "verdict": "明显回归"},
+      {"group": "EP2", "change": "TP2 + EP2 / linear", "c1": null, "c16": 167.81, "c32": 185.50, "verdict": "明显回归"}
+    ],
+    "80B": [
+      {"group": "A", "change": "eager / no MTP / 8GiB", "c1": 10.76, "c16": 177.71, "c32": null, "verdict": "基线"},
+      {"group": "B", "change": "eager / MTP1 / 8GiB", "c1": 25.91, "c16": 231.30, "c32": null, "verdict": "MTP1 主要收益"},
+      {"group": "C", "change": "MTP1 / Graph32", "c1": 28.47, "c16": 228.68, "c32": null, "verdict": "C1 改善"},
+      {"group": "D", "change": "MTP1 / Graph64 / b2048", "c1": 28.41, "c16": 231.98, "c32": null, "verdict": "MTP1 吞吐最优"},
+      {"group": "F", "change": "MTP1 / Graph64 / b4096", "c1": 28.19, "c16": 230.99, "c32": null, "verdict": "TTFT 档"},
+      {"group": "G", "change": "MTP1 / b4096 / async", "c1": 28.43, "c16": 228.07, "c32": null, "verdict": "async 回归"},
+      {"group": "MTP2", "change": "TP4 / MTP2 / Graph64", "c1": 36.75, "c16": 251.49, "c32": null, "verdict": "明确正收益"},
+      {"group": "MTP3", "change": "TP4 / MTP3 / Graph64", "c1": 47.13, "c16": 255.93, "c32": 339.26, "verdict": "最终选定"},
+      {"group": "EP4", "change": "TP4 + EP4 / MTP3", "c1": 46.99, "c16": 233.93, "c32": null, "verdict": "C16 -8.6%"},
+      {"group": "TP2xEP2", "change": "TP2 x DP2 x EP2", "c1": null, "c16": null, "c32": null, "verdict": "profile 固件信号量超时"}
+    ]
+  }
+}

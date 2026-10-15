@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "checks": {
+    "all_clients_passed": true,
+    "formal_at_least_three_engine_cold_blocks": true,
+    "correctness_pre_12_of_12": true,
+    "correctness_post_12_of_12": true,
+    "stability_main_1024_ok": true,
+    "conditional_extension_satisfied": true,
+    "request_rows_match": true,
+    "physical_telemetry_rows_present": true
+  }
+}

@@ -1,0 +1,22 @@
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+
+RUN printf '%s\n' \
+      'deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20250601T000000Z bookworm main' \
+      'deb [check-valid-until=no] https://snapshot.debian.org/archive/debian-security/20250601T000000Z bookworm-security main' \
+      > /etc/apt/sources.list \
+    && rm -f /etc/apt/sources.list.d/debian.sources \
+    && apt-get -o Acquire::Check-Valid-Until=false update \
+    && apt-get install --yes --no-install-recommends build-essential=12.9 git=1:2.39.5-0+deb12u2 \
+    && test "$(find /usr/bin/git -user root ! -perm /022 -type f -print)" = /usr/bin/git \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install --no-cache-dir uv==0.11.7
+
+WORKDIR /workspace
+COPY . /workspace
+RUN uv sync --locked
+
+ENV GRSERVE_PROTOC=/workspace/build/linux-amd64-debug/third_party/protobuf/protoc-30.2.0
+ENV GRSERVE_PROTOC_ATTESTATION=/workspace/build/linux-amd64-debug/proto/Debug/protoc.attestation
+ENV GRSERVE_ENGINE_BIN=/workspace/build/linux-amd64-debug/bin/grserve-engine
+CMD ["sh", "-euxc", "test \"$(uname -m)\" = x86_64; uv run --locked cmake --preset linux-amd64-debug --fresh; uv run --locked cmake --build --preset linux-amd64-debug --target check_proto_generated; uv run --locked cmake --build --preset linux-amd64-debug; test \"$(uv run --locked ctest -N --show-only=json-v1 --preset linux-amd64-debug | python -c 'import json,sys; print(len(json.load(sys.stdin)[\"tests\"]))')\" = 28; uv run --locked ctest --preset linux-amd64-debug --no-tests=error; uv run --locked ruff check python tools tests/python; MYPYPATH=python uv run --locked mypy --explicit-package-bases python/grserve_api tools/verify.py tools/evidence.py tools/acceptance.py tools/normalize_events.py tools/proto_codegen.py tools/generate_mini_model.py; uv run --locked pytest -q tests/python --ignore=tests/python/test_verify_tool.py --ignore=tests/python/test_proto_codegen.py --ignore=tests/python/test_model_assets.py --ignore=tests/python/test_api_e2e.py; uv run --locked pytest -q tests/python/test_proto_codegen.py; uv run --locked pytest -q tests/python/test_model_assets.py; uv run --locked pytest -q tests/python/test_api_e2e.py"]

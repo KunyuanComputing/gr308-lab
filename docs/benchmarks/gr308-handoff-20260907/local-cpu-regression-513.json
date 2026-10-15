@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "date_local": "2026-09-07",
+  "timezone": "Asia/Shanghai",
+  "working_directory": "/Users/USER/Documents/infra/benchmarks/gr308-ftuca-20260906/production-suite",
+  "command": "env TORCH_DEVICE_BACKEND_AUTOLOAD=0 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 /Users/USER/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -B -m unittest discover -p 'test_*.py'",
+  "exit_code": 0,
+  "tests_run": 513,
+  "elapsed_seconds_reported_by_unittest": 3.208,
+  "unittest_result": "OK",
+  "cpu_only": true,
+  "new_gpu_test_cases": 0,
+  "production_inference_requests_sent": 0,
+  "latest_remote_full_regression_tests": 496,
+  "new_peer_copy_cpu_tests_local_only": 17,
+  "peer_copy_gpu_execution_started": false,
+  "note": "Summary transcribed from the completed local unittest process. Tool display truncated the long diagnostic output; this is not a complete raw stdout archive. Deliberate negative-test messages are simulated failures, not new production incidents."
+}

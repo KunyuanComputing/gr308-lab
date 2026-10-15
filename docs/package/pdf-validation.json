@@ -1,0 +1,79 @@
+[
+  {
+    "file": "output/pdf/风华_GR308_Qwen系列并发性能测试与调优报告_20260915.pdf",
+    "pages": 5,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "output/pdf/风华_GR308_Qwen系列并发性能测试与调优报告_20260917.pdf",
+    "pages": 11,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "output/pdf/风华_GR308_Qwen系列性能优化思路_20260916.pdf",
+    "pages": 5,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "output/pdf/风华_GR308_Wan2.2视频生成性能测试与调优报告_20260918.pdf",
+    "pages": 8,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "output/wan22_quality/analysis-output/figures/figure-02-reference-quality-metrics.pdf",
+    "pages": 1,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "output/wan22_quality/analysis-output/figures/figure-03-row-luminance-profile.pdf",
+    "pages": 1,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "docs/benchmarks/GR308_THREE_BASELINE_REPORT_20260910/GR308_Qwen3.8-27B_三Baseline对比报告.pdf",
+    "pages": 9,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "docs/benchmarks/GR308_THREE_BASELINE_REPORT_20260910/analysis-output/figures/figure-01-formal-throughput.pdf",
+    "pages": 1,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "docs/benchmarks/GR308_THREE_BASELINE_REPORT_20260910/analysis-output/figures/figure-02-rapid-throughput.pdf",
+    "pages": 1,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "docs/benchmarks/GR308_THREE_BASELINE_REPORT_20260910/analysis-output/figures/figure-03-stability-throughput.pdf",
+    "pages": 1,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  },
+  {
+    "file": "docs/benchmarks/GR308_THREE_BASELINE_REPORT_20260910/analysis-output/figures/figure-04-stability-latency.pdf",
+    "pages": 1,
+    "page_count_match": true,
+    "non_address_text_match": true,
+    "different_pages": []
+  }
+]

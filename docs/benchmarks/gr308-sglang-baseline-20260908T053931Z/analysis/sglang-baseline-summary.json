@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "SGLang upstream with GR308 compatibility adaptation; same model and formal workload as vLLM baseline",
+  "model": "Qwen3.8-27B",
+  "served_model_name": "qwen3.8-27b",
+  "primary_metric": "validated completed output tokens per second",
+  "rapid_validated_output_tok_s": {
+    "1": 2.5733794767209552,
+    "8": 9.503565169293774,
+    "16": 11.907836207495276,
+    "32": 13.306088409476073,
+    "64": 14.34098206120505
+  },
+  "formal_validated_output_tok_s": {
+    "1": {
+      "values": [
+        2.160122389220642,
+        2.175670745475108,
+        2.175237975766435
+      ],
+      "n": 3,
+      "mean": 2.170343703487395,
+      "median": 2.175237975766435,
+      "sample_std": 0.00885456218059279,
+      "cv_pct": 0.40797972074031075,
+      "descriptive_t95_ci": [
+        2.1483477516527767,
+        2.192339655322013
+      ]
+    },
+    "8": {
+      "values": [
+        5.271665061143515,
+        5.282746595271107,
+        5.27884161622179
+      ],
+      "n": 3,
+      "mean": 5.2777510908788035,
+      "median": 5.27884161622179,
+      "sample_std": 0.005620679122491957,
+      "cv_pct": 0.10649761661185222,
+      "descriptive_t95_ci": [
+        5.2637885499044845,
+        5.291713631853122
+      ]
+    },
+    "16": {
+      "values": [
+        5.859182675185146,
+        5.8778420504640945,
+        5.876429093008895
+      ],
+      "n": 3,
+      "mean": 5.871151272886045,
+      "median": 5.876429093008895,
+      "sample_std": 0.010389158309845395,
+      "cv_pct": 0.1769526593161423,
+      "descriptive_t95_ci": [
+        5.84534317293431,
+        5.896959372837779
+      ]
+    },
+    "32": {
+      "values": [
+        6.136815561200418,
+        6.149287447346857,
+        6.147095376311983
+      ],
+      "n": 3,
+      "mean": 6.144399461619752,
+      "median": 6.147095376311983,
+      "sample_std": 0.006658675020848267,
+      "cv_pct": 0.10836982625301098,
+      "descriptive_t95_ci": [
+        6.127858395889595,
+        6.16094052734991
+      ]
+    },
+    "64": {
+      "values": [
+        6.342260930627027,
+        6.354356691191087,
+        6.351441381299955
+      ],
+      "n": 3,
+      "mean": 6.349353001039356,
+      "median": 6.351441381299955,
+      "sample_std": 0.006312515741795161,
+      "cv_pct": 0.09941982656755477,
+      "descriptive_t95_ci": [
+        6.333671842628596,
+        6.365034159450116
+      ]
+    }
+  },
+  "formal_request_latency_ms": {
+    "1": {
+      "n": 36,
+      "ttft_ms_p50": 5808.216294,
+      "ttft_ms_p95": 5835.9660625,
+      "tpot_ms_p50": 439.537285,
+      "tpot_ms_p95": 443.8641975,
+      "e2e_ms_p50": 117888.7850685,
+      "e2e_ms_p95": 119006.87958975,
+      "client_schedule_delay_ms_p50": 0.0,
+      "client_schedule_delay_ms_p95": 0.0
+    },
+    "8": {
+      "n": 48,
+      "ttft_ms_p50": 37412.423526,
+      "ttft_ms_p95": 37459.07215665,
+      "tpot_ms_p50": 1374.6830845,
+      "tpot_ms_p95": 1377.9114547,
+      "e2e_ms_p50": 387960.9319025,
+      "e2e_ms_p95": 388815.90766265,
+      "client_schedule_delay_ms_p50": 0.0,
+      "client_schedule_delay_ms_p95": 0.0
+    },
+    "16": {
+      "n": 96,
+      "ttft_ms_p50": 73187.2961905,
+      "ttft_ms_p95": 73281.18881425,
+      "tpot_ms_p50": 2447.237713,
+      "tpot_ms_p95": 2454.75554325,
+      "e2e_ms_p50": 697284.255805,
+      "e2e_ms_p95": 699142.24626075,
+      "client_schedule_delay_ms_p50": 0.0,
+      "client_schedule_delay_ms_p95": 0.0
+    },
+    "32": {
+      "n": 192,
+      "ttft_ms_p50": 144886.9729935,
+      "ttft_ms_p95": 144955.93100395,
+      "tpot_ms_p50": 4658.703352500001,
+      "tpot_ms_p95": 4666.691440799999,
+      "e2e_ms_p50": 1332771.1833555,
+      "e2e_ms_p95": 1334961.1335688499,
+      "client_schedule_delay_ms_p50": 0.0,
+      "client_schedule_delay_ms_p95": 0.0
+    },
+    "64": {
+      "n": 384,
+      "ttft_ms_p50": 288235.825182,
+      "ttft_ms_p95": 288857.63498045004,
+      "tpot_ms_p50": 8985.3324,
+      "tpot_ms_p95": 9002.08713135,
+      "e2e_ms_p50": 2579559.850691,
+      "e2e_ms_p95": 2583912.11222285,
+      "client_schedule_delay_ms_p50": 0.0,
+      "client_schedule_delay_ms_p95": 0.0
+    }
+  },
+  "comparable_stability": {
+    "phase": "stability",
+    "repeat": "comparable",
+    "concurrency": 64,
+    "input_tokens": 128,
+    "output_tokens": 64,
+    "requests": 1024,
+    "ok": 1024,
+    "success_rate": 1.0,
+    "duration_s": 4555.379531318,
+    "validated_output_tok_s": 14.386507106475623,
+    "client_rc": 0,
+    "path": "/data/infra/benchmarks/gr308-sglang-baseline-20260908T053931Z/sglang/stability/c64"
+  },
+  "supplemental_long_context_stress": {
+    "phase": "supplemental-long-context",
+    "repeat": "1024x256",
+    "concurrency": 64,
+    "input_tokens": 1024,
+    "output_tokens": 256,
+    "requests": 1024,
+    "ok": 1024,
+    "success_rate": 1.0,
+    "duration_s": 41260.27487567,
+    "validated_output_tok_s": 6.353423499720279,
+    "client_rc": 0,
+    "path": "/data/infra/benchmarks/gr308-sglang-baseline-20260908T053931Z/sglang/stability-long-context-1024x256/c64"
+  },
+  "telemetry": {
+    "memory_used_mib": {
+      "n": 344012,
+      "mean": 31304.836389428277,
+      "max": 34320.0
+    },
+    "gpu_util_pct": {
+      "n": 344012,
+      "mean": 84.15611083334302,
+      "max": 99.0
+    },
+    "memory_util_pct": {
+      "n": 344012,
+      "mean": 54.03621966675581,
+      "max": 59.0
+    },
+    "power_w": {
+      "n": 344012,
+      "mean": 279.9832912805367,
+      "max": 361.0
+    },
+    "temperature_c": {
+      "n": 344012,
+      "mean": 51.18050823808472,
+      "max": 55.0
+    }
+  },
+  "correctness": {
+    "pre": {
+      "passed": 12,
+      "total": 12
+    },
+    "post": {
+      "passed": 12,
+      "total": 12
+    }
+  },
+  "descriptive_vllm_comparison": {
+    "1": {
+      "sglang_mean": 2.170343703487395,
+      "vllm_mean": 1.6428085596369777,
+      "ratio": 1.321117844654395,
+      "relative_pct": 32.1117844654395
+    },
+    "8": {
+      "sglang_mean": 5.2777510908788035,
+      "vllm_mean": 10.271479627277813,
+      "ratio": 0.5138257858062396,
+      "relative_pct": -48.617421419376036
+    },
+    "16": {
+      "sglang_mean": 5.871151272886045,
+      "vllm_mean": 17.851093394342296,
+      "ratio": 0.3288958913153656,
+      "relative_pct": -67.11041086846343
+    },
+    "32": {
+      "sglang_mean": 6.144399461619752,
+      "vllm_mean": 26.43584730100997,
+      "ratio": 0.23242680257821763,
+      "relative_pct": -76.75731974217823
+    },
+    "64": {
+      "sglang_mean": 6.349353001039356,
+      "vllm_mean": 32.07917653814749,
+      "ratio": 0.19792755569922177,
+      "relative_pct": -80.20724443007782
+    }
+  },
+  "comparison_limit": "Framework runs were not randomized/interleaved; ratios are descriptive system-level comparisons, not causal scheduler estimates.",
+  "excluded_from_comparable_stability": "sglang/stability-long-context-1024x256 (retained as supplemental evidence)"
+}

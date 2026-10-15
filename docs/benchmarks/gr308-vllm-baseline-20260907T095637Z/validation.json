@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "checks": {
+    "all_selected_client_rc_zero": true,
+    "all_selected_requests_ok": true,
+    "formal_three_blocks_each": true,
+    "formal_cv_le_5_pct": true,
+    "stability_main_1024_ok": true,
+    "stability_extension_512_ok": true,
+    "post_sentinel_12_of_12": true,
+    "request_rows_match": true,
+    "physical_telemetry_rows_present": true
+  },
+  "selected_formal_blocks": [
+    "r1-retry01",
+    "r3",
+    "r5"
+  ],
+  "selected_stability": "stability-retry02"
+}

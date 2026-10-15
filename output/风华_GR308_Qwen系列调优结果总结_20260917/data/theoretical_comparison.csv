@@ -1,0 +1,5 @@
+model,physical_cards,ideal_batch_roof_tps,decode_stage_roof_tps,best_c16_aggregate_tps,system_roof_efficiency_pct,decode_equivalent_efficiency_pct,per_physical_card_tps,evidence
+Qwen3.6-35B-A3B,1,1066,864.306220,180.635100,16.9451,20.8994,180.635100,short
+Qwen3.5-9B,1,896,731.242604,247.162528,27.5851,33.8003,247.162528,formal
+Qwen3-30B-A3B,1,800,739.901639,225.671965,28.2090,30.5003,225.671965,formal
+Qwen3-Next-80B-A3B-Instruct,2,1420,1267.650273,255.930840,18.0233,20.1894,127.965420,short

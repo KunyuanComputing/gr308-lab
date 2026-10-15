@@ -1,0 +1,22 @@
+--- a/src/sglang_fant_platform/fla.py
++++ b/src/sglang_fant_platform/fla.py
+@@ -3,6 +3,7 @@
+ 
+ from __future__ import annotations
+ 
++import os
+ from typing import Optional
+ 
+ import torch
+@@ -63,6 +64,11 @@
+     chunk_offsets = prepare_chunk_offsets(sequence_starts, chunk_size).to(
+         dtype=torch.int32
+     )
++
++    if os.getenv("SGLANG_FANT_GDN_DIAGNOSTIC_BYPASS") == "1":
++        return k.new_zeros(
++            batch, total_chunks, value_heads, value_dim, key_dim
++        ), torch.zeros_like(u)
+ 
+     selected_state = None
+     safe_indices = None

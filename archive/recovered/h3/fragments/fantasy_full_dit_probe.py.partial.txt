@@ -1,0 +1,300 @@
+#!/usr/bin/env python3
+"""Full real 50-block H3 DiT, synthetic packed input, CPU reference + offload.
+
+This loads the entire selected DiT, not the text encoder or either VAE. It is
+not text-to-video, model quality evaluation, or a native acceleration claim.
+"""
+import argparse
+import gc
+import hashlib
+import json
+from pathlib import Path
+import tempfile
+import time
+import traceback
+
+CHECKPOINT = Path('/model/diffusion_models/minimax_h3_fl2va_pruned-w4a8_convrot_pruned.safetensors')
+CONFIG = Path('/work/base-config/FL2VA/transformer/config.json')
+
+
+def emit(stage, **values):
+    print('H3_FULL_DIT_STAGE '+json.dumps(dict(stage=stage, timestamp=time.time(), **values)), flush=True)
+
+
+def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--boundary',action='store_true')
+    parser.add_argument('--reference-file')
+    parser.add_argument('--reference-sha256')
+    parser.add_argument('--no-block-diagnostics',action='store_true')
+    parser.add_argument('--teacher-force',action='store_true')
+    parser.add_argument('--prompt-file')
+    parser.add_argument('--prompt-sha256')
+    parser.add_argument('--fp32-sdpa',action='store_true')
+    args=parser.parse_args()
+    assert not args.teacher_force or (args.reference_file and not args.no_block_diagnostics)
+    assert not args.prompt_file or not args.boundary
+    from fantasy_dit_diagnostics import BoundaryComplete, boundary_probe
+    from fantasy_sdpa_precision import fp32_sdpa_on_fant
+    result = dict(model_e2e=False, video_generated=False, full_dit_loaded=False,
+        text_encoder_loaded=False, vaes_loaded=False, collectives_exercised=False,
+        native_acceleration_proven=False, started=time.time(), cycles=[])
+    result['teacher_forced_blocks']=list(range(1,50)) if args.teacher_force else []
+    result['normal_uninterrupted_chain']=not args.teacher_force
+    manager = None
+    try:
+        import torch
+        import torch_fant
+        import comfy_kitchen as ck
+        from safetensors import safe_open
+        from safetensors.torch import save_file,load_file
+        from sglang.multimodal_gen.runtime.platforms import current_platform, AttentionBackendEnum
+        from fantasy_platform import require_active
+        from fantasy_quant_compat import enabled, decode_group_scales_on_cpu
+        platform = require_active()
+        device = platform.get_local_torch_device()
+        torch.fant.set_device(device)
+        torch_fant.set_per_process_memory_fraction(.10, 0)
+        torch.set_num_threads(2)
+        assert torch.get_device_module() is torch.fant
+        from sglang.multimodal_gen.runtime.distributed.parallel_state import (
+            init_distributed_environment, initialize_model_parallel,
+        )
+        rendezvous = tempfile.mkdtemp(prefix='h3-full-dit-gloo-')
+        init_distributed_environment(world_size=1, rank=0, local_rank=0,
+            distributed_init_method='file://'+rendezvous+'/store', backend='gloo', timeout=30)
+        initialize_model_parallel(sequence_parallel_degree=1, backend='gloo')
+        from sglang.multimodal_gen.configs.models.dits.minimax_h3 import MiniMaxH3DiTConfig
+        from sglang.multimodal_gen.runtime.loader.minimax_h3_weights import (
+            inspect_minimax_h3_safetensors, resolve_minimax_h3_checkpoint_quantization,
+        )
+        from sglang.multimodal_gen.runtime.loader.fsdp_load import load_model_from_full_model_state_dict
+        from sglang.multimodal_gen.runtime.models.dits.minimax_h3 import MiniMaxH3DiTModel
+        from sglang.multimodal_gen.runtime.layers.attention.selector import global_force_attn_backend
+        from sglang.multimodal_gen.runtime.managers.forward_context import set_forward_context
+        from sglang.multimodal_gen.runtime.managers.memory_managers.layerwise_offload import LayerwiseOffloadManager
+        from sglang.multimodal_gen.runtime.pipelines_core.stages.model_specific_stages.minimax_h3.packed_sequence import minimax_h3_packed_sequence
+        from sglang.multimodal_gen.runtime.pipelines_core.stages.model_specific_stages.minimax_h3.denoise_loop import MiniMaxH3DenoiseBranch
+        global_force_attn_backend(AttentionBackendEnum.TORCH_SDPA)
+        raw_config = CONFIG.read_bytes()
+        hf_config = json.loads(raw_config)
+        config = MiniMaxH3DiTConfig()
+        config.update_model_arch(hf_config)
+        curve, markers = inspect_minimax_h3_safetensors([str(CHECKPOINT)])
+        assert curve is not None and len(markers) == 200
+        config.arch_config.adaln_curve_grid, config.arch_config.time_embed_dim = curve
+        quant = resolve_minimax_h3_checkpoint_quantization(markers)
+        result['architecture'] = dict(layers=config.arch_config.num_layers,
+            heads=config.arch_config.num_attention_heads, head_dim=config.arch_config.attention_head_dim,
+            adaln_curve_shape=curve, config_sha256=hashlib.sha256(raw_config).hexdigest())
+        assert (result['architecture']['layers'],result['architecture']['heads']) == (50,56)
+        with enabled(), torch.no_grad(), ck.use_backend('eager'),fp32_sdpa_on_fant(args.fp32_sdpa) as sdpa_state:
+            result['sdpa_precision']=sdpa_state
+            with torch.device('meta'):
+                model = MiniMaxH3DiTModel(config=config, hf_config=hf_config, quant_config=quant)
+            parameter_count = sum(p.numel() for p in model.parameters())
+            runtime_bytes = sum(p.numel()*p.element_size() for p in model.parameters())
+            assert runtime_bytes < 20*1024**3, 'Unexpected DiT expansion'
+            emit('meta_constructed', parameter_elements=parameter_count, runtime_weight_bytes=runtime_bytes,
+                 quantized_layers=len(quant.selected))
+            t0 = time.perf_counter()
+            with safe_open(str(CHECKPOINT), framework='pt', device='cpu') as checkpoint:
+                selected_keys = [key for key in checkpoint.keys() if not key.endswith('.comfy_quant')]
+                loaded = load_model_from_full_model_state_dict(model,
+                    decode_group_scales_on_cpu(((key,checkpoint.get_tensor(key)) for key in selected_keys)),
+                    checkpoint_load_device=torch.device('cpu'), param_dtype=None, strict=True,
+                    keep_checkpoint_mapping=True, param_names_mapping=lambda name:(name,None,None))
+            assert not loaded.missing_keys and not loaded.unexpected_keys
+            assert not any(p.is_meta for p in model.parameters())
+            model.post_load_weights()
+            model.eval()
+            # assign=True retains the meta module's requires_grad flags; H3's
+            # unquantized norms/projections default to trainable parameters.
+            # This isolated execution is inference-only, including the bridge.
+            result['parameters_frozen_for_inference'] = sum(p.requires_grad for p in model.parameters())
+            model.requires_grad_(False)
+            result['full_dit_loaded'] = True
+            result['load_s'] = time.perf_counter()-t0
+            result['weight_keys'] = len(selected_keys)
+            result['runtime_weight_bytes'] = runtime_bytes
+            emit('full_dit_loaded', keys=len(selected_keys), wall_s=result['load_s'])
+
+            torch.manual_seed(20260906)
+            if args.prompt_file:
+                prompt_file=Path(args.prompt_file)
+                assert args.prompt_sha256 and hashlib.sha256(prompt_file.read_bytes()).hexdigest()==args.prompt_sha256
+                text=load_file(str(prompt_file),device='cpu')['prompt_embeds']
+                assert list(text.shape)==[10,5120] and text.dtype==torch.bfloat16
+                packed=minimax_h3_packed_sequence(text_len=10,latent_t=2,latent_h=8,
+                    latent_w=8,audio_t=9,include_keyframe_cond=False)
+                noise_amplitude,step_timestep=1.,1.
+                result['input_spec']=dict(prompt_file=str(prompt_file),prompt_sha256=args.prompt_sha256,
+                    raw_encoder_prompt_not_release_template=True,text_tokens=10,latent_shape=[2,8,8],audio_t=9,
+                    noise_amplitude=noise_amplitude,timestep=step_timestep,seed=20260906)
+            else:
+                # Original diagnostic input remains unchanged and separately
+                # labelled; real encoder input does not replace its failures.
+                text=torch.randn((3,5120),dtype=torch.bfloat16)*.1
+                packed=minimax_h3_packed_sequence(text_len=3,latent_t=2,latent_h=4,
+                    latent_w=4,audio_t=3,include_keyframe_cond=False)
+                noise_amplitude,step_timestep=.1,.5
+                result['input_spec']=dict(synthetic_text=True,text_tokens=3,latent_shape=[2,4,4],audio_t=3,
+                    noise_amplitude=noise_amplitude,timestep=step_timestep,seed=20260906)
+            assert int(packed['seq_len'])==64
+            video=torch.randn((len(packed['img_pos']),96),dtype=torch.float32)*noise_amplitude
+            audio=torch.randn((len(packed['audio_pos']),32),dtype=torch.float32)*noise_amplitude
+
+            def forward_kwargs(target_device):
+                branch = MiniMaxH3DenoiseBranch(packed=packed, text_embeddings=text,
+                    token_tags=packed['token_tags'], device=target_device)
+                plan = branch.prepare_timestep_plan(video_timesteps=[step_timestep], audio_timesteps=[step_timestep],
+                    imgvid_cond_noise_aug=.999, audio_ref_cond_noise_aug=1.)
+                return branch.forward_kwargs(video_rows=video.to(target_device),
+                    audio_rows=audio.to(target_device), step_timesteps=plan[0])
+
+            if args.boundary:
+                diagnostic=boundary_probe(model,forward_kwargs,device,LayerwiseOffloadManager,set_forward_context)
+                result.update(boundary_trace=diagnostic,passed=diagnostic['parity_passed'],
+                    full_dit_executed=False,diagnostic_only=True)
+                raise BoundaryComplete()
+
+            # Count real block calls; neither dummy blocks nor skipped layers qualify.
+            block_calls = []
+            reference_blocks = {}
+            def cpu_hook(index):
+                def hook(_module,_args,output):
+                    block_calls.append(index)
+                    reference_blocks[index]=output.detach().cpu().clone()
+                    if index % 10 == 9:
+                        emit('cpu_reference_progress',blocks_executed=index+1)
+                return hook
+            handles = [block.register_forward_hook(cpu_hook(i)) for i,block in enumerate(model.blocks)]
+            t0 = time.perf_counter()
+            if args.reference_file:
+                cache=Path(args.reference_file)
+                assert args.reference_sha256 and hashlib.sha256(cache.read_bytes()).hexdigest()==args.reference_sha256
+                with safe_open(str(cache),framework='pt',device='cpu') as handle:
+                    metadata=handle.metadata()
+                expected_scope='full50_block_real_encoder_prompt_dit_cpu_reference' if args.prompt_file else 'full50_block_synthetic_dit_cpu_reference'
+                assert metadata['scope']==expected_scope
+                assert metadata['seed']=='20260906' and metadata['config_sha256']==result['architecture']['config_sha256']
+                if args.prompt_file or 'input_spec' in metadata:
+                    assert json.loads(metadata['input_spec'])==result['input_spec']
+                saved=load_file(str(cache),device='cpu')
+                reference_blocks={i:saved[f'block_{i}'] for i in range(50)}
+                assert all(list(t.shape)==[64,5376] and t.dtype==torch.bfloat16 for t in reference_blocks.values())
+                reference=(saved['video_logits'],saved['audio_logits'])
+                assert [list(t.shape) for t in reference]==[[len(packed['img_pos']),96],[len(packed['audio_pos']),32]]
+                result['cpu_reference_cache']=dict(path=str(cache),sha256=args.reference_sha256,
+                    same_fixed_seed_and_synthetic_input=True,executed_this_run=False)
+            else:
+                with set_forward_context(current_timestep=0, attn_metadata=None):
+                    reference = tuple(t.float().cpu() for t in model(**forward_kwargs(torch.device('cpu'))))
+                assert block_calls == list(range(50))
+            assert all(torch.isfinite(t).all() for t in reference)
+            result['cpu_reference_s'] = time.perf_counter()-t0
+            emit('cpu_reference_reused' if args.reference_file else 'cpu_reference_passed', wall_s=result['cpu_reference_s'],
+                 output_shapes=[list(t.shape) for t in reference], blocks_executed_this_run=len(block_calls))
+            if Path('/out').is_dir() and not args.reference_file:
+                cpu_artifact={f'block_{i}':value for i,value in reference_blocks.items()}
+                cpu_artifact.update(video_logits=reference[0],audio_logits=reference[1])
+                save_file(cpu_artifact,'/out/cpu-reference.safetensors',metadata={
+                    'scope':'full50_block_real_encoder_prompt_dit_cpu_reference' if args.prompt_file else 'full50_block_synthetic_dit_cpu_reference',
+                    'seed':'20260906','input_spec':json.dumps(result['input_spec']),
+                    'config_sha256':result['architecture']['config_sha256']})
+                Path('/out/cpu-reference.safetensors').chmod(0o644)
+            for handle in handles:
+                handle.remove()
+            gc.collect()
+            t0 = time.perf_counter()
+            manager = LayerwiseOffloadManager(model, layers_attr_str='blocks',num_layers=50,
+                enabled=True,pin_cpu_memory=False,prefetch_size=1,resident_layers=0)
+            assert manager.enabled and manager.device.type == 'fant'
+            model.layerwise_offload_managers = [manager]
+            result['offload_initialization_s'] = time.perf_counter()-t0
+            emit('offload_initialized', managed_layers=len(manager._weight_metadata),
+                 wall_s=result['offload_initialization_s'], allocated_bytes=torch.fant.memory_allocated())
+            block_calls = []
+            block_errors=[]
+            device_blocks={}
+            def device_hook(index):
+                def hook(_module,_args,output):
+                    block_calls.append(index)
+                    if args.no_block_diagnostics:
+                        return
+                    device_blocks[index]=output.detach().cpu().clone()
+                    a=device_blocks[index].float()
+                    b=reference_blocks[index].float()
+                    row=dict(block=index,relative_l2=float((a-b).norm()/b.norm().clamp_min(1e-12)),
+                        reference_rms=float(b.square().mean().sqrt()),actual_rms=float(a.square().mean().sqrt()),
+                        finite=bool(torch.isfinite(a).all()))
+                    row['modality_relative_l2']={}
+                    for modality in ('text','img','audio'):
+                        positions=torch.as_tensor(packed[modality+'_pos'],dtype=torch.long)
+                        aa,bb=a.index_select(0,positions),b.index_select(0,positions)
+                        row['modality_relative_l2'][modality]=float((aa-bb).norm()/bb.norm().clamp_min(1e-12))
+                    block_errors.append(row)
+                    emit('block_comparison',**row)
+                return hook
+            handles = [block.register_forward_hook(device_hook(i)) for i,block in enumerate(model.blocks)]
+            if args.teacher_force:
+                def input_hook(index):
+                    def hook(_module,args,kwargs):
+                        return ((reference_blocks[index-1].to(device),*args[1:]),kwargs)
+                    return hook
+                handles += [model.blocks[i].register_forward_pre_hook(input_hook(i),with_kwargs=True)
+                            for i in range(1,50)]
+            previous = None
+            for cycle in range(1 if args.teacher_force else 2):
+                block_calls.clear()
+                block_errors.clear()
+                device_blocks.clear()
+                t0 = time.perf_counter()
+                with set_forward_context(current_timestep=cycle,attn_metadata=None):
+                    device_outputs = model(**forward_kwargs(device))
+                assert all(t.device.type=='fant' for t in device_outputs)
+                actual = tuple(t.cpu().float() for t in device_outputs)
+                torch.fant.synchronize()
+                assert block_calls == list(range(50)), block_calls
+                rel = [float((a-b).norm()/b.norm().clamp_min(1e-12)) for a,b in zip(actual,reference)]
+                repeat_rel = None if previous is None else [float((a-b).norm()/b.norm().clamp_min(1e-12))
+                                                           for a,b in zip(actual,previous)]
+                manager.release_all()
+                assert not manager._gpu_layers
+                assert all(p.numel()<=1 for n,p in model.named_parameters() if n.startswith('blocks.'))
+                row = dict(cycle=cycle, wall_s=time.perf_counter()-t0, blocks_executed=len(block_calls),
+                    relative_l2_vs_cpu=rel, relative_l2_vs_previous=repeat_rel,
+                    block_comparisons=list(block_errors),synchronous_block_diagnostics=not args.no_block_diagnostics,
+                    reference_rms=[float(t.square().mean().sqrt()) for t in reference],
+                    actual_rms=[float(t.square().mean().sqrt()) for t in actual],
+                    output_shapes=[list(t.shape) for t in actual],
+                    finite=all(bool(torch.isfinite(t).all()) for t in actual),
+                    managed_parameters_released=True)
+                row['passed'] = row['finite'] and max(rel)<=.05 and (repeat_rel is None or max(repeat_rel)<=1e-5)
+                if args.teacher_force:
+                    row['passed']=row['passed'] and all(r['finite'] and r['relative_l2']<=.05 for r in block_errors)
+                result['cycles'].append(row)
+                if Path('/out').is_dir() and device_blocks:
+                    device_artifact={f'block_{i}':value for i,value in device_blocks.items()}
+                    device_artifact.update(video_logits=actual[0],audio_logits=actual[1])
+                    artifact=Path(f'/out/device-cycle-{cycle}.safetensors')
+                    save_file(device_artifact,str(artifact),metadata={
+                        'scope':'full50_block_dit_device_diagnostic','input_spec':json.dumps(result['input_spec']),
+                        'teacher_force':str(args.teacher_force)})
+                    artifact.chmod(0o644)
+                emit('offloaded_forward',**row)
+                assert row['passed'], row
+                previous = actual
+            for handle in handles:
+                handle.remove()
+            result['peak_allocated_bytes'] = torch.fant.max_memory_allocated()
+            result['passed'] = len(result['cycles']) == (1 if args.teacher_force else 2) and all(row['passed'] for row in result['cycles'])
+    except BoundaryComplete:
+        pass
+    except Exception as exc:
+        result.update(passed=False,error=repr(exc),traceback=traceback.format_exc())
+    finally:
+        if manager is not None:
+            try:
+                manager.remove_forward_hooks()
+                manager.release_all()

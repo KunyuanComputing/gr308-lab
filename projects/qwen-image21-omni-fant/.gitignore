@@ -1,0 +1,13 @@
+.DS_Store
+~$*.docx
+.~*.docx
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+__pycache__/
+*.py[cod]
+build/
+artifacts/
+.worktrees/
+vendor/

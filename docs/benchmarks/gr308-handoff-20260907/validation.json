@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "timestamp_utc": "2026-09-07T04:30:18.316011+00:00",
+  "document": "benchmarks/GR308_TEST_HANDOFF_20260907_ZH.md",
+  "validation": {
+    "local_links_checked": 34,
+    "missing_links": [],
+    "requirements": 31,
+    "requirement_status_counts": {
+      "完成": 1,
+      "部分/问题": 22,
+      "待完成": 8
+    },
+    "http_accounting": 567,
+    "frozen_implementation_manifests": [
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/attention-implementation.json",
+        "entries": 122,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/implementation-manifest.json",
+        "entries": 5,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/open-arrival-implementation.json",
+        "entries": 49,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/operator-contiguous-implementation.json",
+        "entries": 31,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/operator-extension-implementation.json",
+        "entries": 10,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/operator-implementation-v2.json",
+        "entries": 5,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/operator-implementation.json",
+        "entries": 5,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/operator-remaining-implementation.json",
+        "entries": 38,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/operator-rope-implementation.json",
+        "entries": 46,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/pageable-implementation.json",
+        "entries": 83,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/peer-capability-implementation.json",
+        "entries": 52,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/performance-followup-implementation.json",
+        "entries": 14,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/performance-implementation.json",
+        "entries": 7,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/pinned-followup-implementation.json",
+        "entries": 108,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/pinned-implementation.json",
+        "entries": 102,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/route-ab-followup-implementation.json",
+        "entries": 81,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/route-ab-implementation.json",
+        "entries": 68,
+        "passed": true
+      },
+      {
+        "file": "benchmarks/gr308-ftuca-20260906/production-suite/soak-implementation.json",
+        "entries": 61,
+        "passed": true
+      }
+    ]
+  },
+  "local_regression": {
+    "tests": 513,
+    "seconds": 3.208,
+    "exit_code": 0
+  },
+  "route_replay": {
+    "network_requests": 72,
+    "matched_groups_agree": 24,
+    "all_terminal_records": 96,
+    "original_stage_passed": false,
+    "continuation_stage_passed": true,
+    "new_http_requests": 0
+  },
+  "index_generator_initial_check_issue": "Initial document ID regex did not include the digit in P2P; corrected to [A-Z0-9]+ before successful validation. No experimental results were changed.",
+  "original_frozen_sources_modified": false,
+  "new_native_gpu_tests": 0,
+  "remote_delivery_verified": null,
+  "remote_delivery_note": "Previous upload timed out. Connectivity and all guarded service identities/health verified after user recovery. Final per-file delivery outcome is checked against HANDOFF_SHA256SUMS; this pre-upload record does not predeclare success.",
+  "indexed_files": 429,
+  "remote_connectivity_restored": true,
+  "restored_live_snapshot_utc": "2026-09-07T04:28:14.979265+00:00"
+}

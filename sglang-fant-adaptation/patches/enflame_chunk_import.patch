@@ -1,0 +1,11 @@
+--- a/fant_chunk_delta_h.py
++++ b/fant_chunk_delta_h.py
+@@ -5,7 +5,7 @@
+ import triton
+ import triton.language as tl
+ 
+-from sglang.srt.layers.attention.fla.index import (
++from sglang.kernels.ops.attention.fla.index import (
+     prepare_chunk_indices,
+     prepare_chunk_offsets,
+ )

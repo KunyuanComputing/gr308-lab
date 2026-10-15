@@ -1,0 +1,10 @@
+* text=auto
+*.py text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+# Preserve archived measurement bytes and their SHA-256 checksums.
+*.csv -text
+*.pdf binary
+*.png binary
+*.mp4 binary
+*.i32le binary

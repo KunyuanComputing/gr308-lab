@@ -1,0 +1,13 @@
+--- a/python/sglang/srt/layers/attention/linear/gdn_backend.py
++++ b/python/sglang/srt/layers/attention/linear/gdn_backend.py
+@@ -888,8 +888,12 @@
+                 import sglang.kernels.ops.attention.fla.chunk as chunk_module
+ 
+                 chunk_module._fant_seq_lens_debug = forward_batch.seq_lens
++                chunk_module._fant_debug_stage("before_gating")
+ 
+             g, beta = fused_gdn_gating(layer.A_log, a, b, layer.dt_bias)
++            if os.getenv("SGLANG_FANT_GDN_STAGE_DEBUG") == "1":
++                chunk_module._fant_debug_stage("after_gating")
++
+             core_attn_out, last_recurrent_state, h = self.kernel_dispatcher.extend(

@@ -1,0 +1,1134 @@
+{
+  "schema_version": 1,
+  "timestamp_utc": "2026-09-07T03:11:17.872737+00:00",
+  "read_only": true,
+  "inference_requests_sent": 0,
+  "native_gpu_test_calls": 0,
+  "account_usage_queried": false,
+  "production_modified": false,
+  "source_sha256": "871d8d511ee51d567af284100cb9f9c197618853f03c8d90980b596c6eec6757",
+  "baseline_sha256": "65c6f84fe11b7dd057a2f9199d72240934c2cae59e96e216e9c79361736b13e9",
+  "stack_sha256": "85792adacbdb60ea194fa9236eb398663eeb5d103fd42d78f40c523ce78166ec",
+  "identity_before": {
+    "unix": 1788750676.5084057,
+    "containers": {
+      "qwen38-27b-bf16": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2018111,
+        "StartedAt": "2026-09-06T16:25:23.948109293Z",
+        "ExitCode": 0,
+        "id": "a77d11c5b84a4fd276cf9ed4e6864bc2c848a3d87e664dab08d855dab95706e8",
+        "image_id": "sha256:a153d4c8890880157e6860908e5f3db75d78d471589222fbdec193a0ab52c5dc",
+        "restart_count": 2,
+        "config_sha256": "57410feb4add02d63568810b39af8bafa3f33b2a2c5c9af72726903cb724806b",
+        "starttime_ticks": "56452267"
+      },
+      "r1-distill-7b": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 3576956,
+        "StartedAt": "2026-09-05T06:28:00.453585405Z",
+        "ExitCode": 0,
+        "id": "b947028254560c8dc678a48d991c519c2bc75df2e044291d9adb67c2d86d4301",
+        "image_id": "sha256:a153d4c8890880157e6860908e5f3db75d78d471589222fbdec193a0ab52c5dc",
+        "restart_count": 0,
+        "config_sha256": "e19ea72d0a98805af7433bb8b36d6cf6d1e612c3a7e359f3e91e20052b8da100",
+        "starttime_ticks": "44227917"
+      },
+      "llm-d-envoy": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2023422,
+        "StartedAt": "2026-09-06T16:26:26.515915251Z",
+        "ExitCode": 0,
+        "id": "616d33641d337fb3f9005d85b89672115e6eb2a2acbe99c2c43dd8f43b13467e",
+        "image_id": "sha256:7b5269f49edb8d6265826837d89e96f66dc593e44963632754cf59127f8a7879",
+        "restart_count": 0,
+        "config_sha256": "8836bdd0807401ee4f0da44f305af9ee6e036b1b36ffa584e2d21e48e07488db",
+        "starttime_ticks": "56458523"
+      },
+      "llm-d-envoy-qwen-throughput": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2023524,
+        "StartedAt": "2026-09-06T16:26:26.656875108Z",
+        "ExitCode": 0,
+        "id": "a5605e317510ef43468dd17adb1419524663f9aa98550e21c795d1e306fbd116",
+        "image_id": "sha256:7b5269f49edb8d6265826837d89e96f66dc593e44963632754cf59127f8a7879",
+        "restart_count": 0,
+        "config_sha256": "72731847e11f226b78ec457ab8c0ed5a4870d56472f29cf28220f859eef84769",
+        "starttime_ticks": "56458537"
+      },
+      "llm-d-envoy-r1": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 3577440,
+        "StartedAt": "2026-09-05T06:28:01.037722275Z",
+        "ExitCode": 0,
+        "id": "3ab916b241b0d5ff956648ac7173d22cf7049fa0124d514824c48ae9af43dd70",
+        "image_id": "sha256:7b5269f49edb8d6265826837d89e96f66dc593e44963632754cf59127f8a7879",
+        "restart_count": 0,
+        "config_sha256": "01ea5fe5f616152fdf758d29a4dbe428a0e2965a5995d814e97d71fce7b09eba",
+        "starttime_ticks": "44227975"
+      },
+      "llm-d-epp": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2016929,
+        "StartedAt": "2026-09-04T14:38:47.460727744Z",
+        "ExitCode": 0,
+        "id": "cd504bf8a9d6366fad8008d082aded389d429d95645ac0cb8dc17663c0a5f784",
+        "image_id": "sha256:873179822ab0895a37ea09f2112ca39a6ae50a26612561c8bfad7f9a8c5af6f5",
+        "restart_count": 0,
+        "config_sha256": "48434fc705f8554b9cb4a3b71942f9078f752e2cce64f58f85602dc0198a4db9",
+        "starttime_ticks": "38532618"
+      },
+      "llm-d-epp-qwen-throughput": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2372475,
+        "StartedAt": "2026-09-04T18:01:33.18642593Z",
+        "ExitCode": 0,
+        "id": "92b10b9783e0e387ee1c82115bfabaf7210be3041bbd45c893e09ec03af52e49",
+        "image_id": "sha256:873179822ab0895a37ea09f2112ca39a6ae50a26612561c8bfad7f9a8c5af6f5",
+        "restart_count": 0,
+        "config_sha256": "ce1c40162d195ed1a190606634a83d3c2fdd3a18e41325ba99e9fe83e4c42b52",
+        "starttime_ticks": "39749190"
+      },
+      "llm-d-epp-r1": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2220217,
+        "StartedAt": "2026-09-04T16:26:41.029948365Z",
+        "ExitCode": 0,
+        "id": "df72b4ddaf1661d9ecc97e6ef425406961e0d4738acdda17db28432d57c06989",
+        "image_id": "sha256:873179822ab0895a37ea09f2112ca39a6ae50a26612561c8bfad7f9a8c5af6f5",
+        "restart_count": 0,
+        "config_sha256": "d420425732dbd253845d67e6b1dbcce70fd7abefff996d2c1a6a20c93eb83c5b",
+        "starttime_ticks": "39179975"
+      },
+      "lmcache-cpu": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 1962528,
+        "StartedAt": "2026-09-04T14:04:43.147176268Z",
+        "ExitCode": 0,
+        "id": "4e489566ab845d7eabe5409cd545d1eec20a03f9f546b62b6796b3ef3278eb6c",
+        "image_id": "sha256:055812479a4ab811c1dd1d89b0d7ba38d4074171805ac9e2e7943cec8377a299",
+        "restart_count": 0,
+        "config_sha256": "21c4a62a7b32940b2fa05e6e3fde61e2406d610063c596ca42935356e08501ac",
+        "starttime_ticks": "38328186"
+      }
+    },
+    "health": {
+      "8000": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "qwen3.8-27b"
+        ],
+        "expected_model_present": true
+      },
+      "8080": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "qwen3.8-27b"
+        ],
+        "expected_model_present": true
+      },
+      "8180": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "qwen3.8-27b"
+        ],
+        "expected_model_present": true
+      },
+      "8001": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "deepseek-r1-distill-qwen-7b"
+        ],
+        "expected_model_present": true
+      },
+      "8181": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "deepseek-r1-distill-qwen-7b"
+        ],
+        "expected_model_present": true
+      }
+    }
+  },
+  "identity_after": {
+    "unix": 1788750677.8727164,
+    "containers": {
+      "qwen38-27b-bf16": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2018111,
+        "StartedAt": "2026-09-06T16:25:23.948109293Z",
+        "ExitCode": 0,
+        "id": "a77d11c5b84a4fd276cf9ed4e6864bc2c848a3d87e664dab08d855dab95706e8",
+        "image_id": "sha256:a153d4c8890880157e6860908e5f3db75d78d471589222fbdec193a0ab52c5dc",
+        "restart_count": 2,
+        "config_sha256": "57410feb4add02d63568810b39af8bafa3f33b2a2c5c9af72726903cb724806b",
+        "starttime_ticks": "56452267"
+      },
+      "r1-distill-7b": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 3576956,
+        "StartedAt": "2026-09-05T06:28:00.453585405Z",
+        "ExitCode": 0,
+        "id": "b947028254560c8dc678a48d991c519c2bc75df2e044291d9adb67c2d86d4301",
+        "image_id": "sha256:a153d4c8890880157e6860908e5f3db75d78d471589222fbdec193a0ab52c5dc",
+        "restart_count": 0,
+        "config_sha256": "e19ea72d0a98805af7433bb8b36d6cf6d1e612c3a7e359f3e91e20052b8da100",
+        "starttime_ticks": "44227917"
+      },
+      "llm-d-envoy": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2023422,
+        "StartedAt": "2026-09-06T16:26:26.515915251Z",
+        "ExitCode": 0,
+        "id": "616d33641d337fb3f9005d85b89672115e6eb2a2acbe99c2c43dd8f43b13467e",
+        "image_id": "sha256:7b5269f49edb8d6265826837d89e96f66dc593e44963632754cf59127f8a7879",
+        "restart_count": 0,
+        "config_sha256": "8836bdd0807401ee4f0da44f305af9ee6e036b1b36ffa584e2d21e48e07488db",
+        "starttime_ticks": "56458523"
+      },
+      "llm-d-envoy-qwen-throughput": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2023524,
+        "StartedAt": "2026-09-06T16:26:26.656875108Z",
+        "ExitCode": 0,
+        "id": "a5605e317510ef43468dd17adb1419524663f9aa98550e21c795d1e306fbd116",
+        "image_id": "sha256:7b5269f49edb8d6265826837d89e96f66dc593e44963632754cf59127f8a7879",
+        "restart_count": 0,
+        "config_sha256": "72731847e11f226b78ec457ab8c0ed5a4870d56472f29cf28220f859eef84769",
+        "starttime_ticks": "56458537"
+      },
+      "llm-d-envoy-r1": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 3577440,
+        "StartedAt": "2026-09-05T06:28:01.037722275Z",
+        "ExitCode": 0,
+        "id": "3ab916b241b0d5ff956648ac7173d22cf7049fa0124d514824c48ae9af43dd70",
+        "image_id": "sha256:7b5269f49edb8d6265826837d89e96f66dc593e44963632754cf59127f8a7879",
+        "restart_count": 0,
+        "config_sha256": "01ea5fe5f616152fdf758d29a4dbe428a0e2965a5995d814e97d71fce7b09eba",
+        "starttime_ticks": "44227975"
+      },
+      "llm-d-epp": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2016929,
+        "StartedAt": "2026-09-04T14:38:47.460727744Z",
+        "ExitCode": 0,
+        "id": "cd504bf8a9d6366fad8008d082aded389d429d95645ac0cb8dc17663c0a5f784",
+        "image_id": "sha256:873179822ab0895a37ea09f2112ca39a6ae50a26612561c8bfad7f9a8c5af6f5",
+        "restart_count": 0,
+        "config_sha256": "48434fc705f8554b9cb4a3b71942f9078f752e2cce64f58f85602dc0198a4db9",
+        "starttime_ticks": "38532618"
+      },
+      "llm-d-epp-qwen-throughput": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2372475,
+        "StartedAt": "2026-09-04T18:01:33.18642593Z",
+        "ExitCode": 0,
+        "id": "92b10b9783e0e387ee1c82115bfabaf7210be3041bbd45c893e09ec03af52e49",
+        "image_id": "sha256:873179822ab0895a37ea09f2112ca39a6ae50a26612561c8bfad7f9a8c5af6f5",
+        "restart_count": 0,
+        "config_sha256": "ce1c40162d195ed1a190606634a83d3c2fdd3a18e41325ba99e9fe83e4c42b52",
+        "starttime_ticks": "39749190"
+      },
+      "llm-d-epp-r1": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 2220217,
+        "StartedAt": "2026-09-04T16:26:41.029948365Z",
+        "ExitCode": 0,
+        "id": "df72b4ddaf1661d9ecc97e6ef425406961e0d4738acdda17db28432d57c06989",
+        "image_id": "sha256:873179822ab0895a37ea09f2112ca39a6ae50a26612561c8bfad7f9a8c5af6f5",
+        "restart_count": 0,
+        "config_sha256": "d420425732dbd253845d67e6b1dbcce70fd7abefff996d2c1a6a20c93eb83c5b",
+        "starttime_ticks": "39179975"
+      },
+      "lmcache-cpu": {
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "Pid": 1962528,
+        "StartedAt": "2026-09-04T14:04:43.147176268Z",
+        "ExitCode": 0,
+        "id": "4e489566ab845d7eabe5409cd545d1eec20a03f9f546b62b6796b3ef3278eb6c",
+        "image_id": "sha256:055812479a4ab811c1dd1d89b0d7ba38d4074171805ac9e2e7943cec8377a299",
+        "restart_count": 0,
+        "config_sha256": "21c4a62a7b32940b2fa05e6e3fde61e2406d610063c596ca42935356e08501ac",
+        "starttime_ticks": "38328186"
+      }
+    },
+    "health": {
+      "8000": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "qwen3.8-27b"
+        ],
+        "expected_model_present": true
+      },
+      "8080": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "qwen3.8-27b"
+        ],
+        "expected_model_present": true
+      },
+      "8180": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "qwen3.8-27b"
+        ],
+        "expected_model_present": true
+      },
+      "8001": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "deepseek-r1-distill-qwen-7b"
+        ],
+        "expected_model_present": true
+      },
+      "8181": {
+        "health_status": 200,
+        "models_status": 200,
+        "model_ids": [
+          "deepseek-r1-distill-qwen-7b"
+        ],
+        "expected_model_present": true
+      }
+    }
+  },
+  "idle_samples": [
+    {
+      "unix": 1788750676.517062,
+      "counts": {
+        "8000": {
+          "num_requests_running": 0.0,
+          "num_requests_waiting": 0.0
+        },
+        "8001": {
+          "num_requests_running": 0.0,
+          "num_requests_waiting": 0.0
+        }
+      }
+    },
+    {
+      "unix": 1788750677.0281928,
+      "counts": {
+        "8000": {
+          "num_requests_running": 0.0,
+          "num_requests_waiting": 0.0
+        },
+        "8001": {
+          "num_requests_running": 0.0,
+          "num_requests_waiting": 0.0
+        }
+      }
+    },
+    {
+      "unix": 1788750677.5394952,
+      "counts": {
+        "8000": {
+          "num_requests_running": 0.0,
+          "num_requests_waiting": 0.0
+        },
+        "8001": {
+          "num_requests_running": 0.0,
+          "num_requests_waiting": 0.0
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "8000": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"qwen3.8-27b\"} 0.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"qwen3.8-27b\"} 0.0",
+      "vllm:kv_cache_usage_perc{engine=\"0\",model_name=\"qwen3.8-27b\"} 0.0",
+      "vllm:prefix_cache_queries_total{engine=\"0\",model_name=\"qwen3.8-27b\"} 0.0",
+      "vllm:prefix_cache_queries_created{engine=\"0\",model_name=\"qwen3.8-27b\"} 1.7887119777275953e+09",
+      "vllm:prefix_cache_hits_total{engine=\"0\",model_name=\"qwen3.8-27b\"} 0.0",
+      "vllm:prefix_cache_hits_created{engine=\"0\",model_name=\"qwen3.8-27b\"} 1.7887119777276106e+09",
+      "vllm:num_preemptions_total{engine=\"0\",model_name=\"qwen3.8-27b\"} 0.0",
+      "vllm:prompt_tokens_total{engine=\"0\",model_name=\"qwen3.8-27b\"} 434353.0",
+      "vllm:generation_tokens_total{engine=\"0\",model_name=\"qwen3.8-27b\"} 28242.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"stop\",model_name=\"qwen3.8-27b\"} 81.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"length\",model_name=\"qwen3.8-27b\"} 464.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"abort\",model_name=\"qwen3.8-27b\"} 0.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"error\",model_name=\"qwen3.8-27b\"} 0.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"repetition\",model_name=\"qwen3.8-27b\"} 0.0"
+    ],
+    "8001": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 0.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 0.0",
+      "vllm:kv_cache_usage_perc{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 0.0",
+      "vllm:prefix_cache_queries_total{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 150.0",
+      "vllm:prefix_cache_queries_created{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 1.7885897196115563e+09",
+      "vllm:prefix_cache_hits_total{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 0.0",
+      "vllm:prefix_cache_hits_created{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 1.788589719611569e+09",
+      "vllm:num_preemptions_total{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 0.0",
+      "vllm:prompt_tokens_total{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 150.0",
+      "vllm:generation_tokens_total{engine=\"0\",model_name=\"deepseek-r1-distill-qwen-7b\"} 1167.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"stop\",model_name=\"deepseek-r1-distill-qwen-7b\"} 4.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"length\",model_name=\"deepseek-r1-distill-qwen-7b\"} 0.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"abort\",model_name=\"deepseek-r1-distill-qwen-7b\"} 0.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"error\",model_name=\"deepseek-r1-distill-qwen-7b\"} 0.0",
+      "vllm:request_success_total{engine=\"0\",finished_reason=\"repetition\",model_name=\"deepseek-r1-distill-qwen-7b\"} 0.0"
+    ]
+  },
+  "preserved_historical_markers": {
+    "gptq-repro/STOP_GPTQ_TESTS.json": "e3a56a4610d7131bf4572295b61c562cdf88baf929c8e656006f0d8d08affca1",
+    "transfer-next/STOP_TRANSFER_TESTS.json": "692c44eaaa516097fc14b616692ae897c974e3f7d9b981eccd6d8cadf920f7a7",
+    "transfer-next/STOP_PINNED_PAIR.json": "26668b9cb7084a859e35de0dbe3292d7b4ed5c96e7a777ea2bea29ea2e793064",
+    "transfer-next/pinned-fix/HALT_REPAIR.json": "5b554c5a58398e7fe68e9927a0dc446d195401d860dbe2f851ef161bdaa3083b",
+    "transfer-next/pinned-fix/USED_diagnostic1.json": "0424b57e0b7b7975837e54e16082441d1610c3df0a3ef17264d2b77c3c9eab59",
+    "transfer-next/pinned-fix/USED_batch2000.json": "609b95c8f832323a4e584a1ac392a3230add30ee330ba7dac62cbecaae38d265",
+    "transfer-next/pinned-fix/USED_sync_wall_1.json": "613743d8f132b67f9df1eb31f92a0699e6bb69d73a97ad1fa4479f79f83d7ab8",
+    "transfer-next/pinned-fix/USED_sync_wall_2.json": "353233fb05c96fd98ddcc7dc4e3d0dd9ebed49be5c5f89773f9c8baf3ec6ab38"
+  },
+  "verified_library_files": {
+    "python": {
+      "path": "/proc/2018111/root/root/miniconda3/bin/python3.10",
+      "sha256": "ccd3402893fe30aa71df0bf5bbf5381c4db57e55086b27c430d6f0ec1436eb3b",
+      "size_bytes": 17460208,
+      "inode": 2633342,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "hip": {
+      "path": "/usr/lib/x86_64-linux-gnu/fantgpu-fh3/libfanthip.so.1",
+      "sha256": "46a7e43215b56f30ae245c56438a0faf2d1aeb22aabfda18a4cbdf14373f9af4",
+      "size_bytes": 83638888,
+      "inode": 18222167,
+      "device": [
+        253,
+        0
+      ]
+    },
+    "iformer": {
+      "path": "/proc/2018111/root/root/miniconda3/lib/python3.10/site-packages/iFormer/_C.cpython-310-x86_64-linux-gnu.so",
+      "sha256": "048bba02826dcf8aab61d4378ba640e6f48e53c88362f4568ecfa590466f19d9",
+      "size_bytes": 67139840,
+      "inode": 2773808,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "fant_python": {
+      "path": "/proc/2018111/root/root/miniconda3/lib/python3.10/site-packages/torch_fant/lib/libfant_python.so.1",
+      "sha256": "e238225b15eddc9c6ac94e357bf128affdad80299008922d73fd288b7b5be0c2",
+      "size_bytes": 15866336,
+      "inode": 2787980,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "fant_python_unversioned_copy": {
+      "path": "/proc/2018111/root/root/miniconda3/lib/python3.10/site-packages/torch_fant/lib/libfant_python.so",
+      "sha256": "e238225b15eddc9c6ac94e357bf128affdad80299008922d73fd288b7b5be0c2",
+      "size_bytes": 15866336,
+      "inode": 2787979,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "fhblas": {
+      "path": "/proc/2018111/root/usr/local/fant/lib/libfhblas.so.4.0",
+      "sha256": "e80c6a6efd5e023e2c55e3d872fd9f01009d69311f9171958fe306950c0841b6",
+      "size_bytes": 279027656,
+      "inode": 2633141,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "fantdnn": {
+      "path": "/proc/2018111/root/usr/local/fant/lib/libfantdnn.so.0.1.0",
+      "sha256": "6a164f60a7a07a4a8bb20e9a5f5d8e4aad7a6c35a6a32182eafb780c0670aedd",
+      "size_bytes": 131483536,
+      "inode": 2633135,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "fhccl": {
+      "path": "/proc/2018111/root/usr/local/fant/lib/libfhccl.so",
+      "sha256": "141f7c6d21ffcbb3fc5d2fb415c2091d3c3ca5e3610745198baf66db1765dfee",
+      "size_bytes": 66756816,
+      "inode": 2633142,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "stream_wrapper": {
+      "path": "/proc/2018111/root/root/miniconda3/lib/python3.10/site-packages/torch_fant/core/stream.py",
+      "sha256": "1ff6279d1a74c9c67a2b166355d82f515c621b6f135a54745b2bfb4f8d979f9a",
+      "size_bytes": 11362,
+      "inode": 2787688,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "norm_wrapper": {
+      "path": "/proc/2018111/root/root/miniconda3/lib/python3.10/site-packages/vllm_fant/ops/layernorm.py",
+      "sha256": "7eeb89c8b0a303161f612dff0bfd8d2d706adb7caebadb617f0d7c6ee20fa7c2",
+      "size_bytes": 1836,
+      "inode": 2891117,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "activation_wrapper": {
+      "path": "/proc/2018111/root/root/miniconda3/lib/python3.10/site-packages/vllm_fant/ops/activation.py",
+      "sha256": "e9e8ad0c59c41c839c47f59cd2ebda6eaeadbaf1b521cfbf437a5b087c767ded",
+      "size_bytes": 623,
+      "inode": 2891112,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "rotary_wrapper": {
+      "path": "/proc/2018111/root/root/miniconda3/lib/python3.10/site-packages/vllm_fant/ops/rotary_embedding.py",
+      "sha256": "55308e06e232f56fa178a1fbb609747bf93c1b034c29b1ffbe112fc397bce01e",
+      "size_bytes": 3794,
+      "inode": 2891119,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "custom_ops": {
+      "path": "/proc/2018111/root/root/miniconda3/lib/python3.10/site-packages/vllm_fant/_custom_ops.py",
+      "sha256": "27d8c5565e7090cdbd847b27a7c98639f9685ab8a992480f691e63da6bd14e77",
+      "size_bytes": 10318,
+      "inode": 2891057,
+      "device": [
+        0,
+        47
+      ]
+    },
+    "gdn_patch": {
+      "path": "/proc/2018111/root/root/miniconda3/lib/python3.10/site-packages/vllm_fant/models/qwen3_next.py",
+      "sha256": "87bfd6e43da31aa6e26329c9f4125afd04e560ba04b21135721c98c0b13eac3d",
+      "size_bytes": 30362,
+      "inode": 2891098,
+      "device": [
+        0,
+        47
+      ]
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "fantgpu-smi"
+      ],
+      "returncode": 0,
+      "stdout": "Mon Sep 07 11:11:17 2026\n+--------------------------------------------------------------------------------------------------------------------------+\n| GPU-SMI 2.2.0.9-linux              Driver Version(Release Time): 1.1.0.19(2026.08.07)                                    |\n|-------------------------------------------------------------+------------------------------------+-----------------------|\n| GPU   Name                            Manufactory(VendorID) | Bus-Id              Bus-Type       |                       |\n| Fan   Temp    Volt    Pwr                          DeviceID | Memory-Type                        | GPU-Util              |\n| Firmware Version                                            | Memory-BandWidth    Memory-Width   | VPU-ENC-Util          |\n| Firmware Release Time                                       | Memory-Speed        Memory-Freq    | VPU-DEC-Util          |\n| PN                                                          | Memory-Usage                       |                       |\n| SN                                                          |                                    |                       |\n|=============================================================+====================================+=======================|\n| 0     GR308                                   Fantasy(1ec8) | 0000:2e:00.0        PCI-E Gen5 x16 |                       |\n| N/A   48C     0.81V   261W                             8900 | GDDR6                              | 0%(0%)                |\n| 1.0.1.45-firmware_cfg-3_FUD_DD_V4P1_20250925-1.23           | 1008.00GB/s         448bit         | N/A                   |\n| 2026.05.26                                                  | 18000Mbps           9000.00MHz     | N/A                   |\n| G3SFDPC112-S00C4B                                           | 25668MiB / 57344MiB                |                       |\n| RG31HG0261000073                                            |                                    |                       |\n+--------------------------------------------------------------------------------------------------------------------------+\n| 1     GR308                                   Fantasy(1ec8) | 0000:2e:00.2        PCI-E Gen5 x16 |                       |\n| N/A   48C     0.82V   N/A                              8904 | GDDR6                              | 0%(0%)                |\n| 1.0.1.45-firmware_cfg-3_FUD_DD_V4P1_20250925-1.23           | 1008.00GB/s         448bit         | N/A                   |\n| 2026.05.26                                                  | 18000Mbps           9000.00MHz     | N/A                   |\n| G3SFDPC112-S00C4B                                           | 20181MiB / 57344MiB                |                       |\n| RG31HG0261000073                                            |                                    |                       |\n+--------------------------------------------------------------------------------------------------------------------------+\n| 2     GR308                                   Fantasy(1ec8) | 0000:34:00.0        PCI-E Gen5 x16 |                       |\n| N/A   51C     0.82V   272W                             8900 | GDDR6                              | 0%(0%)                |\n| 1.0.1.45-firmware_cfg-3_FUD_DD_V4P1_20250925-1.23           | 1008.00GB/s         448bit         | N/A                   |\n| 2026.05.26                                                  | 18000Mbps           9000.00MHz     | N/A                   |\n| G3SFDPC112-S00C4B                                           | 25668MiB / 57344MiB                |                       |\n| RG31HG0261000076                                            |                                    |                       |\n+--------------------------------------------------------------------------------------------------------------------------+\n| 3     GR308                                   Fantasy(1ec8) | 0000:34:00.2        PCI-E Gen5 x16 |                       |\n| N/A   51C     0.81V   N/A                              8904 | GDDR6                              | 0%(0%)                |\n| 1.0.1.45-firmware_cfg-3_FUD_DD_V4P1_20250925-1.23           | 1008.00GB/s         448bit         | N/A                   |\n| 2026.05.26                                                  | 18000Mbps           9000.00MHz     | N/A                   |\n| G3SFDPC112-S00C4B                                           | 540MiB / 57344MiB                  |                       |\n| RG31HG0261000076                                            |                                    |                       |\n+--------------------------------------------------------------------------------------------------------------------------+\n| 4     GR308                                   Fantasy(1ec8) | 0000:37:00.0        PCI-E Gen5 x16 |                       |\n| N/A   51C     0.81V   274W                             8900 | GDDR6                              | 0%(0%)                |\n| 1.0.1.45-firmware_cfg-3_FUD_DD_V4P1_20250925-1.23           | 1008.00GB/s         448bit         | N/A                   |\n| 2026.05.26                                                  | 18000Mbps           9000.00MHz     | N/A                   |\n| G3SFDPC112-S00C4B                                           | 25668MiB / 57344MiB                |                       |\n| RG31HG0261000278                                            |                                    |                       |\n+--------------------------------------------------------------------------------------------------------------------------+\n| 5     GR308                                   Fantasy(1ec8) | 0000:37:00.2        PCI-E Gen5 x16 |                       |\n| N/A   51C     0.81V   N/A                              8904 | GDDR6                              | 0%(0%)                |\n| 1.0.1.45-firmware_cfg-3_FUD_DD_V4P1_20250925-1.23           | 1008.00GB/s         448bit         | N/A                   |\n| 2026.05.26                                                  | 18000Mbps           9000.00MHz     | N/A                   |\n| G3SFDPC112-S00C4B                                           | 540MiB / 57344MiB                  |                       |\n| RG31HG0261000278                                            |                                    |                       |\n+--------------------------------------------------------------------------------------------------------------------------+\n| 6     GR308                                   Fantasy(1ec8) | 0000:38:00.0        PCI-E Gen5 x16 |                       |\n| N/A   51C     0.82V   267W                             8900 | GDDR6                              | 0%(0%)                |\n| 1.0.1.45-firmware_cfg-3_FUD_DD_V4P1_20250925-1.23           | 1008.00GB/s         448bit         | N/A                   |\n| 2026.05.26                                                  | 18000Mbps           9000.00MHz     | N/A                   |\n| G3SFDPC112-S00C4B                                           | 25436MiB / 57344MiB                |                       |\n| RG31HG0261000193                                            |                                    |                       |\n+--------------------------------------------------------------------------------------------------------------------------+\n| 7     GR308                                   Fantasy(1ec8) | 0000:38:00.2        PCI-E Gen5 x16 |                       |\n| N/A   49C     0.81V   N/A                              8904 | GDDR6                              | 0%(0%)                |\n| 1.0.1.45-firmware_cfg-3_FUD_DD_V4P1_20250925-1.23           | 1008.00GB/s         448bit         | N/A                   |\n| 2026.05.26                                                  | 18000Mbps           9000.00MHz     | N/A                   |\n| G3SFDPC112-S00C4B                                           | 540MiB / 57344MiB                  |                       |\n| RG31HG0261000193                                            |                                    |                       |\n+--------------------------------------------------------------------------------------------------------------------------+\n\n+--------------------------------------------------------------------------------------------------------------------------+\n| Processes:                                                                                                               |\n| GPU   GI-ID    CI-ID          PID       Type     Process name                                           GPU Memory Usage |\n|==========================================================================================================================|\n| 0     N/A      N/A            2018111   N/A      /root/miniconda3/bin/python3.10                                  224MiB |\n| 0     N/A      N/A            2018411   N/A      VLLM::EngineCore                                                 224MiB |\n| 0     N/A      N/A            2018673   N/A      VLLM::Worker_TP3                                               24708MiB |\n| 0     N/A      N/A            2018670   N/A      VLLM::Worker_TP0                                               24972MiB |\n| 0     N/A      N/A            2018672   N/A      VLLM::Worker_TP2                                               24972MiB |\n| 0     N/A      N/A            2018671   N/A      VLLM::Worker_TP1                                               24972MiB |\n| 1     N/A      N/A            3576956   N/A      /root/miniconda3/bin/python3.10                                   56MiB |\n| 1     N/A      N/A            3578055   N/A      VLLM::EngineCore                                               19540MiB |\n+--------------------------------------------------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "monitor_server.service",
+        "--property=ActiveState,SubState,MainPID,NRestarts,UnitFileState"
+      ],
+      "returncode": 0,
+      "stdout": "MainPID=2951656\nNRestarts=3278\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "ps",
+        "-a",
+        "--format",
+        "{{.Names}}\t{{.Status}}"
+      ],
+      "returncode": 0,
+      "stdout": "gr308-h3-config-download-20260905\tExited (0) 35 hours ago\ngr308-h3-download-20260905\tExited (0) 33 hours ago\ngr308-wan22-download-20260905\tExited (0) 34 hours ago\ngr308-dsv4-download-20260905\tExited (2) 35 hours ago\nqwen38-gptq-download\tExited (0) 2 days ago\nglm53-vllm-main-device\tUp 2 days\nglm53-int4-download\tExited (137) 2 days ago\ndsv4-gptq-download\tExited (137) 2 days ago\ndsv4-vllm-main-device\tUp 2 days\ndsv4-vllm-main-import\tUp 2 days\ndsv4-vllm018-minimal\tUp 2 days\ndsv4-vllm018-legacy\tUp 2 days\nllm-d-envoy-qwen-throughput\tUp 11 hours\nllm-d-epp-qwen-throughput\tUp 2 days\ndl-minimax-h3-int4\tExited (137) 2 days ago\nllm-d-envoy-r1\tUp 45 hours\nllm-d-epp-r1\tUp 2 days\nr1-distill-7b\tUp 45 hours\nqwen38-27b-bf16\tUp 11 hours\nqwen38-27b-bf16-prefix-sha-failed-20260905\tExited (0) 2 days ago\nqwen38-27b-bf16-prefix-xxhash-failed-20260905\tExited (0) 2 days ago\nqwen38-27b-bf16-mtp-failed-20260904\tExited (0) 2 days ago\nlmcache-cpu\tUp 2 days\nllm-d-envoy\tUp 11 hours\nllm-d-epp\tUp 2 days\nqwen38-27b-bf16-noprefix-20260905\tExited (0) 2 days ago\nqwen38-27b-bf16-eager-baseline\tExited (0) 2 days ago\nglm53-gptq-convert\tUp 2 days\nfuhao-vllm\tExited (137) 9 days ago\nbug28461_dev\tExited (137) 2 weeks ago\ntest\tExited (129) 3 weeks ago\nvimicro-modelstest\tExited (255) 4 weeks ago\nfuhao_test\tExited (137) 3 weeks ago\n",
+      "stderr": ""
+    }
+  ],
+  "matching_owned_test_processes": [],
+  "peer_copy_implementation_exists": false,
+  "peer_copy_run_files": [],
+  "prior_route_controller_pids_exist": {
+    "2784064": false,
+    "2824865": false
+  },
+  "disk": {
+    "total": 3779301912576,
+    "used": 1250187857920,
+    "free": 2337059532800
+  },
+  "download_final_records": {
+    "gr308-h3-20260905": {
+      "path": "/data/infra/benchmarks/gr308-h3-20260905/download/download-final.json",
+      "exists": true,
+      "current_weights_rehashed": false,
+      "sha256": "0bc76e52612e8e0e5857e7c9e6eae6248cc477b8f350e8aef4ed9f0a5061a3dc",
+      "record": {
+        "timestamp": 1788631851.1803768,
+        "repo": "koongrizzly/MiniMax_H3_int4_W4A8_ConvRot_Pruned",
+        "revision": "3c8619a7838f31df789e066a8460599ef9d285aa",
+        "rows": [
+          {
+            "file": "README.md",
+            "expected": 5071,
+            "local": 5071,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "audio_vae/Minimax_H3_fp32_audio_vae.safetensors",
+            "expected": 605429308,
+            "local": 605429308,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "video_vae/Minimax_h3_video_vae_fp16.safetensors",
+            "expected": 5210400696,
+            "local": 5210400696,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "diffusion_models/minimax_h3_fl2va_pruned-w4a8_convrot_pruned.safetensors",
+            "expected": 12540857840,
+            "local": 12540857840,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "text_encoders/qwen3vl_32b_minimax_h3-w4a8_convrot.safetensors",
+            "expected": 15697532972,
+            "local": 15697532972,
+            "partial": 0,
+            "size_complete": true
+          }
+        ],
+        "expected_bytes": 34054225887,
+        "present_bytes": 34054225887,
+        "size_complete_files": 5,
+        "files_total": 5,
+        "full_model_e2e": false,
+        "note": "Partial bytes are unverified; present bytes do not mean model ready.",
+        "all_files_verified": true,
+        "verified_files": 5
+      }
+    },
+    "gr308-wan22-20260905": {
+      "path": "/data/infra/benchmarks/gr308-wan22-20260905/download/download-final.json",
+      "exists": true,
+      "current_weights_rehashed": false,
+      "sha256": "eaa7aedb4cfccb918151b1729b84ff9f4cff3ed6ecfe49f63a04147b78bd9de3",
+      "record": {
+        "timestamp": 1788629663.7393117,
+        "repo": "Wan-AI/Wan2.2-TI2V-5B",
+        "revision": "921dbaf3f1674a56f47e83fb80a34bac8a8f203e",
+        "rows": [
+          {
+            "file": "configuration.json",
+            "expected": 43,
+            "local": 43,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "config.json",
+            "expected": 251,
+            "local": 251,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "google/umt5-xxl/special_tokens_map.json",
+            "expected": 6623,
+            "local": 6623,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "README.md",
+            "expected": 15935,
+            "local": 15935,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "google/umt5-xxl/tokenizer_config.json",
+            "expected": 61728,
+            "local": 61728,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "diffusion_pytorch_model.safetensors.index.json",
+            "expected": 72865,
+            "local": 72865,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "google/umt5-xxl/spiece.model",
+            "expected": 4548313,
+            "local": 4548313,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "google/umt5-xxl/tokenizer.json",
+            "expected": 16837417,
+            "local": 16837417,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "diffusion_pytorch_model-00003-of-00003.safetensors",
+            "expected": 178558176,
+            "local": 178558176,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "Wan2.2_VAE.pth",
+            "expected": 2818839170,
+            "local": 2818839170,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "diffusion_pytorch_model-00001-of-00003.safetensors",
+            "expected": 9825014472,
+            "local": 9825014472,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "diffusion_pytorch_model-00002-of-00003.safetensors",
+            "expected": 9995661736,
+            "local": 9995661736,
+            "partial": 0,
+            "size_complete": true
+          },
+          {
+            "file": "models_t5_umt5-xxl-enc-bf16.pth",
+            "expected": 11361920418,
+            "local": 11361920418,
+            "partial": 0,
+            "size_complete": true
+          }
+        ],
+        "expected_bytes": 34201537147,
+        "present_bytes": 34201537147,
+        "size_complete_files": 13,
+        "files_total": 13,
+        "full_model_e2e": false,
+        "note": "Partial bytes are unverified; present bytes do not mean model ready.",
+        "all_files_verified": true,
+        "verified_files": 13
+      }
+    },
+    "gr308-dsv4-20260905": {
+      "path": "/data/infra/benchmarks/gr308-dsv4-20260905/download/download-final.json",
+      "exists": true,
+      "current_weights_rehashed": false,
+      "sha256": "f3813ac69557ec9e8d2fd43d41235a4c7c156bb3e0f4c3cdb1900c9c2e3d529e",
+      "record": {
+        "timestamp": 1788624056.2278073,
+        "revision": "4375393f25f4d901712d9eebd2da610cfa27980e",
+        "rows": [
+          {
+            "file": "model-00001-of-00036.safetensors",
+            "expected": 4290683848,
+            "local": 4290683848,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "597c10a16d0d0c199c11708a58f246a7ca94923d1de9189232eeab0bfa5fbde0"
+          },
+          {
+            "file": "model-00002-of-00036.safetensors",
+            "expected": 4291338262,
+            "local": 4291338262,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "ca9034564d1181994169826078f28cf115d038ef3f700e5c8c5dc227ab4978fb"
+          },
+          {
+            "file": "model-00003-of-00036.safetensors",
+            "expected": 4294267264,
+            "local": 4294267264,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "1b25bd4aafc98002132fb9a021a27f814486a9707dfb264b0a89a354381553fe"
+          },
+          {
+            "file": "model-00004-of-00036.safetensors",
+            "expected": 4293121824,
+            "local": 4293121824,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "fef6acee93640f93b9ffcbcf5bee6026a419afcc7abf6a9fb28a1833a8920a7c"
+          },
+          {
+            "file": "model-00005-of-00036.safetensors",
+            "expected": 4292436824,
+            "local": 4292436824,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "3bf16e15ea5e5b8fb12581e0ab3d4c4b10606a3c90533c1f371b01438a143cc9"
+          },
+          {
+            "file": "model-00006-of-00036.safetensors",
+            "expected": 4292437336,
+            "local": 4292437336,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "9a0103676b43650b7aaeee9c421a0723f9722ae29e73b9e513e05e043bc8c53b"
+          },
+          {
+            "file": "model-00007-of-00036.safetensors",
+            "expected": 4287352712,
+            "local": 4287352712,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "7c8a378c6707187dff2310af08bf3b9e292aea9247317fc579ae18d731c5525e"
+          },
+          {
+            "file": "model-00008-of-00036.safetensors",
+            "expected": 4291993272,
+            "local": 4291993272,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "efe29c2b641595dba2e38bc8e0bb3f1a1b4f29833ee91d9374091dd79e6bb0d4"
+          },
+          {
+            "file": "model-00009-of-00036.safetensors",
+            "expected": 4292436936,
+            "local": 4292436936,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "a66bebac3f4d03093fa20a434af3b37a19c4c2c9f3c20f19e8b5d00c5c9291ce"
+          },
+          {
+            "file": "model-00010-of-00036.safetensors",
+            "expected": 4292439760,
+            "local": 4292439760,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "1b6d9104348baf70ae06344f0dda03456efe633d7529892c95eae3ef3da22740"
+          },
+          {
+            "file": "model-00011-of-00036.safetensors",
+            "expected": 4291288216,
+            "local": 4291288216,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "141a24d3c1f17a66a60dba79766748937be8589c151d8cf0b45ee84452f82d5c"
+          },
+          {
+            "file": "model-00012-of-00036.safetensors",
+            "expected": 4292440416,
+            "local": 4292440416,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "29ad0c4489a24a0377987ff2ef81bf7063ed3b0282be3ac7bf5b15df43a64722"
+          },
+          {
+            "file": "model-00013-of-00036.safetensors",
+            "expected": 4292440952,
+            "local": 4292440952,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "3f06acd3cab02d5bb6a3751993d877d19502a8143cebac9b7dcfa1ea3879ef9b"
+          },
+          {
+            "file": "model-00014-of-00036.safetensors",
+            "expected": 4292433048,
+            "local": 4292433048,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "2e3d6a2f00f243b8dd955e7059196ce6259084bfbe30859654dbfc55aa66b7f0"
+          },
+          {
+            "file": "model-00015-of-00036.safetensors",
+            "expected": 4291296280,
+            "local": 4291296280,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "94659cc37a3e9a92e89c40d45f65822cfbeee7d3a6bfadad7bfa0a03a80896b5"
+          },
+          {
+            "file": "model-00016-of-00036.safetensors",
+            "expected": 4292440432,
+            "local": 4292440432,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "58d043f27e5bc4ec8f32e86b72145d206d2eec389f7f9da6e9ee08c18fd6db4c"
+          },
+          {
+            "file": "model-00017-of-00036.safetensors",
+            "expected": 4292432872,
+            "local": 4292432872,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "a7a3a22e5bcb322e41eb83e434135d02e6c12618cc200ae045394acf65419ea4"
+          },
+          {
+            "file": "model-00018-of-00036.safetensors",
+            "expected": 4292441248,
+            "local": 4292441248,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "698af9819b214be06bbe1e631489018238592ab517d9dc8c07bdd4517f3d9766"
+          },
+          {
+            "file": "model-00019-of-00036.safetensors",
+            "expected": 4291296160,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 3785359360,
+            "sha256": "c2848b01a76e6a98c219719a9de63219f91b080ab47a55f1b560e19c09c050a8"
+          },
+          {
+            "file": "model-00020-of-00036.safetensors",
+            "expected": 4292432240,
+            "local": 4292432240,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "e086bed1b1621c94223c15e688b6ac33697e7ab2b444a51906430964b67bfbad"
+          },
+          {
+            "file": "model-00021-of-00036.safetensors",
+            "expected": 4292441176,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 1457520640,
+            "sha256": "c421fca14db795ec01b89c2a21e85d9684f945b1d3fd140de837288773b16865"
+          },
+          {
+            "file": "model-00022-of-00036.safetensors",
+            "expected": 4292441240,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 1331691520,
+            "sha256": "21c2014edd9757ed3674b8ab7e8f0da55e7bc1ff8a1c76886609aa9a71ebc4f8"
+          },
+          {
+            "file": "model-00023-of-00036.safetensors",
+            "expected": 4291287856,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 1300234240,
+            "sha256": "d57f0150794643f06f3f65203182313f78d03fca5e1ba0e69c0a0995470b4271"
+          },
+          {
+            "file": "model-00024-of-00036.safetensors",
+            "expected": 4292440480,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 618659840,
+            "sha256": "072391e697c489ff5a9786f0611a253ca028e452348ccaa8d36181978b77ae19"
+          },
+          {
+            "file": "model-00025-of-00036.safetensors",
+            "expected": 4292441240,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 2044723200,
+            "sha256": "540248650721aa3fa67ce9115b628ec7ec1dd7918001335ed9a82087cb909636"
+          },
+          {
+            "file": "model-00026-of-00036.safetensors",
+            "expected": 4292433048,
+            "local": 4292433048,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "a266b434ed52a3257ddc857dce4d0d21b47815fde636e4f12f8ce5223e5e4e6b"
+          },
+          {
+            "file": "model-00027-of-00036.safetensors",
+            "expected": 4291295944,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 3344957440,
+            "sha256": "fb8c74cf25c45b535db8b6ab6941d1fa84ed042f7389e912b90247306d154fb6"
+          },
+          {
+            "file": "model-00028-of-00036.safetensors",
+            "expected": 4292440592,
+            "local": 4292440592,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "0c8a7c6d728cec374b4b8d03816af037e34098b71e80fdee9c8b246187e91f54"
+          },
+          {
+            "file": "model-00029-of-00036.safetensors",
+            "expected": 4292433048,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 2768240640,
+            "sha256": "2c6c4d35b8940e69ccaffcbf582c1980425f32719d23eb50c4dba93736b3ee41"
+          },
+          {
+            "file": "model-00030-of-00036.safetensors",
+            "expected": 4292441248,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 2506096640,
+            "sha256": "5ff54451a76f2a319df7dace293b6bfad3367341d5baeb9fb088fa0963343b44"
+          },
+          {
+            "file": "model-00031-of-00036.safetensors",
+            "expected": 4291295824,
+            "local": 4291295824,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "cbdc74942ee44a69111acd31e4a0bf5f57316a0a46c65df71b948f3e1cfcec40"
+          },
+          {
+            "file": "model-00032-of-00036.safetensors",
+            "expected": 4292432512,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 1488977920,
+            "sha256": "786b2b8991ddb3aa2ea01380ae527f8905ad43d8c48575847d1e07749e585d0f"
+          },
+          {
+            "file": "model-00033-of-00036.safetensors",
+            "expected": 4292441248,
+            "local": 4292441248,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "de97cd8802175564fb3a5d4fb2da18abd38f7ea565b667d40195532f900177e4"
+          },
+          {
+            "file": "model-00034-of-00036.safetensors",
+            "expected": 4292441304,
+            "local": 4292441304,
+            "size_complete": true,
+            "lfs_pointer": false,
+            "partial": 0,
+            "sha256": "347fdfeccababb6750455ef01f66f73fd467d4eed72ef91bf981248817b01b60"
+          },
+          {
+            "file": "model-00035-of-00036.safetensors",
+            "expected": 4291287520,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 199229440,
+            "sha256": "0cffb57b95eae1c013812e2683225a27f65054291e83ae4a0a0618c971f9a67f"
+          },
+          {
+            "file": "model-00036-of-00036.safetensors",
+            "expected": 2531412672,
+            "local": 0,
+            "size_complete": false,
+            "lfs_pointer": false,
+            "partial": 115343360,
+            "sha256": "4792295c666f3ec1d01cee0110980ab195dc1aa321ebcf7df93127af0b420ad2"
+          }
+        ],
+        "expected_bytes": 152752856854,
+        "present_bytes": 123970239998,
+        "remaining_bytes": 28782616856,
+        "size_complete_shards": 24,
+        "lfs_pointers": 0,
+        "note": "Partial bytes are resumable, not checksum-verified model weights.",
+        "all_files_verified": false,
+        "files_verified": 33,
+        "files_total": 45
+      }
+    },
+    "gr308-qwen35-4b-20260905": {
+      "path": "/data/infra/benchmarks/gr308-qwen35-4b-20260905/download/download-final.json",
+      "exists": false,
+      "current_weights_rehashed": false
+    }
+  }
+}

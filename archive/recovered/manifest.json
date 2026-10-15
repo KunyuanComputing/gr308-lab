@@ -1,0 +1,373 @@
+[
+  {
+    "file": "qwen-image-2.1/history/L01849/setup_qwen_image21.sh",
+    "bytes": 994,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 1849,
+    "original_path": "/tmp/setup_qwen_image21.sh",
+    "original_recovered_sha256": "4ac15dc0d3967f69b21ed65fd123d04c2d1022bd4af37788eeaff15821e703a8",
+    "published_sha256": "4ac15dc0d3967f69b21ed65fd123d04c2d1022bd4af37788eeaff15821e703a8"
+  },
+  {
+    "file": "qwen-image-2.1/history/L01856/setup_qwen_image21.sh",
+    "bytes": 1190,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 1856,
+    "original_path": "/tmp/setup_qwen_image21.sh",
+    "original_recovered_sha256": "5b2076a4c1ef0195e4c00aab386472fd7521335472b2b602fef58338bcbc7d06",
+    "published_sha256": "5b2076a4c1ef0195e4c00aab386472fd7521335472b2b602fef58338bcbc7d06"
+  },
+  {
+    "file": "qwen-image-2.1/history/L01893/install_qwen_image21_deps.sh",
+    "bytes": 1150,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 1893,
+    "original_path": "/tmp/install_qwen_image21_deps.sh",
+    "original_recovered_sha256": "f26a5e04b3db6c8867e9f457a7dc7b62c11be88cb26740e6d7a6887b62cdc754",
+    "published_sha256": "f26a5e04b3db6c8867e9f457a7dc7b62c11be88cb26740e6d7a6887b62cdc754"
+  },
+  {
+    "file": "qwen-image-2.1/history/L01914/download_qwen_image21.py",
+    "bytes": 372,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 1914,
+    "original_path": "/tmp/download_qwen_image21.py",
+    "original_recovered_sha256": "97ca572e01b072e54c2e8fb99de0fa182785d9934dad5753f778fc747f59e4f9",
+    "published_sha256": "97ca572e01b072e54c2e8fb99de0fa182785d9934dad5753f778fc747f59e4f9"
+  },
+  {
+    "file": "qwen-image-2.1/history/L01979/qwen_image21_probe.py",
+    "bytes": 2353,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 1979,
+    "original_path": "/tmp/qwen_image21_probe.py",
+    "original_recovered_sha256": "53e2356700c9b48fde50cdbafbadbe84e1520e5de1110163bd0fa2cafafea5e5",
+    "published_sha256": "53e2356700c9b48fde50cdbafbadbe84e1520e5de1110163bd0fa2cafafea5e5"
+  },
+  {
+    "file": "qwen-image-2.1/history/L01979/run_qwen_image21_probe.sh",
+    "bytes": 875,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 1979,
+    "original_path": "/tmp/run_qwen_image21_probe.sh",
+    "original_recovered_sha256": "56ac42e98b0074ff98c0d136feb689d5951154dcba496747bf0d85099a32afb8",
+    "published_sha256": "56ac42e98b0074ff98c0d136feb689d5951154dcba496747bf0d85099a32afb8"
+  },
+  {
+    "file": "qwen-image-2.1/history/L02227/setup_qwen_image21_newhost.sh",
+    "bytes": 1660,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 2227,
+    "original_path": "/tmp/setup_qwen_image21_newhost.sh",
+    "original_recovered_sha256": "cd491dc81558765d1a77b36be4cf85487f3fdb91e70bcf8a5979908762190738",
+    "published_sha256": "cd491dc81558765d1a77b36be4cf85487f3fdb91e70bcf8a5979908762190738"
+  },
+  {
+    "file": "qwen-image-2.1/history/L02285/install_qwen_image21_newhost.sh",
+    "bytes": 1403,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 2285,
+    "original_path": "/tmp/install_qwen_image21_newhost.sh",
+    "original_recovered_sha256": "1af252c1a337c0f38dc6112e8f859c938ac1b809533f7e5a65bca54a515365d0",
+    "published_sha256": "1af252c1a337c0f38dc6112e8f859c938ac1b809533f7e5a65bca54a515365d0"
+  },
+  {
+    "file": "qwen-image-2.1/history/L02299/download_qwen_image21_newhost.py",
+    "bytes": 422,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 2299,
+    "original_path": "/tmp/download_qwen_image21_newhost.py",
+    "original_recovered_sha256": "05f16f88dda0a745d00483453404f965788e7027a0e06f260c2cdb0cac1e2cf0",
+    "published_sha256": "05f16f88dda0a745d00483453404f965788e7027a0e06f260c2cdb0cac1e2cf0"
+  },
+  {
+    "file": "qwen-image-2.1/history/L02345/modelscope_download_qwen_image21.py",
+    "bytes": 311,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 2345,
+    "original_path": "/tmp/modelscope_download_qwen_image21.py",
+    "original_recovered_sha256": "fc07263d978dfec52ac3b0241a6f5f70907612b6cccddc01e6ecb5e49f69f435",
+    "published_sha256": "fc07263d978dfec52ac3b0241a6f5f70907612b6cccddc01e6ecb5e49f69f435"
+  },
+  {
+    "file": "qwen-image-2.1/history/L02617/run_qwen_image21_newhost.sh",
+    "bytes": 843,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 2617,
+    "original_path": "/tmp/run_qwen_image21_newhost.sh",
+    "original_recovered_sha256": "a09ca95c884b100fe8936804c71f619a3f251bb2723bf1318cf973e6d4bd9612",
+    "published_sha256": "a09ca95c884b100fe8936804c71f619a3f251bb2723bf1318cf973e6d4bd9612"
+  },
+  {
+    "file": "qwen-image-2.1/history/L02683/patch_qwen21_rope.py",
+    "bytes": 2466,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 2683,
+    "original_path": "/tmp/patch_qwen21_rope.py",
+    "original_recovered_sha256": "92d74160dd3fd8bcea14aefdeb05ded4d829287223f64edc55546614499ba42d",
+    "published_sha256": "92d74160dd3fd8bcea14aefdeb05ded4d829287223f64edc55546614499ba42d"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03027/patch_qwen_vae.py",
+    "bytes": 1848,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3027,
+    "original_path": "/tmp/patch_qwen_vae.py",
+    "original_recovered_sha256": "ddc9397d91df665739be843b0d4b81d9d0241d6be024752e2eba39e96ee70c08",
+    "published_sha256": "ddc9397d91df665739be843b0d4b81d9d0241d6be024752e2eba39e96ee70c08"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03100/patch_qwen_pixelshuffle.py",
+    "bytes": 1526,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3100,
+    "original_path": "/tmp/patch_qwen_pixelshuffle.py",
+    "original_recovered_sha256": "1fb489de7ab8e6d2eae95f4da6e0c2af1a8e74c7715dab7f8ad3860f830bb8ed",
+    "published_sha256": "1fb489de7ab8e6d2eae95f4da6e0c2af1a8e74c7715dab7f8ad3860f830bb8ed"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03100/patch_qwen_probe_latents.py",
+    "bytes": 1583,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3100,
+    "original_path": "/tmp/patch_qwen_probe_latents.py",
+    "original_recovered_sha256": "91f6fdc8fb14e76172a6b49af570ed908011f2c4f762b61fc909bc6036033e05",
+    "published_sha256": "91f6fdc8fb14e76172a6b49af570ed908011f2c4f762b61fc909bc6036033e05"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03291/patch_qwen_sliceshuffle.py",
+    "bytes": 1528,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3291,
+    "original_path": "/tmp/patch_qwen_sliceshuffle.py",
+    "original_recovered_sha256": "611d8dfbe50d2f5a9da927ed89f9ee979b636550ea3ccd837c42d331f9570ecf",
+    "published_sha256": "611d8dfbe50d2f5a9da927ed89f9ee979b636550ea3ccd837c42d331f9570ecf"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03291/decode_qwen_gpu.py",
+    "bytes": 1993,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3291,
+    "original_path": "/tmp/decode_qwen_gpu.py",
+    "original_recovered_sha256": "ed8a20c02e90bd1123240d922bce6f6b0579bf2351678d66fa3047942c22bb6f",
+    "published_sha256": "ed8a20c02e90bd1123240d922bce6f6b0579bf2351678d66fa3047942c22bb6f"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03356/run_decode_remote.sh",
+    "bytes": 665,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3356,
+    "original_path": "/tmp/run_decode_remote.sh",
+    "original_recovered_sha256": "e8897bdfd0a2e928f397e1ab6ad10781a2f327a2cc13c8165722a23cee4cea40",
+    "published_sha256": "e8897bdfd0a2e928f397e1ab6ad10781a2f327a2cc13c8165722a23cee4cea40"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03642/decode_qwen_cpu.py",
+    "bytes": 1483,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3642,
+    "original_path": "/tmp/decode_qwen_cpu.py",
+    "original_recovered_sha256": "b10dea2aa6fab1955e1866f7ac975c0b06d4edd15e6e15a15b9912c677c8e613",
+    "published_sha256": "b10dea2aa6fab1955e1866f7ac975c0b06d4edd15e6e15a15b9912c677c8e613"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03649/run_decode_cpu_remote.sh",
+    "bytes": 506,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3649,
+    "original_path": "/tmp/run_decode_cpu_remote.sh",
+    "original_recovered_sha256": "6c7b27bdff5b54759e1655f0efebff20081434d572862d32200be61d9201aadb",
+    "published_sha256": "6c7b27bdff5b54759e1655f0efebff20081434d572862d32200be61d9201aadb"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03698/probe_latent_only.py",
+    "bytes": 2015,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3698,
+    "original_path": "/tmp/probe_latent_only.py",
+    "original_recovered_sha256": "59a04cee77fd98561e968fe58471e72388e7eecdada1531adb91f42c7a252f19",
+    "published_sha256": "59a04cee77fd98561e968fe58471e72388e7eecdada1531adb91f42c7a252f19"
+  },
+  {
+    "file": "qwen-image-2.1/history/L03698/run_latent40_remote.sh",
+    "bytes": 745,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 3698,
+    "original_path": "/tmp/run_latent40_remote.sh",
+    "original_recovered_sha256": "39476a64853ceb3cc10bf01a0deb13896001969cb81c5b533292ef8193a02dc6",
+    "published_sha256": "39476a64853ceb3cc10bf01a0deb13896001969cb81c5b533292ef8193a02dc6"
+  },
+  {
+    "file": "qwen-image-2.1/history/L06815/inspect_fant_dispatch.py",
+    "bytes": 301,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 6815,
+    "original_path": "/tmp/inspect_fant_dispatch.py",
+    "original_recovered_sha256": "24053d614468563ac0be4dede4ca7d5c825cd5a62e5393ebe903f182514f06b9",
+    "published_sha256": "24053d614468563ac0be4dede4ca7d5c825cd5a62e5393ebe903f182514f06b9"
+  },
+  {
+    "file": "qwen-image-2.1/history/L06829/inspect_fant_dispatch.py",
+    "bytes": 472,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 6829,
+    "original_path": "/tmp/inspect_fant_dispatch.py",
+    "original_recovered_sha256": "7e457a17e83404db882f24dda744b1f3f6fbf5f3d0de31d028aad449b9da8ba2",
+    "published_sha256": "7e457a17e83404db882f24dda744b1f3f6fbf5f3d0de31d028aad449b9da8ba2"
+  },
+  {
+    "file": "qwen-image-2.1/history/L06964/sdk_env_probe.sh",
+    "bytes": 266,
+    "validation": "syntax_ok",
+    "kind": "historical_complete_heredoc",
+    "source": "codex-history/rollout-2026-09-21T11-14-08-01a0c1f4-ea1d-7283-adc5-5ea4643a4ad5.jsonl.zst",
+    "source_line": 6964,
+    "original_path": "/tmp/sdk_env_probe.sh",
+    "original_recovered_sha256": "040139ba3d20700b832a51beb3a71f39aefbc64fa1059b403649c2721ce0d7e9",
+    "published_sha256": "040139ba3d20700b832a51beb3a71f39aefbc64fa1059b403649c2721ce0d7e9"
+  },
+  {
+    "file": "h3/history/test_platform_capability_probe.py",
+    "bytes": 1051,
+    "validation": "syntax_ok",
+    "kind": "historical_terminal_source",
+    "source": "codex-history/rollout-2026-09-10T11-52-29-01a08972-1193-7b91-9bbe-be78b98ac75d.jsonl",
+    "source_line": 655,
+    "output_lines": [
+      6,
+      31
+    ],
+    "original_path": "/data/infra/benchmarks/gr308-h3-20260905/test_platform_capability_probe.py",
+    "handoff_sha256": "830b69ca3dbf6dd59a1831f5c6a4c5f64a67dadb650633ef8333d01981339cfe",
+    "original_recovered_sha256": "830b69ca3dbf6dd59a1831f5c6a4c5f64a67dadb650633ef8333d01981339cfe",
+    "original_recovery_handoff_hash_match": true,
+    "published_sha256": "830b69ca3dbf6dd59a1831f5c6a4c5f64a67dadb650633ef8333d01981339cfe"
+  },
+  {
+    "file": "h3/history/platform_capability_probe.py",
+    "bytes": 5310,
+    "validation": "syntax_ok",
+    "kind": "historical_terminal_source",
+    "source": "codex-history/rollout-2026-09-10T11-52-29-01a08972-1193-7b91-9bbe-be78b98ac75d.jsonl",
+    "source_line": 655,
+    "output_lines": [
+      33,
+      136
+    ],
+    "original_path": "/data/infra/benchmarks/gr308-h3-20260905/platform_capability_probe.py",
+    "handoff_sha256": "3c1291ee14facd5acd311ffdeab09c42c8738045521c81affbd3b8b4cd7d1b4f",
+    "original_recovered_sha256": "3c1291ee14facd5acd311ffdeab09c42c8738045521c81affbd3b8b4cd7d1b4f",
+    "original_recovery_handoff_hash_match": true,
+    "published_sha256": "3c1291ee14facd5acd311ffdeab09c42c8738045521c81affbd3b8b4cd7d1b4f"
+  },
+  {
+    "file": "h3/history/run_capability_probe.py",
+    "bytes": 13090,
+    "validation": "syntax_ok",
+    "kind": "historical_terminal_source",
+    "source": "codex-history/rollout-2026-09-10T11-52-29-01a08972-1193-7b91-9bbe-be78b98ac75d.jsonl",
+    "source_line": 655,
+    "output_lines": [
+      138,
+      378
+    ],
+    "original_path": "/data/infra/benchmarks/gr308-h3-20260905/run_capability_probe.py",
+    "handoff_sha256": "de76cc3fb922a31c5693d1a258449e95b1c3d988fba6693019f542adaf3768c3",
+    "original_recovered_sha256": "de76cc3fb922a31c5693d1a258449e95b1c3d988fba6693019f542adaf3768c3",
+    "original_recovery_handoff_hash_match": true,
+    "published_sha256": "de76cc3fb922a31c5693d1a258449e95b1c3d988fba6693019f542adaf3768c3"
+  },
+  {
+    "file": "h3/history/fantasy_platform_registry.py",
+    "bytes": 9356,
+    "validation": "syntax_ok",
+    "kind": "historical_terminal_source",
+    "source": "codex-history/rollout-2026-09-10T11-52-29-01a08972-1193-7b91-9bbe-be78b98ac75d.jsonl",
+    "source_line": 643,
+    "output_lines": [
+      491,
+      770
+    ],
+    "original_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_platform_registry.py",
+    "handoff_sha256": "387ea737673247d3c9de461cf5d7a1503b1e036fb80f454e6081096bec2877ae",
+    "original_recovered_sha256": "387ea737673247d3c9de461cf5d7a1503b1e036fb80f454e6081096bec2877ae",
+    "original_recovery_handoff_hash_match": true,
+    "published_sha256": "387ea737673247d3c9de461cf5d7a1503b1e036fb80f454e6081096bec2877ae"
+  },
+  {
+    "file": "h3/history/operator_probe.py",
+    "bytes": 7681,
+    "validation": "syntax_ok",
+    "kind": "historical_terminal_source",
+    "source": "codex-history/rollout-2026-09-10T11-52-29-01a08972-1193-7b91-9bbe-be78b98ac75d.jsonl",
+    "source_line": 949,
+    "output_lines": [
+      6,
+      151
+    ],
+    "original_path": "/data/infra/benchmarks/gr308-h3-20260905/operator_probe.py",
+    "handoff_sha256": "9354c7b587b0cd2cd8eab9831073e9f8210cf2e5f3d8a4edd5187c35ec6164a9",
+    "original_recovered_sha256": "9354c7b587b0cd2cd8eab9831073e9f8210cf2e5f3d8a4edd5187c35ec6164a9",
+    "original_recovery_handoff_hash_match": true,
+    "published_sha256": "9354c7b587b0cd2cd8eab9831073e9f8210cf2e5f3d8a4edd5187c35ec6164a9"
+  },
+  {
+    "file": "h3/fragments/fantasy_full_dit_probe.py.partial.txt",
+    "bytes": 19227,
+    "validation": "not_checked",
+    "kind": "incomplete_source_first_300_lines",
+    "source": "codex-history/rollout-2026-09-15T17-44-23-01a0a44d-b689-7430-b001-04a88c93e1a8_01a0a474-0a08-77b0-8aa9-5f528d83fc91.jsonl.zst",
+    "source_line": 10032,
+    "note": "Historical sed output ends inside finally; missing tail and imported helpers.",
+    "original_recovered_sha256": "759aba3033299c752f59d430c934dd3dcae39e32a2a944c83b50957c91601162",
+    "published_sha256": "759aba3033299c752f59d430c934dd3dcae39e32a2a944c83b50957c91601162"
+  }
+]

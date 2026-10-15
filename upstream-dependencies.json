@@ -1,0 +1,8 @@
+{
+  "grserve": [
+    {"path": "third_party/googletest", "url": "https://github.com/google/googletest.git", "commit": "6910c9d9165801d8827d628cb72eb7ea9dd538c5"},
+    {"path": "third_party/protobuf", "url": "https://github.com/protocolbuffers/protobuf.git", "commit": "43e1626812c1b543e56a7bec59dc09eb18248bd2"}
+  ],
+  "abseil": {"url": "https://github.com/abseil/abseil-cpp.git", "commit": "9ac7062b1860d895fb5a8cbf58c3e9ef8f674b5f", "restore": "CMake FetchContent"},
+  "vllm_omni_reference": {"url": "https://github.com/vllm-project/vllm-omni.git", "commit": "8e0695f36285b43658a7fed41d7fcae6455f3a2c", "restore": "optional upstream reference, not included"}
+}

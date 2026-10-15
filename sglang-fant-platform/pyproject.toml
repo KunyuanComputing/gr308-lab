@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sglang-fant-platform"
+version = "0.1.0"
+description = "SGLang device-interface adapter for Fantasy accelerators"
+requires-python = ">=3.10"
+
+[project.entry-points."sglang.srt.platforms"]
+gr308_fant = "sglang_fant_platform:activate"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

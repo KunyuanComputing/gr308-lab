@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package grserve.event.v1;
+
+enum EventState {
+  EVENT_STATE_UNSPECIFIED = 0;
+  EVENT_STATE_CREATED = 1;
+  EVENT_STATE_RESERVED = 2;
+  EVENT_STATE_PREPARED = 3;
+  EVENT_STATE_EXECUTED = 4;
+  EVENT_STATE_COMMIT_DECIDED = 5;
+  EVENT_STATE_LOCAL_COMMITTED = 6;
+  EVENT_STATE_PUBLISHED = 7;
+  EVENT_STATE_ABORTED = 8;
+  EVENT_STATE_FATAL = 9;
+}
+
+enum EventErrorCode {
+  EVENT_ERROR_CODE_UNSPECIFIED = 0;
+  EVENT_ERROR_CODE_NONE = 1;
+  EVENT_ERROR_CODE_INVALID_ARGUMENT = 2;
+  EVENT_ERROR_CODE_INCOMPATIBLE_VERSION = 3;
+  EVENT_ERROR_CODE_UNSUPPORTED_CAPABILITY = 4;
+  EVENT_ERROR_CODE_RESOURCE_EXHAUSTED = 5;
+  EVENT_ERROR_CODE_DEADLINE_EXCEEDED = 6;
+  EVENT_ERROR_CODE_RANK_FAILURE = 7;
+  EVENT_ERROR_CODE_REPLICA_FATAL = 8;
+  EVENT_ERROR_CODE_INTERNAL = 9;
+}
+
+enum DeliveryOutcome {
+  DELIVERY_OUTCOME_UNSPECIFIED = 0;
+  DELIVERY_OUTCOME_NONE = 1;
+  DELIVERY_OUTCOME_DELIVERED = 2;
+  DELIVERY_OUTCOME_DROPPED_CLIENT_DISCONNECT = 3;
+}
+
+// Public diagnostic event. Sensitive request/backend data has no field here.
+message Event {
+  uint32 schema_version = 1;
+  uint64 monotonic_tick = 2;
+  string run_id = 3;
+  uint64 request_id = 4;
+  uint64 transaction_id = 5;
+  uint32 rank = 6;
+  uint64 epoch = 7;
+  EventState state = 8;
+  EventErrorCode error = 9;
+  uint64 sequence_number = 10;
+  DeliveryOutcome delivery = 11;
+}
+
+enum VerificationGateStatus {
+  VERIFICATION_GATE_STATUS_UNSPECIFIED = 0;
+  VERIFICATION_GATE_STATUS_PASS = 1;
+  VERIFICATION_GATE_STATUS_FAIL = 2;
+  VERIFICATION_GATE_STATUS_SKIP = 3;
+  VERIFICATION_GATE_STATUS_NOT_RUN = 4;
+  VERIFICATION_GATE_STATUS_INCOMPLETE = 5;
+}
+
+// Evidence emitted when one verification gate reaches its actual result.
+message VerificationGateEvent {
+  uint32 schema_version = 1;
+  uint64 monotonic_tick = 2;
+  string run_id = 3;
+  string gate_id = 4;
+  VerificationGateStatus status = 5;
+  string reason = 6;
+  repeated string command_id = 7;
+  uint64 fault_plan_seed = 8;
+}

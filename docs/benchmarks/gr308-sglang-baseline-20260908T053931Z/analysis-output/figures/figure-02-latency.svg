@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="480" viewBox="0 0 820 480">
+<rect width="100%" height="100%" fill="white"/>
+<text x="410.0" y="24" text-anchor="middle" font-family="sans-serif" font-size="17">SGLang formal request latency</text>
+<line x1="90" y1="405.0" x2="790" y2="405.0" stroke="#dddddd"/>
+<text x="80" y="409.0" text-anchor="end" font-family="sans-serif" font-size="11">4646.6</text>
+<line x1="90" y1="333.0" x2="790" y2="333.0" stroke="#dddddd"/>
+<text x="80" y="337.0" text-anchor="end" font-family="sans-serif" font-size="11">16826.9</text>
+<line x1="90" y1="261.0" x2="790" y2="261.0" stroke="#dddddd"/>
+<text x="80" y="265.0" text-anchor="end" font-family="sans-serif" font-size="11">60936.6</text>
+<line x1="90" y1="189.0" x2="790" y2="189.0" stroke="#dddddd"/>
+<text x="80" y="193.0" text-anchor="end" font-family="sans-serif" font-size="11">220673.7</text>
+<line x1="90" y1="117.0" x2="790" y2="117.0" stroke="#dddddd"/>
+<text x="80" y="121.0" text-anchor="end" font-family="sans-serif" font-size="11">799140.5</text>
+<line x1="90" y1="45.0" x2="790" y2="45.0" stroke="#dddddd"/>
+<text x="80" y="49.0" text-anchor="end" font-family="sans-serif" font-size="11">2893981.6</text>
+<text x="90.0" y="429" text-anchor="middle" font-family="sans-serif" font-size="12">1</text>
+<text x="265.0" y="429" text-anchor="middle" font-family="sans-serif" font-size="12">8</text>
+<text x="440.0" y="429" text-anchor="middle" font-family="sans-serif" font-size="12">16</text>
+<text x="615.0" y="429" text-anchor="middle" font-family="sans-serif" font-size="12">32</text>
+<text x="790.0" y="429" text-anchor="middle" font-family="sans-serif" font-size="12">64</text>
+<line x1="90" y1="45" x2="90" y2="405" stroke="#222"/>
+<line x1="90" y1="405" x2="790" y2="405" stroke="#222"/>
+<text x="440.0" y="460" text-anchor="middle" font-family="sans-serif" font-size="13">Concurrency</text>
+<text x="20" y="225.0" text-anchor="middle" transform="rotate(-90 20 225.0)" font-family="sans-serif" font-size="13">Latency (ms, log scale)</text>
+<polyline points="90.0,392.5 265.0,288.3 440.0,250.8 615.0,212.5 790.0,174.1" fill="none" stroke="#0072B2" stroke-width="2.5" stroke-dasharray="none"/>
+<circle cx="90.0" cy="392.5" r="4" fill="#0072B2"/>
+<circle cx="265.0" cy="288.3" r="4" fill="#0072B2"/>
+<circle cx="440.0" cy="250.8" r="4" fill="#0072B2"/>
+<circle cx="615.0" cy="212.5" r="4" fill="#0072B2"/>
+<circle cx="790.0" cy="174.1" r="4" fill="#0072B2"/>
+<line x1="102" y1="59" x2="130" y2="59" stroke="#0072B2" stroke-width="3"/>
+<text x="137" y="63" font-family="sans-serif" font-size="12">TTFT p50</text>
+<polyline points="90.0,392.2 265.0,288.2 440.0,250.7 615.0,212.5 790.0,173.9" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="8 5"/>
+<circle cx="90.0" cy="392.2" r="4" fill="#E69F00"/>
+<circle cx="265.0" cy="288.2" r="4" fill="#E69F00"/>
+<circle cx="440.0" cy="250.7" r="4" fill="#E69F00"/>
+<circle cx="615.0" cy="212.5" r="4" fill="#E69F00"/>
+<circle cx="790.0" cy="173.9" r="4" fill="#E69F00"/>
+<line x1="292" y1="59" x2="320" y2="59" stroke="#E69F00" stroke-width="3"/>
+<text x="327" y="63" font-family="sans-serif" font-size="12">TTFT p95</text>
+<polyline points="90.0,224.1 265.0,157.4 440.0,124.6 615.0,88.4 790.0,51.4" fill="none" stroke="#009E73" stroke-width="2.5" stroke-dasharray="none"/>
+<circle cx="90.0" cy="224.1" r="4" fill="#009E73"/>
+<circle cx="265.0" cy="157.4" r="4" fill="#009E73"/>
+<circle cx="440.0" cy="124.6" r="4" fill="#009E73"/>
+<circle cx="615.0" cy="88.4" r="4" fill="#009E73"/>
+<circle cx="790.0" cy="51.4" r="4" fill="#009E73"/>
+<line x1="482" y1="59" x2="510" y2="59" stroke="#009E73" stroke-width="3"/>
+<text x="517" y="63" font-family="sans-serif" font-size="12">E2E p50</text>
+<polyline points="90.0,223.5 265.0,157.3 440.0,124.5 615.0,88.3 790.0,51.3" fill="none" stroke="#CC79A7" stroke-width="2.5" stroke-dasharray="8 5"/>
+<circle cx="90.0" cy="223.5" r="4" fill="#CC79A7"/>
+<circle cx="265.0" cy="157.3" r="4" fill="#CC79A7"/>
+<circle cx="440.0" cy="124.5" r="4" fill="#CC79A7"/>
+<circle cx="615.0" cy="88.3" r="4" fill="#CC79A7"/>
+<circle cx="790.0" cy="51.3" r="4" fill="#CC79A7"/>
+<line x1="672" y1="59" x2="700" y2="59" stroke="#CC79A7" stroke-width="3"/>
+<text x="707" y="63" font-family="sans-serif" font-size="12">E2E p95</text>
+</svg>

@@ -1,0 +1,71 @@
+--- a/python/sglang/srt/layers/attention/linear/gdn_backend.py
++++ b/python/sglang/srt/layers/attention/linear/gdn_backend.py
+@@ -1,3 +1,5 @@
++import os
++
+ from typing import Optional, Tuple, Union
+ 
+ import torch
+@@ -883,6 +883,11 @@
+                     cache_ring=True,
+                     replayssm_rawv=mamba_cache_params.replayssm_rawv,
+                 )
+         else:
++            if os.getenv("SGLANG_FANT_GDN_STAGE_DEBUG") == "1":
++                import sglang.kernels.ops.attention.fla.chunk as chunk_module
++
++                chunk_module._fant_seq_lens_debug = forward_batch.seq_lens
++
+             g, beta = fused_gdn_gating(layer.A_log, a, b, layer.dt_bias)
+             core_attn_out, last_recurrent_state, h = self.kernel_dispatcher.extend(
+--- a/python/sglang/kernels/ops/attention/fla/chunk.py
++++ b/python/sglang/kernels/ops/attention/fla/chunk.py
+@@ -3,3 +3,4 @@
+ # Copyright (c) 2023-2025, Songlin Yang, Yu Zhang
+ 
++import os
+ from typing import Optional
+@@ -32,5 +33,17 @@
+ 
+ CHUNK_SIZE = 64
+ 
++
++def _fant_debug_stage(stage: str):
++    if os.getenv("SGLANG_FANT_GDN_STAGE_DEBUG") != "1":
++        return
++    seq_lens = globals().get("_fant_seq_lens_debug")
++    if seq_lens is None:
++        return
++    torch.get_device_module(seq_lens.device).synchronize()
++    print(
++        "FANT_GDN_STAGE", stage, seq_lens.detach().cpu().tolist(), flush=True
++    )
++
+ 
+ def chunk_gated_delta_rule_fwd(
+@@ -52,5 +64,6 @@
+     g = chunk_local_cumsum(
+         g, chunk_size=CHUNK_SIZE, cu_seqlens=cu_seqlens, chunk_indices=chunk_indices
+     )
++    _fant_debug_stage("after_cumsum")
+ 
+     # fused kkt + solve_tril + recompute_w_u
+@@ -64,5 +77,6 @@
+         cu_seqlens=cu_seqlens,
+         chunk_indices=chunk_indices,
+     )
++    _fant_debug_stage("after_intra")
+ 
+     h, v_new = chunk_gated_delta_rule_fwd_h(
+@@ -77,4 +91,5 @@
+         cu_seqlens=cu_seqlens,
+         chunk_indices=chunk_indices,
+     )
++    _fant_debug_stage("after_h")
+     o = chunk_fwd_o(
+@@ -89,4 +104,5 @@
+         scale=scale,
+         cu_seqlens=cu_seqlens,
+     )
++    _fant_debug_stage("after_o")
+     if SUPPRESS_LEVEL < 3:

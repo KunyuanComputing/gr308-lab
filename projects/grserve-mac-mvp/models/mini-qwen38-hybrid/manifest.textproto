@@ -1,0 +1,13 @@
+schema_version: 1
+model_id: "mini-qwen38-hybrid"
+model_format_version: 1
+topology: "GDN,GDN,GDN,FULL"
+dtype: "Q16_16"
+vocab_size: 16
+hidden_size: 8
+max_context_tokens: 64
+weight_sha256: "e4834d97653c2831980dd79ee4c7c2769de26bfe5dcd28145f4f2bf1ea767398"
+golden_version: 1
+hal_abi_major: 1
+hal_abi_minor: 0
+required_capability: "EXECUTABLE_LAUNCH"

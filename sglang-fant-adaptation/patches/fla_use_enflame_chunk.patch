@@ -1,0 +1,16 @@
+--- a/src/sglang_fant_platform/fla.py
++++ b/src/sglang_fant_platform/fla.py
+@@ -35,5 +35,13 @@
+     if gk is not None or use_exp2:
+         raise NotImplementedError("Fantasy vendor GDN supports scalar g only")
+ 
++    from .fant_chunk_delta_h import (
++        chunk_gated_delta_rule_fwd_h as fantasy_chunk_delta_rule_fwd_h,
++    )
++    return fantasy_chunk_delta_rule_fwd_h(
++        k, w, u, g, gk, initial_state, initial_state_indices,
++        save_new_value, cu_seqlens, chunk_indices
++    )
++
+     import iFormer
+     from sglang.kernels.ops.attention.fla.index import prepare_chunk_offsets

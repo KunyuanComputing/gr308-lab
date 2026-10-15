@@ -1,0 +1,27 @@
+--- a/launch_sglang_fant.py
++++ b/launch_sglang_fant.py
+@@ -26,5 +26,24 @@
+ 
+     import torch_fant  # noqa: F401
+ 
++    # The vendor Triton is older than current SGLang.  Some kernels mention
++    # CUDA programmatic-dependent-launch helpers inside compile-time-disabled
++    # branches; Triton's dependency parser still resolves those names.  Supply
++    # inert JIT helpers on hardware where PDL is unavailable.
++    import triton
++    import triton.language as tl
++
++    if not hasattr(tl.extra.cuda, "gdc_wait"):
++        @triton.jit
++        def _fant_gdc_wait():
++            pass
++
++        @triton.jit
++        def _fant_gdc_launch_dependents():
++            pass
++
++        tl.extra.cuda.gdc_wait = _fant_gdc_wait
++        tl.extra.cuda.gdc_launch_dependents = _fant_gdc_launch_dependents
++
+     os.environ.setdefault("SGLANG_PLATFORM", "gr308_fant")
+     runpy.run_module("sglang.launch_server", run_name="__main__")

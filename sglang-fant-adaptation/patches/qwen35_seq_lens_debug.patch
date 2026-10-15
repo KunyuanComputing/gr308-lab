@@ -1,0 +1,16 @@
+--- a/python/sglang/srt/models/qwen3_5.py
++++ b/python/sglang/srt/models/qwen3_5.py
+@@ -1703,6 +1703,13 @@
+         # Pass through decoder layers
+         for layer_idx in range(self.start_layer, self.end_layer):
+             layer = self.layers[layer_idx]
++            if layer_idx < 5:
++                print(
++                    "FANT_QWEN35_LAYER_SEQ_LENS",
++                    f"layer={layer_idx}",
++                    f"seq_lens={forward_batch.seq_lens.detach().cpu().tolist()}",
++                    flush=True,
++                )
+             with get_global_expert_distribution_recorder().with_current_layer(
+                 layer_idx
+             ):

@@ -1,0 +1,124 @@
+/kitchen/comfy_kitchen/backends/eager/w4a8_int8.py:415: UserWarning: The operator 'aten::round.out' is not currently supported on the fant backend. (Triggered internally at /home/jenkins_135/workspace/UCA_RELEASE_BUILD_PIPELINE_ARCH/torch_fant/torch_fant/csrc/aten/ops/Copy.cpp:414.)
+  return values.view(n, k).round().clamp_(-127, 127).to(torch.int8)
+/kitchen/comfy_kitchen/backends/eager/quantization.py:872: UserWarning: The operator 'aten::amax.out' is not currently supported on the fant backend. (Triggered internally at /home/jenkins_135/workspace/UCA_RELEASE_BUILD_PIPELINE_ARCH/torch_fant/torch_fant/csrc/aten/ops/Copy.cpp:414.)
+  abs_max = x.abs().amax(dim=-1, keepdim=True)
+/kitchen/comfy_kitchen/backends/eager/quantization.py:826: UserWarning: The operator 'aten::round.out' is not currently supported on the fant backend. (Triggered internally at /home/jenkins_135/workspace/UCA_RELEASE_BUILD_PIPELINE_ARCH/torch_fant/torch_fant/csrc/aten/ops/Copy.cpp:414.)
+  return scaled.round_().clamp_(-128.0, 127.0).to(torch.int8)
+/kitchen/comfy_kitchen/backends/eager/quantization.py:754: UserWarning: The operator 'aten::_int_mm' is not currently supported on the fant backend. (Triggered internally at /home/jenkins_135/workspace/UCA_RELEASE_BUILD_PIPELINE_ARCH/torch_fant/torch_fant/csrc/aten/ops/Copy.cpp:414.)
+  return torch._int_mm(lhs, rhs)
+{
+  "checkpoint": "/model/diffusion_models/minimax_h3_fl2va_pruned-w4a8_convrot_pruned.safetensors",
+  "device": "fant:0",
+  "device_type": "fant",
+  "projection": "blocks.0.attn.out_proj",
+  "torch_version": "2.7.1+cpu",
+  "privateuse_backend": "fant",
+  "privateuse1_int_mm_kernel": false,
+  "int_mm_dispatch_table": "CPU: registered at /pytorch/build/aten/src/ATen/RegisterCPU_3.cpp:4287 [kernel]\nPrivateUse1: registered at /home/jenkins_135/workspace/UCA_RELEASE_BUILD_PIPELINE_ARCH/torch_fant/torch_fant/csrc/aten/ops/Copy.cpp:422 [backend fallback]\nMeta: registered at /dev/null:241 [kernel]\nBackendSelect: fallthrough registered at /pytorch/aten/src/ATen/core/BackendSelectFallbackKernel.cpp:3 [backend fallback]\nPython: registered at /pytorch/aten/src/ATen/core/PythonFallbackKernel.cpp:194 [backend fallback]\nFuncTorchDynamicLayerBackMode: registered at /pytorch/aten/src/ATen/functorch/DynamicLayer.cpp:479 [backend fallback]\nFunctionalize: registered at /pytorch/aten/src/ATen/FunctionalizeFallbackKernel.cpp:349 [backend fallback]\nNamed: registered at /pytorch/aten/src/ATen/core/NamedRegistrations.cpp:7 [backend fallback]\nConjugate: registered at /pytorch/aten/src/ATen/ConjugateFallback.cpp:17 [backend fallback]\nNegative: registered at /pytorch/aten/src/ATen/native/NegateFallback.cpp:18 [backend fallback]\nZeroTensor: registered at /pytorch/aten/src/ATen/ZeroTensorFallback.cpp:86 [backend fallback]\nADInplaceOrView: fallthrough registered at /pytorch/aten/src/ATen/core/VariableFallbackKernel.cpp:100 [backend fallback]\nAutogradOther: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradCPU: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradCUDA: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradHIP: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradXLA: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradMPS: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradIPU: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradXPU: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradHPU: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradVE: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradLazy: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradMTIA: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradPrivateUse1: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradPrivateUse2: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradPrivateUse3: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradMeta: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nAutogradNestedTensor: registered at /pytorch/torch/csrc/autograd/generated/VariableType_1.cpp:16915 [autograd kernel]\nTracer: registered at /pytorch/torch/csrc/autograd/generated/TraceType_1.cpp:16133 [kernel]\nAutocastCPU: fallthrough registered at /pytorch/aten/src/ATen/autocast_mode.cpp:322 [backend fallback]\nAutocastMTIA: fallthrough registered at /pytorch/aten/src/ATen/autocast_mode.cpp:466 [backend fallback]\nAutocastXPU: fallthrough registered at /pytorch/aten/src/ATen/autocast_mode.cpp:504 [backend fallback]\nAutocastMPS: fallthrough registered at /pytorch/aten/src/ATen/autocast_mode.cpp:209 [backend fallback]\nAutocastCUDA: fallthrough registered at /pytorch/aten/src/ATen/autocast_mode.cpp:165 [backend fallback]\nAutocastPrivateUse1: fallthrough registered at /home/jenkins_135/workspace/UCA_RELEASE_BUILD_PIPELINE_ARCH/torch_fant/torch_fant/csrc/amp/autocast_mode.cpp:23 [backend fallback]\nFuncTorchBatched: registered at /pytorch/aten/src/ATen/functorch/LegacyBatchingRegistrations.cpp:731 [backend fallback]\nBatchedNestedTensor: registered at /pytorch/aten/src/ATen/functorch/LegacyBatchingRegistrations.cpp:758 [backend fallback]\nFuncTorchVmapMode: fallthrough registered at /pytorch/aten/src/ATen/functorch/VmapModeRegistrations.cpp:27 [backend fallback]\nBatched: registered at /pytorch/aten/src/ATen/LegacyBatchingRegistrations.cpp:1075 [backend fallback]\nVmapMode: fallthrough registered at /pytorch/aten/src/ATen/VmapModeRegistrations.cpp:33 [backend fallback]\nFuncTorchGradWrapper: registered at /pytorch/aten/src/ATen/functorch/TensorWrapper.cpp:208 [backend fallback]\nPythonTLSSnapshot: registered at /pytorch/aten/src/ATen/core/PythonFallbackKernel.cpp:202 [backend fallback]\nFuncTorchDynamicLayerFrontMode: registered at /pytorch/aten/src/ATen/functorch/DynamicLayer.cpp:475 [backend fallback]\nPreDispatch: registered at /pytorch/aten/src/ATen/core/PythonFallbackKernel.cpp:206 [backend fallback]\nPythonDispatcher: registered at /pytorch/aten/src/ATen/core/PythonFallbackKernel.cpp:198 [backend fallback]\n",
+  "candidate_vendor_operators": [
+    "aten._dyn_quant_matmul_4bit",
+    "aten._weight_int8pack_mm",
+    "aten.matmul",
+    "comfy_kitchen.dequantize_int8_convrot_weight",
+    "comfy_kitchen.dequantize_int8_convrot_weight_dtype",
+    "comfy_kitchen.dequantize_int8_embedding",
+    "comfy_kitchen.dequantize_int8_simple",
+    "comfy_kitchen.dequantize_int8_simple_dtype",
+    "comfy_kitchen.int8_attention",
+    "comfy_kitchen.int8_attention_masked",
+    "comfy_kitchen.int8_linear",
+    "comfy_kitchen.quantize_int8_convrot_weight",
+    "comfy_kitchen.quantize_int8_rowwise",
+    "comfy_kitchen.quantize_int8_tensorwise",
+    "iFormer.ops.fused_add_gemma_rms_norm",
+    "iFormer.ops.gemma_rms_norm",
+    "iFormer.ops.gptq_gemm",
+    "iFormer.ops.gptq_gemm_check",
+    "iFormer.ops.gptq_gemm_legacy"
+  ],
+  "registered_backends": {
+    "eager": {
+      "available": true,
+      "disabled": false,
+      "unavailable_reason": null,
+      "capabilities": [
+        "adaln",
+        "apply_rope",
+        "apply_rope1",
+        "apply_rope1_",
+        "apply_rope_",
+        "apply_rope_split_half",
+        "apply_rope_split_half1",
+        "apply_rope_split_half1_",
+        "apply_rope_split_half_",
+        "convrot_w4a4_linear",
+        "dequantize_convrot_w4a4_weight",
+        "dequantize_int8_convrot_weight",
+        "dequantize_int8_convrot_weight_dtype",
+        "dequantize_int8_embedding",
+        "dequantize_int8_simple",
+        "dequantize_int8_simple_dtype",
+        "dequantize_mxfp8",
+        "dequantize_nvfp4",
+        "dequantize_per_tensor_fp8",
+        "dequantize_w4a8_int8_weight",
+        "gemv_awq_w4a16",
+        "int8_linear",
+        "na3d",
+        "prepare_int4_weight_for_int8_linear",
+        "quantize_and_rotate_rowwise",
+        "quantize_convrot_w4a4_weight",
+        "quantize_int8_convrot_weight",
+        "quantize_int8_rowwise",
+        "quantize_int8_tensorwise",
+        "quantize_mxfp8",
+        "quantize_nvfp4",
+        "quantize_per_tensor_fp8",
+        "quantize_svdquant_w4a4",
+        "quantize_w4a8_int8_weight",
+        "rms_adaln",
+        "rms_rope",
+        "rms_rope1",
+        "rms_rope1_",
+        "rms_rope_",
+        "rms_rope_split_half",
+        "rms_rope_split_half1",
+        "rms_rope_split_half1_",
+        "rms_rope_split_half_",
+        "rotate_int8_convrot_weight",
+        "scaled_mm_mxfp8",
+        "scaled_mm_nvfp4",
+        "scaled_mm_svdquant_w4a4",
+        "sol_attn",
+        "stochastic_rounding_fp8",
+        "w4a8_int8_linear"
+      ]
+    },
+    "cuda": {
+      "available": false,
+      "disabled": false,
+      "unavailable_reason": "Extension file not found: /kitchen/comfy_kitchen/backends/cuda/_C.abi3.so",
+      "capabilities": []
+    },
+    "hip": {
+      "available": false,
+      "disabled": false,
+      "unavailable_reason": "PyTorch ROCm/HIP runtime not available",
+      "capabilities": []
+    },
+    "triton": {
+      "available": false,
+      "disabled": false,
+      "unavailable_reason": "Neither CUDA nor XPU available on this system",
+      "capabilities": []
+    }
+  },
+  "selected_backend": "eager",
+  "implementation": "comfy_kitchen.backends.eager.w4a8_int8.w4a8_int8_linear",
+  "wall_s": 0.4858196899294853,
+  "output_device": "fant:0",
+  "finite": true,
+  "relative_l2": 0.0,
+  "native_gate_passed": false,
+  "gate_reason": "no native Fantasy W4A8/INT8 dispatch is proven"
+}

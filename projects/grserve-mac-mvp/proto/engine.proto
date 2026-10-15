@@ -1,0 +1,149 @@
+syntax = "proto3";
+
+package grserve.rpc.v1;
+
+message ProtocolVersion {
+  uint32 major = 1;
+  uint32 minor = 2;
+}
+
+enum ErrorCode {
+  ERROR_CODE_UNSPECIFIED = 0;
+  ERROR_CODE_INVALID_ARGUMENT = 1;
+  ERROR_CODE_INCOMPATIBLE_VERSION = 2;
+  ERROR_CODE_UNSUPPORTED_CAPABILITY = 3;
+  ERROR_CODE_RESOURCE_EXHAUSTED = 4;
+  ERROR_CODE_DEADLINE_EXCEEDED = 5;
+  ERROR_CODE_RANK_FAILURE = 6;
+  ERROR_CODE_REPLICA_FATAL = 7;
+  ERROR_CODE_INTERNAL = 8;
+}
+
+message RpcError {
+  ErrorCode code = 1;
+  string message = 2;
+  string request_id = 3;
+  string transaction_id = 4;
+  bool retryable = 5;
+}
+
+message HealthRequest {}
+
+enum ReplicaState {
+  REPLICA_STATE_UNSPECIFIED = 0;
+  REPLICA_STATE_STARTING = 1;
+  REPLICA_STATE_HEALTHY = 2;
+  REPLICA_STATE_FATAL = 3;
+  REPLICA_STATE_STOPPING = 4;
+}
+
+message HealthResponse {
+  string engine_build_id = 1;
+  bool accepting_requests = 2;
+  ReplicaState replica_state = 3;
+  RpcError fatal_error = 4;
+}
+
+message ListModelsRequest {}
+
+message ModelInfo {
+  string id = 1;
+  string manifest_sha256 = 2;
+  uint32 max_context_tokens = 3;
+}
+
+message ListModelsResponse {
+  repeated ModelInfo models = 1;
+}
+
+enum DecodeMode {
+  DECODE_MODE_UNSPECIFIED = 0;
+  DECODE_MODE_GREEDY = 1;
+}
+
+message CompletionRequest {
+  string request_id = 1;
+  string model_id = 2;
+  repeated uint32 prompt_token_ids = 3 [packed = true];
+  uint32 max_tokens = 4;
+  uint64 timeout_ms = 5;
+  DecodeMode decode_mode = 6;
+}
+
+enum CancelReason {
+  CANCEL_REASON_UNSPECIFIED = 0;
+  CANCEL_REASON_CLIENT_DISCONNECTED = 1;
+  CANCEL_REASON_DEADLINE = 2;
+  CANCEL_REASON_SERVER_SHUTDOWN = 3;
+}
+
+message CancelRequest {
+  string request_id = 1;
+  CancelReason reason = 2;
+}
+
+message CompletionAccepted {
+  string request_id = 1;
+}
+
+message TokenEvent {
+  string request_id = 1;
+  string transaction_id = 2;
+  uint64 sequence_number = 3;
+  uint32 token_id = 4;
+}
+
+message Usage {
+  uint32 prompt_tokens = 1;
+  uint32 completion_tokens = 2;
+  uint32 total_tokens = 3;
+}
+
+enum FinishReason {
+  FINISH_REASON_UNSPECIFIED = 0;
+  FINISH_REASON_LENGTH = 1;
+  FINISH_REASON_CANCELLED = 2;
+}
+
+message CompletionFinished {
+  string request_id = 1;
+  FinishReason finish_reason = 2;
+  Usage usage = 3;
+  uint64 last_sequence_number = 4;
+}
+
+enum CancelDisposition {
+  CANCEL_DISPOSITION_UNSPECIFIED = 0;
+  CANCEL_DISPOSITION_ABORTED_BEFORE_DECISION = 1;
+  CANCEL_DISPOSITION_COMMITTING_DETACHED = 2;
+  CANCEL_DISPOSITION_ALREADY_TERMINAL = 3;
+  CANCEL_DISPOSITION_NOT_FOUND = 4;
+}
+
+message CancelAck {
+  string request_id = 1;
+  CancelDisposition disposition = 2;
+}
+
+message ClientEnvelope {
+  ProtocolVersion protocol_version = 1;
+  oneof payload {
+    HealthRequest health = 10;
+    ListModelsRequest list_models = 11;
+    CompletionRequest completion = 12;
+    CancelRequest cancel = 13;
+  }
+}
+
+message ServerEnvelope {
+  ProtocolVersion protocol_version = 1;
+  oneof payload {
+    HealthResponse health = 10;
+    ListModelsResponse list_models = 11;
+    CompletionAccepted accepted = 12;
+    TokenEvent token = 13;
+    CompletionFinished finished = 14;
+    CancelAck cancel_ack = 15;
+    RpcError error = 16;
+  }
+}

@@ -1,0 +1,20 @@
+--- a/python/sglang/srt/layers/attention/torch_native_backend.py
++++ b/python/sglang/srt/layers/attention/torch_native_backend.py
+@@ -101,6 +101,17 @@
+         assert seq_lens.shape[0] == extend_prefix_lens.shape[0]
+         assert seq_lens.shape[0] == extend_seq_lens.shape[0]
+ 
++        if not hasattr(self, "_fant_metadata_debug_emitted"):
++            print(
++                "FANT_TORCH_NATIVE_EXTEND_METADATA",
++                f"query_shape={tuple(query.shape)}",
++                f"seq_lens={seq_lens.detach().cpu().tolist()}",
++                f"extend_prefix_lens={extend_prefix_lens.detach().cpu().tolist()}",
++                f"extend_seq_lens={extend_seq_lens.detach().cpu().tolist()}",
++                flush=True,
++            )
++            self._fant_metadata_debug_emitted = True
++
+         # [num_tokens, num_heads, head_size] -> [num_heads, num_tokens, head_size]
+         query = query.movedim(0, query.dim() - 2)
+ 

@@ -1,0 +1,23 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+node_modules/
+build/
+build-*/
+artifacts/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+projects/grserve-mac-mvp/third_party/
+projects/qwen-image21-omni-fant/vendor/
+# Real checkpoints are external; the tiny GRServe fixture is intentionally kept.
+*.safetensors
+*.pt
+*.pth

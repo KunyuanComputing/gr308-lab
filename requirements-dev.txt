@@ -1,0 +1,2 @@
+# CPU-only package checks; individual projects retain their own manifests.
+pytest>=8,<9

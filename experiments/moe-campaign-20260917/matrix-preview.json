@@ -1,0 +1,293 @@
+{
+  "35b": [
+    {
+      "lane": "35b",
+      "model": "Qwen3.6-35B-A3B",
+      "devices": [
+        0,
+        1
+      ],
+      "cpus": "0-15",
+      "port": 22200,
+      "tp": 2,
+      "context": 4096,
+      "max_seqs": 32,
+      "batch_tokens": 4096,
+      "graphs": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "block": 1088,
+      "kv_gib": null,
+      "async_scheduling": false,
+      "language_model_only": true,
+      "mtp": 4,
+      "input_tokens": 3072,
+      "output_tokens": 1024,
+      "name": "a-baseline-c32",
+      "concurrencies": [
+        32
+      ],
+      "moe_mapping": "auto backend; current D baseline with true C32"
+    },
+    {
+      "lane": "35b",
+      "model": "Qwen3.6-35B-A3B",
+      "devices": [
+        0,
+        1
+      ],
+      "cpus": "0-15",
+      "port": 22200,
+      "tp": 2,
+      "context": 4096,
+      "max_seqs": 32,
+      "batch_tokens": 4096,
+      "graphs": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "block": 1088,
+      "kv_gib": null,
+      "async_scheduling": false,
+      "language_model_only": true,
+      "mtp": 4,
+      "input_tokens": 3072,
+      "output_tokens": 1024,
+      "name": "b-triton-grouped-fused",
+      "concurrencies": [
+        16,
+        32
+      ],
+      "moe_backend": "triton",
+      "performance_mode": "throughput",
+      "moe_mapping": "Triton FusedMoEKernel; expert token grouping/sorting and fused expert execution"
+    },
+    {
+      "lane": "35b",
+      "model": "Qwen3.6-35B-A3B",
+      "devices": [
+        0,
+        1
+      ],
+      "cpus": "0-15",
+      "port": 22200,
+      "tp": 2,
+      "context": 4096,
+      "max_seqs": 32,
+      "batch_tokens": 4096,
+      "graphs": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "block": 1088,
+      "kv_gib": null,
+      "async_scheduling": false,
+      "language_model_only": true,
+      "mtp": 4,
+      "input_tokens": 3072,
+      "output_tokens": 1024,
+      "name": "c-ep2-round-robin",
+      "concurrencies": [
+        16,
+        32
+      ],
+      "moe_backend": "triton",
+      "performance_mode": "throughput",
+      "expert_parallel": true,
+      "expert_placement": "round_robin",
+      "moe_mapping": "EP2 across TP2 ranks; Triton fused experts; round-robin expert placement"
+    }
+  ],
+  "30b": [
+    {
+      "lane": "30b",
+      "model": "Qwen3-30B-A3B",
+      "devices": [
+        2,
+        3
+      ],
+      "cpus": "16-31",
+      "port": 22210,
+      "tp": 2,
+      "context": 4096,
+      "max_seqs": 32,
+      "batch_tokens": 4096,
+      "graphs": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "block": 800,
+      "kv_gib": 8,
+      "async_scheduling": true,
+      "language_model_only": false,
+      "mtp": 0,
+      "input_tokens": 3072,
+      "output_tokens": 1024,
+      "name": "a-baseline-c32",
+      "concurrencies": [
+        32
+      ],
+      "moe_mapping": "auto backend; current best with true C32"
+    },
+    {
+      "lane": "30b",
+      "model": "Qwen3-30B-A3B",
+      "devices": [
+        2,
+        3
+      ],
+      "cpus": "16-31",
+      "port": 22210,
+      "tp": 2,
+      "context": 4096,
+      "max_seqs": 32,
+      "batch_tokens": 4096,
+      "graphs": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "block": 800,
+      "kv_gib": 8,
+      "async_scheduling": true,
+      "language_model_only": false,
+      "mtp": 0,
+      "input_tokens": 3072,
+      "output_tokens": 1024,
+      "name": "b-triton-grouped",
+      "concurrencies": [
+        16,
+        32
+      ],
+      "moe_backend": "triton",
+      "performance_mode": "throughput",
+      "moe_mapping": "Triton FusedMoEKernel with expert token grouping/sorting"
+    }
+  ],
+  "80b": [
+    {
+      "lane": "80b",
+      "model": "Qwen3-Next-80B-A3B-Instruct",
+      "devices": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "cpus": "32-63",
+      "port": 22220,
+      "tp": 4,
+      "context": 4096,
+      "max_seqs": 16,
+      "batch_tokens": 2048,
+      "graphs": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "block": 1088,
+      "kv_gib": 8,
+      "async_scheduling": false,
+      "language_model_only": false,
+      "input_tokens": 1024,
+      "output_tokens": 1024,
+      "name": "a-mtp2",
+      "mtp": 2,
+      "concurrencies": [
+        1,
+        16
+      ],
+      "moe_mapping": "TP4; isolate MTP2"
+    },
+    {
+      "lane": "80b",
+      "model": "Qwen3-Next-80B-A3B-Instruct",
+      "devices": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "cpus": "32-63",
+      "port": 22220,
+      "tp": 4,
+      "context": 4096,
+      "max_seqs": 16,
+      "batch_tokens": 2048,
+      "graphs": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "block": 1088,
+      "kv_gib": 8,
+      "async_scheduling": false,
+      "language_model_only": false,
+      "input_tokens": 1024,
+      "output_tokens": 1024,
+      "name": "b-mtp3",
+      "mtp": 3,
+      "concurrencies": [
+        1,
+        16
+      ],
+      "moe_mapping": "TP4; isolate MTP3"
+    },
+    {
+      "lane": "80b",
+      "model": "Qwen3-Next-80B-A3B-Instruct",
+      "devices": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "cpus": "32-63",
+      "port": 22220,
+      "tp": 2,
+      "context": 4096,
+      "max_seqs": 16,
+      "batch_tokens": 2048,
+      "graphs": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "block": 1088,
+      "kv_gib": 8,
+      "async_scheduling": false,
+      "language_model_only": false,
+      "input_tokens": 1024,
+      "output_tokens": 1024,
+      "name": "c-tp2-ep2",
+      "dp": 2,
+      "mtp": 1,
+      "expert_parallel": true,
+      "expert_placement": "round_robin",
+      "concurrencies": [
+        1,
+        16
+      ],
+      "moe_mapping": "TP2 x DP2, EP across TP*DP=4 ranks; MTP1 for matched isolation"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+--- a/python/sglang/srt/layers/attention/linear/gdn_backend.py
++++ b/python/sglang/srt/layers/attention/linear/gdn_backend.py
+@@ -710,5 +710,11 @@
+         assert isinstance(mixed_qkv, torch.Tensor)
+         seq_len = mixed_qkv.shape[0]
+ 
++        if os.getenv("SGLANG_FANT_GDN_STAGE_DEBUG") == "1":
++            import sglang.kernels.ops.attention.fla.chunk as chunk_module
++
++            chunk_module._fant_seq_lens_debug = forward_batch.seq_lens
++            chunk_module._fant_debug_stage("gdn_extend_entry")
++
+         if _is_hip and seq_len == 0:
+             return mixed_qkv.new_zeros((1, 0, layer.num_v_heads, layer.head_v_dim))
+@@ -789,5 +795,8 @@
+                 query_start_loc=query_start_loc,
+                 seq_lens_cpu=forward_batch.extend_seq_lens_cpu,
+             ).transpose(0, 1)[:seq_len]
++            if os.getenv("SGLANG_FANT_GDN_STAGE_DEBUG") == "1":
++                chunk_module._fant_debug_stage("after_causal_conv")
++
+ 
+         actual_seq_len = mixed_qkv.shape[0]

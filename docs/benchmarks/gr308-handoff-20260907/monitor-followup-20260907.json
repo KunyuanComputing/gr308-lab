@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "date_local": "2026-09-07",
+  "timezone": "Asia/Shanghai",
+  "observation_order": "After handoff-live-snapshot-20260907.json; exact second was not captured by these two commands.",
+  "read_only": true,
+  "monitor_command": "sudo -n systemctl show monitor_server.service --property=ActiveState,SubState,MainPID,NRestarts,UnitFileState",
+  "monitor_stdout": "MainPID=2953364\nNRestarts=3284\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+  "prior_snapshot_nrestarts": 3278,
+  "later_nrestarts": 3284,
+  "restart_delta": 6,
+  "converter_command": "sudo -n docker top glm53-gptq-convert -eo pid,comm",
+  "converter_processes": [
+    {"pid": 1551821, "comm": "bash"},
+    {"pid": 1552038, "comm": "python"},
+    {"pid": 1552039, "comm": "tee"}
+  ],
+  "conversion_progress_verified": false,
+  "production_modified": false,
+  "sensitive_service_logs_collected": false
+}

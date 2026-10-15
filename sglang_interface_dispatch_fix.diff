@@ -1,0 +1,26 @@
+diff --git a/python/sglang/srt/platforms/interface.py b/python/sglang/srt/platforms/interface.py
+--- a/python/sglang/srt/platforms/interface.py
++++ b/python/sglang/srt/platforms/interface.py
+@@ -142,15 +142,15 @@ class SRTPlatform(DeviceMixin):
+         (``sglang.kernels.fused_op``).
+ 
+         Determines which ``forward_<key>()`` method is selected on an
+-    def get_torch_library_dispatch_key(self) -> str:
+-        """Return the ``torch.library`` key used by an OOT device backend.
+-
+-        This is separate from the fused-op method suffix above.
+-        """
+-        raise NotImplementedError
+-
+         out-of-tree platform. E.g. "cuda", "npu", "hip", "xpu", "cpu".
+         Forwards registered via ``BaseFusedOp.register_oot_forward`` with
+         this key take precedence over the method lookup.
+         """
+         return "native"
++
++    def get_torch_library_dispatch_key(self) -> str:
++        """Return the ``torch.library`` key used by an OOT device backend.
++
++        This is separate from the fused-op method suffix above.
++        """
++        raise NotImplementedError

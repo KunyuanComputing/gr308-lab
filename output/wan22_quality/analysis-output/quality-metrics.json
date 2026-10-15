@@ -1,0 +1,67 @@
+{
+  "comparison": {
+    "unit": "single generated frame from one prompt and one seed",
+    "shape_hwc": [
+      704,
+      1280,
+      3
+    ],
+    "mae_0_255": 38.503708718039775,
+    "mse_0_255": 2441.5189408735796,
+    "psnr_db": 14.254202630546613,
+    "ssim_rgb_mean": 0.5996327479027462,
+    "ssim_rgb_channels": [
+      0.433176538502385,
+      0.6701090505268419,
+      0.695612654679012
+    ],
+    "ssim_luma": 0.7018842775052928,
+    "pixel_abs_error_p50": 30.0,
+    "pixel_abs_error_p95": 103.0,
+    "pixel_abs_error_max": 170.0
+  },
+  "fp32_baseline": {
+    "rgb_mean": [
+      64.43696843927557,
+      169.74375998757102,
+      218.18598854758523
+    ],
+    "rgb_std": [
+      67.31730360455245,
+      58.55538263173762,
+      49.69717070934673
+    ],
+    "luma_mean": 150.85306500643634,
+    "luma_std": 56.58599464103011,
+    "luma_entropy_bits": 7.3149365493457115,
+    "laplacian_variance": 237.95309505005088,
+    "dark_clipping_pct": 11.65390477035985,
+    "bright_clipping_pct": 11.682017933238637,
+    "row_mean_step_abs": 3.495322618020982,
+    "vertical_neighbor_abs": 4.555391180432076,
+    "horizontal_neighbor_abs": 1.2220458101588605,
+    "vertical_horizontal_gradient_ratio": 3.7276762806787866
+  },
+  "fp16_decode": {
+    "rgb_mean": [
+      109.55884676846591,
+      163.03032781427558,
+      179.9466297496449
+    ],
+    "rgb_std": [
+      59.78173963411353,
+      45.62394136197995,
+      41.69584367347886
+    ],
+    "luma_mean": 152.88364794367004,
+    "luma_std": 45.8343554216623,
+    "luma_entropy_bits": 7.281540897715725,
+    "laplacian_variance": 264.6372252607181,
+    "dark_clipping_pct": 1.0905317826704546,
+    "bright_clipping_pct": 0.009099786931818182,
+    "row_mean_step_abs": 1.4387449413229014,
+    "vertical_neighbor_abs": 2.987162832503555,
+    "horizontal_neighbor_abs": 2.4045011912271668,
+    "vertical_horizontal_gradient_ratio": 1.242321211319101
+  }
+}

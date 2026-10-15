@@ -1,0 +1,188 @@
+[
+  {
+    "name": "archive_loader_evidence.py",
+    "expected_sha256": "a79fa64091491ef725ac2f77c4f3af007e21926498681dcd194727889dda892f",
+    "bytes": 3337,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/archive_loader_evidence.py"
+  },
+  {
+    "name": "build_fantasy_offload_overlay.py",
+    "expected_sha256": "721b8b4dd9065485a8361ef33be610d06a79fb88a4925ade3b9cbfb304fdf988",
+    "bytes": 2378,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/build_fantasy_offload_overlay.py"
+  },
+  {
+    "name": "collect_loader_final_health.py",
+    "expected_sha256": "b3f548172b3dd1a2d430b324b3ecacb3a5d81862f51acb1471eab2d9a773c359",
+    "bytes": 1330,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/collect_loader_final_health.py"
+  },
+  {
+    "name": "derive_h3_results.py",
+    "expected_sha256": "a9a5469ba77408c19381ee7969c1aeb7efe39f7ff87e2cd234478b6e874678a0",
+    "bytes": 2111,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/derive_h3_results.py"
+  },
+  {
+    "name": "derive_loader_progress.py",
+    "expected_sha256": "eff45bd916cec302a69ed2ac36f494d6f0db38648209c59ccf87dd1e369ff429",
+    "bytes": 4207,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/derive_loader_progress.py"
+  },
+  {
+    "name": "derive_runtime_progress.py",
+    "expected_sha256": "0c04791601d0711892a546e22ed5758388004bd72d9361f1d40acd3f868d8e57",
+    "bytes": 3922,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/derive_runtime_progress.py"
+  },
+  {
+    "name": "download_h3.py",
+    "expected_sha256": "b008cfaa2a1774951891783fc3ed610efb949a272059f3573e230d6416d4ddcb",
+    "bytes": 1020,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/download_h3.py"
+  },
+  {
+    "name": "download_h3_config.py",
+    "expected_sha256": "df490ce97eb496f99c0a7e7ff4056afdcc998226a18b78fb96f6ca044d47f4e1",
+    "bytes": 735,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/download_h3_config.py"
+  },
+  {
+    "name": "fantasy_audio_vae_probe.py",
+    "expected_sha256": "83ec757718a614cbfb34c754459393edd7a549b8a64a1c5c59319de8f166de83",
+    "bytes": 5449,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_audio_vae_probe.py"
+  },
+  {
+    "name": "fantasy_dit_diagnostics.py",
+    "expected_sha256": "834f71ec45d4e520ab7175712873399c72e4585f9b151d7bffa5c167cffc1010",
+    "bytes": 7762,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_dit_diagnostics.py"
+  },
+  {
+    "name": "fantasy_full_dit_probe.py",
+    "expected_sha256": "144609b24e19c11564a36e4b8a32508ddd58dbd49d555b98ce8b9750c745e93a",
+    "bytes": 19574,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_full_dit_probe.py"
+  },
+  {
+    "name": "fantasy_full_encoder_probe.py",
+    "expected_sha256": "4b7ef78efdb229fe84bafd437acddc1a39fbcc87b102a3f89f4e66772c97099c",
+    "bytes": 10574,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_full_encoder_probe.py"
+  },
+  {
+    "name": "fantasy_layerwise_offload.py",
+    "expected_sha256": "8ee877f9659842979ba3cd885f6c12bb525e8660778a350bc2a72a440d11860e",
+    "bytes": 97614,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_layerwise_offload.py"
+  },
+  {
+    "name": "fantasy_loader_offload_probe.py",
+    "expected_sha256": "c24b3156a73439b26f9c93075e926358add5e4e65a7b8bae8a3bbfa70c1d4a26",
+    "bytes": 10688,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_loader_offload_probe.py"
+  },
+  {
+    "name": "fantasy_parameter_bridge.py",
+    "expected_sha256": "2a9f56d499f17d65018847b67bce6a4473cd6b6f7b9deb8370929ea2fe9f644f",
+    "bytes": 1025,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_parameter_bridge.py"
+  },
+  {
+    "name": "fantasy_platform.py",
+    "expected_sha256": "c9d75eb9dd6cacf1b2cb01d4bc1fffd811ec0b73a546e5bb17b3a7434dc5f0c5",
+    "bytes": 3997,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_platform.py"
+  },
+  {
+    "name": "fantasy_platform_smoke.py",
+    "expected_sha256": "c2c5646937ae0a7f032ea98eee9c2b33413236ff6ee5dad2d8dadef676a79ddd",
+    "bytes": 5603,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_platform_smoke.py"
+  },
+  {
+    "name": "fantasy_quant_compat.py",
+    "expected_sha256": "22aab9f1f3ccdc595ac190fc89e0cb42dd94a4642d32daeb504cda3f1c3becb5",
+    "bytes": 1965,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_quant_compat.py"
+  },
+  {
+    "name": "fantasy_sdpa_precision.py",
+    "expected_sha256": "4ad3eed7047a6af4e2264890480b683e195c0779ea82f712037d220de27fc191",
+    "bytes": 1393,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/fantasy_sdpa_precision.py"
+  },
+  {
+    "name": "finalize_encoder_evidence.py",
+    "expected_sha256": "17794dac58e06465f377f54d406c8f6d59a89ffaa6a4bf22fc7ee8b710c4cc7f",
+    "bytes": 2185,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/finalize_encoder_evidence.py"
+  },
+  {
+    "name": "preflight.py",
+    "expected_sha256": "aa8e1e3e8185fd72d32ca753e313ccd0f477557aa526bb5133f7b6ba22434ac9",
+    "bytes": 3287,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/preflight.py"
+  },
+  {
+    "name": "run_device_preflight.py",
+    "expected_sha256": "a2b7e3bf44debd3693416cbd005e70919e12f953053f5f162373549258c88bd7",
+    "bytes": 5150,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/run_device_preflight.py"
+  },
+  {
+    "name": "runtime_gate.py",
+    "expected_sha256": "46e8e4b955200a139fa1fde0c8116510b376f08ee1093b6c8b565a43c62c855e",
+    "bytes": 976,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/runtime_gate.py"
+  },
+  {
+    "name": "test_download_h3.py",
+    "expected_sha256": "6a878b221ee94392efc26d203aa476982fdc86482e58236bcf8cbb26c8980791",
+    "bytes": 1625,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/test_download_h3.py"
+  },
+  {
+    "name": "test_download_h3_config.py",
+    "expected_sha256": "03f2778abd30dc406646174b9ba562e7b70e3e8dba8d549408e668428fcf90ad",
+    "bytes": 1045,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/test_download_h3_config.py"
+  },
+  {
+    "name": "test_fantasy_offload_overlay.py",
+    "expected_sha256": "556c7c1baeca95160b9d19b6043bc6b4bb03cebeb66f2d7203b3508add4f99cd",
+    "bytes": 1339,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/test_fantasy_offload_overlay.py"
+  },
+  {
+    "name": "test_fantasy_quant_compat.py",
+    "expected_sha256": "f9e09d4d46813aad92797728fb97f8f6413b9f47e2145a2e5f5b03e3505d0cb0",
+    "bytes": 1754,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/test_fantasy_quant_compat.py"
+  },
+  {
+    "name": "test_fantasy_registry.py",
+    "expected_sha256": "a1c79331c41a8234e2ebe82926189a02ba3175b1a4be3210aeae6eadfb270b2e",
+    "bytes": 659,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/test_fantasy_registry.py"
+  },
+  {
+    "name": "test_fantasy_sdpa_precision.py",
+    "expected_sha256": "c5de9b35e13159cc45aabf42518d25f76038fca90558ae8f13f3e01ea83ff905",
+    "bytes": 2878,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/test_fantasy_sdpa_precision.py"
+  },
+  {
+    "name": "test_preflight.py",
+    "expected_sha256": "2f9349f9ef5af8035b556bd794d256117658a5d29d6a6512d840bef2d92f7bf8",
+    "bytes": 1610,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/test_preflight.py"
+  },
+  {
+    "name": "test_run_capability_probe.py",
+    "expected_sha256": "8b6d84c674d9904a0e84ce2516aee0d79ea936ab7bce3d14ada02d7f4c02ff3a",
+    "bytes": 2419,
+    "remote_path": "/data/infra/benchmarks/gr308-h3-20260905/test_run_capability_probe.py"
+  }
+]

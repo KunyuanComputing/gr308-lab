@@ -1,0 +1,37 @@
+--- a/src/sglang_fant_platform/fla.py
++++ b/src/sglang_fant_platform/fla.py
+@@ -8,5 +8,7 @@
+ 
+ import torch
+ 
++_debug_emitted = False
++
+ 
+ def chunk_gated_delta_rule_fwd_h(
+@@ -31,4 +33,6 @@
+     the vendor-optimized kernel used by the factory vLLM image.
+     """
++    global _debug_emitted
++
+     if gk is not None or use_exp2:
+         raise NotImplementedError("Fantasy vendor GDN supports scalar g only")
+@@ -98,6 +102,20 @@
+         dtype=torch.float32,
+         device=k.device,
+     )
++
++    if not _debug_emitted:
++        print(
++            "FANT_GDN_ADAPTER_METADATA",
++            f"k={tuple(k.shape)}:{k.dtype}",
++            f"w={tuple(w.shape)}:{w.dtype}",
++            f"u={tuple(u.shape)}:{u.dtype}",
++            f"g={None if g is None else (tuple(g.shape), g.dtype)}",
++            f"initial_state={None if initial_state is None else (tuple(initial_state.shape), initial_state.dtype)}",
++            f"indices={None if initial_state_indices is None else initial_state_indices.detach().cpu().tolist()}",
++            f"cu={sequence_starts.detach().cpu().tolist()}",
++            flush=True,
++        )
++        _debug_emitted = True
+ 
+     chunk_gated_delta_rule_fwd_h_impl(

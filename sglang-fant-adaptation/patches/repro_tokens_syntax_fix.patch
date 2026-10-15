@@ -1,0 +1,5 @@
+--- a/repro_chunk_delta_h_fant.py
++++ b/repro_chunk_delta_h_fant.py
+@@ -37,1 +37,1 @@
+-    batch, key_heads, value_heads dim = 1, 4, 12, 128
++    batch, key_heads, value_heads, dim = 1, 4, 12, 128

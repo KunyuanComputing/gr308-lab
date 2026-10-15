@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "observed_window_local": "2026-09-07 12:24–12:26 Asia/Shanghai",
+  "last_confirmed_live_snapshot_utc": "2026-09-07T03:11:17.872737+00:00",
+  "read_only_diagnostics": true,
+  "ssh_master_exit_code": 255,
+  "ssh_master_error": "Timeout, server 192.0.2.11 not responding.",
+  "upload_exit_code": 255,
+  "upload_error": "ssh: connect to host 192.0.2.11 port 22: Operation timed out; rsync: unexpected end of file",
+  "tcp22_command": "nc -z -G 3 192.0.2.11 22",
+  "tcp22_exit_code": 1,
+  "route": {"destination": "192.0.2.11", "gateway": "192.0.2.12", "interface": "en0"},
+  "remote_final_handoff_copy_verified": false,
+  "local_artifacts_complete": true,
+  "remote_service_outage_proven": false,
+  "vpn_service_failure_proven": false,
+  "network_configuration_changed": false,
+  "production_modified": false,
+  "new_inference_requests_sent": 0,
+  "cleanup": "Upload processes had already exited on timeout. Only the remaining owned local SSH checksum wait was terminated. The following local tar listing succeeded; it is not a remote checksum success.",
+  "resume": "Restore existing authorized connectivity, verify current service identities/health read-only, then synchronize only the handoff document/support directory and verify HANDOFF_SHA256SUMS. No automatic native benchmark resumption."
+}

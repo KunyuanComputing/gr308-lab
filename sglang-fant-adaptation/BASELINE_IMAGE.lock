@@ -1,0 +1,4 @@
+image=fantasy/vllm:1.1.0.20-py310-ubuntu22.04
+image_id=sha256:a153d4c8890880157e6860908e5f3db75d78d471589222fbdec193a0ab52c5dc
+repo_digest=fantasy/vllm@sha256:a153d4c8890880157e6860908e5f3db75d78d471589222fbdec193a0ab52c5dc
+policy=immutable-baseline-do-not-modify

@@ -1,0 +1,37 @@
+diff --git a/test/srt/configs/test_transformers_config_compat.py b/test/srt/configs/test_transformers_config_compat.py
+new file mode 100644
+index 0000000..b7a16ce
+--- /dev/null
++++ b/test/srt/configs/test_transformers_config_compat.py
+@@ -0,0 +1,13 @@
++# SPDX-License-Identifier: Apache-2.0
++
++import unittest
++
++from transformers.configuration_utils import PretrainedConfig
++
++from sglang.srt.configs.cohere2_moe import Cohere2MoeConfig
++
++
++class TestTransformersConfigCompatibility(unittest.TestCase):
++    def test_cohere2_moe_uses_canonical_config_base(self):
++        self.assertTrue(issubclass(Cohere2MoeConfig, PretrainedConfig))
++
+diff --git a/python/sglang/srt/configs/cohere2_moe.py b/python/sglang/srt/configs/cohere2_moe.py
+index 8d72d5c..be3bc12 100644
+--- a/python/sglang/srt/configs/cohere2_moe.py
++++ b/python/sglang/srt/configs/cohere2_moe.py
+@@ -1,11 +1,11 @@
+ # SPDX-License-Identifier: Apache-2.0
+ """Cohere2Moe text config used by the Cohere Command-A Plus checkpoints."""
+ 
+-from transformers.configuration_utils import PreTrainedConfig
++from transformers.configuration_utils import PretrainedConfig
+ from transformers.models.auto.configuration_auto import CONFIG_MAPPING
+ 
+ 
+-class Cohere2MoeConfig(PreTrainedConfig):
++class Cohere2MoeConfig(PretrainedConfig):
+     model_type = "cohere2_moe"
+     keys_to_ignore_at_inference = ["past_key_values"]
+ 

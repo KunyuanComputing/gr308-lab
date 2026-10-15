@@ -1,0 +1,15 @@
+--- a/repro_chunk_delta_h_fant.py
++++ b/repro_chunk_delta_h_fant.py
+@@ -46,8 +46,10 @@
+         batch, tokens, value_heads, dtype=torch.float32, device=device
+     ).clamp_max_(0)
++    state_rows = int(os.environ.get("SGLANG_FANT_TEST_STATE_ROWS", "1"))
++    state_index = int(os.environ.get("SGLANG_FANT_TEST_STATE_INDEX", "0"))
+     initial_state = torch.zeros(
+-        1, value_heads, dim, dim, dtype=torch.float32, device=device
++        state_rows, value_heads, dim, dim, dtype=torch.float32, device=device
+     )
+-    initial_state_indices = torch.zeros(1, dtype=torch.int64, device=device)
++    initial_state_indices = torch.tensor([state_index], dtype=torch.int64, device=device)
+ 
+     h, v_new = chunk_gated_delta_rule_fwd_h(

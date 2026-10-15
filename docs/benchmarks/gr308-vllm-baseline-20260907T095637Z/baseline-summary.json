@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "vLLM Lane E only; SGLang excluded",
+  "model": "Qwen3.8-27B",
+  "model_served_name": "qwen3.8-27b",
+  "rapid_validated_output_tok_s": {
+    "1": 1.6748404014872633,
+    "8": 11.178461480656365,
+    "16": 20.397280225017436,
+    "32": 32.74698882489697,
+    "64": 47.07062295592847
+  },
+  "formal_validated_output_tok_s": {
+    "1": {
+      "values": [
+        1.6391378701047907,
+        1.6443148976404365,
+        1.6449729111657057
+      ],
+      "n": 3,
+      "mean": 1.6428085596369777,
+      "median": 1.6443148976404365,
+      "sample_std": 0.0031958905927986815,
+      "cv_pct": 0.19453822382718158,
+      "descriptive_t95_ci": [
+        1.6348695272925007,
+        1.6507475919814547
+      ]
+    },
+    "8": {
+      "values": [
+        10.27143203906786,
+        10.300155766268707,
+        10.24285107649687
+      ],
+      "n": 3,
+      "mean": 10.271479627277813,
+      "median": 10.27143203906786,
+      "sample_std": 0.028652374525332917,
+      "cv_pct": 0.27895079934969874,
+      "descriptive_t95_ci": [
+        10.20030318318575,
+        10.342656071369877
+      ]
+    },
+    "16": {
+      "values": [
+        17.781983476692268,
+        17.911116101733143,
+        17.86018060460148
+      ],
+      "n": 3,
+      "mean": 17.851093394342296,
+      "median": 17.86018060460148,
+      "sample_std": 0.06504415235213487,
+      "cv_pct": 0.36437069100064134,
+      "descriptive_t95_ci": [
+        17.68951476254987,
+        18.012672026134723
+      ]
+    },
+    "32": {
+      "values": [
+        26.418081648246176,
+        26.43538765356252,
+        26.45407260122122
+      ],
+      "n": 3,
+      "mean": 26.43584730100997,
+      "median": 26.43538765356252,
+      "sample_std": 0.01799987863417226,
+      "cv_pct": 0.06808890378741361,
+      "descriptive_t95_ci": [
+        26.39113312368633,
+        26.480561478333613
+      ]
+    },
+    "64": {
+      "values": [
+        32.215028193449825,
+        31.982683239236426,
+        32.039818181756225
+      ],
+      "n": 3,
+      "mean": 32.07917653814749,
+      "median": 32.039818181756225,
+      "sample_std": 0.12106962707662547,
+      "cv_pct": 0.37740877460695876,
+      "descriptive_t95_ci": [
+        31.778422911768377,
+        32.37993016452661
+      ]
+    }
+  },
+  "stability": {
+    "main": {
+      "phase": "stability",
+      "repeat": "stability-retry02",
+      "concurrency": 64,
+      "input_tokens": 128,
+      "output_tokens": 64,
+      "requests": 1024,
+      "ok": 1024,
+      "success_rate": 1.0,
+      "duration_s": 1487.362672494,
+      "validated_output_tok_s": 44.06188296369551,
+      "client_rc": 0,
+      "path": "/data/infra/benchmarks/gr308-vllm-baseline-20260907T095637Z/eager/stability-retry02/c64"
+    },
+    "extension": {
+      "phase": "stability-extension",
+      "repeat": "stability-retry02",
+      "concurrency": 64,
+      "input_tokens": 128,
+      "output_tokens": 64,
+      "requests": 512,
+      "ok": 512,
+      "success_rate": 1.0,
+      "duration_s": 738.85012942,
+      "validated_output_tok_s": 44.34999561510938,
+      "client_rc": 0,
+      "path": "/data/infra/benchmarks/gr308-vllm-baseline-20260907T095637Z/eager/stability-retry02/c64"
+    },
+    "combined_requests": 1536,
+    "combined_ok": 1536,
+    "combined_duration_s": 2226.212801914
+  },
+  "request_latency": {
+    "rapid/rapid/1": {
+      "ok": 8,
+      "ttft_ms_p50": 1605.15783,
+      "ttft_ms_p95": 1634.48003195,
+      "tpot_ms_p50": 581.4128800000001,
+      "tpot_ms_p95": 582.3893195,
+      "e2e_ms_p50": 38234.16929,
+      "e2e_ms_p95": 38310.37707975
+    },
+    "rapid/rapid/8": {
+      "ok": 16,
+      "ttft_ms_p50": 5301.204646,
+      "ttft_ms_p95": 5330.573572,
+      "tpot_ms_p50": 643.5601065000001,
+      "tpot_ms_p95": 671.05365625,
+      "e2e_ms_p50": 45799.113728,
+      "e2e_ms_p95": 45855.65293
+    },
+    "rapid/rapid/16": {
+      "ok": 32,
+      "ttft_ms_p50": 10410.6106135,
+      "ttft_ms_p95": 10568.64991705,
+      "tpot_ms_p50": 630.4209595,
+      "tpot_ms_p95": 680.3675552,
+      "e2e_ms_p50": 50148.802660500005,
+      "e2e_ms_p95": 50255.2289335
+    },
+    "rapid/rapid/32": {
+      "ok": 64,
+      "ttft_ms_p50": 19999.050035,
+      "ttft_ms_p95": 21534.799287100002,
+      "tpot_ms_p50": 670.6913850000001,
+      "tpot_ms_p95": 687.0133523000001,
+      "e2e_ms_p50": 62250.163471,
+      "e2e_ms_p95": 63857.81534865
+    },
+    "rapid/rapid/64": {
+      "ok": 128,
+      "ttft_ms_p50": 32996.683722,
+      "ttft_ms_p95": 42954.35191020001,
+      "tpot_ms_p50": 876.425506,
+      "tpot_ms_p95": 998.1873261000001,
+      "e2e_ms_p50": 86695.030547,
+      "e2e_ms_p95": 99399.7560951
+    },
+    "formal/r1-retry01/1": {
+      "ok": 12,
+      "ttft_ms_p50": 2768.371538,
+      "ttft_ms_p95": 2825.09020855,
+      "tpot_ms_p50": 601.7521234999999,
+      "tpot_ms_p95": 603.0235579,
+      "e2e_ms_p50": 156191.3188235,
+      "e2e_ms_p95": 156532.15029085
+    },
+    "formal/r1-retry01/8": {
+      "ok": 16,
+      "ttft_ms_p50": 22809.991536,
+      "ttft_ms_p95": 30081.4299895,
+      "tpot_ms_p50": 688.7336015,
+      "tpot_ms_p95": 744.89953875,
+      "e2e_ms_p50": 198308.53055650002,
+      "e2e_ms_p95": 206491.60542900002
+    },
+    "formal/r1-retry01/16": {
+      "ok": 32,
+      "ttft_ms_p50": 33575.065364,
+      "ttft_ms_p95": 63555.7374472,
+      "tpot_ms_p50": 768.4806965,
+      "tpot_ms_p95": 837.7054048,
+      "e2e_ms_p50": 227981.450667,
+      "e2e_ms_p95": 262871.54768105
+    },
+    "formal/r1-retry01/32": {
+      "ok": 64,
+      "ttft_ms_p50": 45687.8726275,
+      "ttft_ms_p95": 133224.9729085,
+      "tpot_ms_p50": 1063.5827715,
+      "tpot_ms_p95": 1126.07126445,
+      "e2e_ms_p50": 305404.808511,
+      "e2e_ms_p95": 406083.8600128
+    },
+    "formal/r1-retry01/64": {
+      "ok": 128,
+      "ttft_ms_p50": 57258.689858,
+      "ttft_ms_p95": 285912.78791525,
+      "tpot_ms_p50": 1749.6530155,
+      "tpot_ms_p95": 1890.1731289999998,
+      "e2e_ms_p50": 499789.8717255,
+      "e2e_ms_p95": 764288.53612695
+    },
+    "formal/r3/1": {
+      "ok": 12,
+      "ttft_ms_p50": 2780.867685,
+      "ttft_ms_p95": 2876.8355145,
+      "tpot_ms_p50": 599.56894,
+      "tpot_ms_p95": 600.48849295,
+      "e2e_ms_p50": 155704.14778,
+      "e2e_ms_p95": 155942.0554368
+    },
+    "formal/r3/8": {
+      "ok": 16,
+      "ttft_ms_p50": 22868.0029735,
+      "ttft_ms_p95": 30166.57095325,
+      "tpot_ms_p50": 687.075012,
+      "tpot_ms_p95": 742.6858829999999,
+      "e2e_ms_p50": 197837.0294775,
+      "e2e_ms_p95": 206140.30568825
+    },
+    "formal/r3/16": {
+      "ok": 32,
+      "ttft_ms_p50": 32674.643408000004,
+      "ttft_ms_p95": 63322.63354355001,
+      "tpot_ms_p50": 757.2268685,
+      "tpot_ms_p95": 845.456314,
+      "e2e_ms_p50": 226533.9342215,
+      "e2e_ms_p95": 262003.3142767
+    },
+    "formal/r3/32": {
+      "ok": 64,
+      "ttft_ms_p50": 46067.2778015,
+      "ttft_ms_p95": 133196.80439755,
+      "tpot_ms_p50": 1060.1609615,
+      "tpot_ms_p95": 1126.19004825,
+      "e2e_ms_p50": 305973.414254,
+      "e2e_ms_p95": 405860.8617391
+    },
+    "formal/r3/64": {
+      "ok": 128,
+      "ttft_ms_p50": 57948.652767,
+      "ttft_ms_p95": 287544.8401662999,
+      "tpot_ms_p50": 1763.0758535,
+      "tpot_ms_p95": 1908.5191956499998,
+      "e2e_ms_p50": 502916.719116,
+      "e2e_ms_p95": 772510.7781904999
+    },
+    "formal/r5/1": {
+      "ok": 12,
+      "ttft_ms_p50": 2738.827548,
+      "ttft_ms_p95": 2771.0033832999998,
+      "tpot_ms_p50": 599.628132,
+      "tpot_ms_p95": 600.38620685,
+      "e2e_ms_p50": 155649.9399125,
+      "e2e_ms_p95": 155824.53539789998
+    },
+    "formal/r5/8": {
+      "ok": 16,
+      "ttft_ms_p50": 23276.9582895,
+      "ttft_ms_p95": 31791.08299825,
+      "tpot_ms_p50": 688.2598665,
+      "tpot_ms_p95": 722.214849,
+      "e2e_ms_p50": 198953.070003,
+      "e2e_ms_p95": 208090.81491100002
+    },
+    "formal/r5/16": {
+      "ok": 32,
+      "ttft_ms_p50": 32767.839795,
+      "ttft_ms_p95": 63200.991428350004,
+      "tpot_ms_p50": 760.5304305,
+      "tpot_ms_p95": 847.81482215,
+      "e2e_ms_p50": 227171.50784,
+      "e2e_ms_p95": 262867.81556899997
+    },
+    "formal/r5/32": {
+      "ok": 64,
+      "ttft_ms_p50": 45706.592773,
+      "ttft_ms_p95": 133245.73233149998,
+      "tpot_ms_p50": 1059.9382785,
+      "tpot_ms_p95": 1123.8469196,
+      "e2e_ms_p50": 305473.8618245,
+      "e2e_ms_p95": 405475.97406955005
+    },
+    "formal/r5/64": {
+      "ok": 128,
+      "ttft_ms_p50": 57761.474716,
+      "ttft_ms_p95": 287543.14143374993,
+      "tpot_ms_p50": 1760.353549,
+      "tpot_ms_p95": 1901.62673585,
+      "e2e_ms_p50": 502048.7341215,
+      "e2e_ms_p95": 770491.5244087499
+    },
+    "stability/stability-retry02/64": {
+      "ok": 1024,
+      "ttft_ms_p50": 32421.168008499997,
+      "ttft_ms_p95": 40843.202002,
+      "tpot_ms_p50": 914.1870015,
+      "tpot_ms_p95": 1078.3464170500001,
+      "e2e_ms_p50": 93577.85707150001,
+      "e2e_ms_p95": 94407.94952849999
+    },
+    "stability-extension/stability-retry02/64": {
+      "ok": 512,
+      "ttft_ms_p50": 33073.7256265,
+      "ttft_ms_p95": 42456.89207215,
+      "tpot_ms_p50": 914.0213315000001,
+      "tpot_ms_p95": 1087.23868815,
+      "e2e_ms_p50": 93260.13436649999,
+      "e2e_ms_p95": 94637.55812930001
+    }
+  },
+  "correctness_post": {
+    "passed": 12,
+    "total": 12
+  },
+  "excluded_attempts": [
+    {
+      "path": "eager/rapid/c1",
+      "reason": "SSH-interrupted partial; replaced by c1-rerun-01"
+    },
+    {
+      "path": "eager/formal/r1",
+      "reason": "FHCCL/NCCL topology initialization failure; replaced by r1-retry01"
+    },
+    {
+      "path": "eager/stability",
+      "reason": "extension incorrectly skipped because jq was unavailable"
+    },
+    {
+      "path": "eager/stability-retry01",
+      "reason": "FHCCL/NCCL topology initialization failure"
+    }
+  ],
+  "caveats": [
+    "Synthetic fixed-token ignore_eos throughput diagnostic; not a production SLA or quality score.",
+    "Engine-cold means a fresh container and engine process; host page cache and driver state may remain warm.",
+    "Formal confidence intervals are descriptive with n=3 and are not evidence for small performance differences.",
+    "GPU telemetry uses physical representatives 0/2/4/6; sibling functions are not double-counted."
+  ]
+}

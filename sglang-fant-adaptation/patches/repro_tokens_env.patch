@@ -1,0 +1,11 @@
+--- a/repro_chunk_delta_h_fant.py
++++ b/repro_chunk_delta_h_fant.py
+@@ -34,7 +34,8 @@
+ 
+     # Qwen3.8 GDN dimensions after TP=4: 16 key heads / 48 value heads,
+     # each sharded to Hg=4 and H=12; both key/value head dimensions are 128.
+-    batch, tokens, key_heads, value_heads, dim = 1, 64, 4, 12, 128
++    tokens = int(os.environ.get("SGLANG_FANT_TEST_TOKENS", "64"))
++    batch, key_heads, value_heads, dim = 1, 4, 12, 128
+     dtype = torch.bfloat16
+     device = "fant:0"

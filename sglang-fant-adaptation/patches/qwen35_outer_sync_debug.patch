@@ -1,0 +1,14 @@
+--- a/python/sglang/srt/models/qwen3_5.py
++++ b/python/sglang/srt/models/qwen3_5.py
+@@ -1715,5 +1715,11 @@
+         for layer_idx in range(self.start_layer, self.end_layer):
+             layer = self.layers[layer_idx]
+             if layer_idx < 5:
++                if os.getenv("SGLANG_FANT_GDN_STAGE_DEBUG") == "1":
++                    import sglang.kernels.ops.attention.fla.chunk as chunk_module
++
++                    chunk_module._fant_seq_lens_debug = forward_batch.seq_lens
++                    chunk_module._fant_debug_stage(f"outer_before_layer_{layer_idx}")
++
+                 print(
+                     "FANT_QWEN35_LAYER_SEQ_LENS",

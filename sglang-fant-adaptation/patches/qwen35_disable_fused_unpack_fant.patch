@@ -1,0 +1,14 @@
+--- a/python/sglang/srt/models/qwen3_5.py
++++ b/python/sglang/srt/models/qwen3_5.py
+@@ -791,6 +791,10 @@
+             z = None
+             b = projected_states_ba
+             a = projected_states_ba
+-        elif use_fused_contiguous_unpack and not _is_npu:
++        elif (
++            use_fused_contiguous_unpack
++            and not _is_npu
++            and projected_states_qkvz.device.type != "fant"
++        ):
+             if _is_cpu:
+                 num_k_heads_tp = self.num_k_heads // self.attn_tp_size

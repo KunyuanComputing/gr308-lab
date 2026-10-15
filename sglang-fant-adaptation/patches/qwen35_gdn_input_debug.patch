@@ -1,0 +1,28 @@
+--- a/python/sglang/srt/models/qwen3_5.py
++++ b/python/sglang/srt/models/qwen3_5.py
+@@ -768,8 +768,16 @@
+         2. Core attention (custom op)
+         3. Output projection
+         """
++        if os.getenv("SGLANG_FANT_GDN_STAGE_DEBUG") == "1":
++            import sglang.kernels.ops.attention.fla.chunk as chunk_module
++
++            chunk_module._fant_seq_lens_debug = forward_batch.seq_lens
++            chunk_module._fant_debug_stage("qwen_gdn_entry")
++
+         projected_states_qkvz, projected_states_ba = self._forward_input_proj(
+             hidden_states
+         )
++        if os.getenv("SGLANG_FANT_GDN_STAGE_DEBUG") == "1":
++            chunk_module._fant_debug_stage("after_input_proj")
+ 
+         if _is_xpu and get_exec().mamba.linear_attn_backend == "intel_xpu":
+@@ -826,5 +838,8 @@
+             )
+             mixed_qkv = torch.cat((query, key, value), dim=-1)
+ 
++        if os.getenv("SGLANG_FANT_GDN_STAGE_DEBUG") == "1":
++            chunk_module._fant_debug_stage("after_qkv_unpack")
++
+         attn_result = self.attn(
+             forward_batch,

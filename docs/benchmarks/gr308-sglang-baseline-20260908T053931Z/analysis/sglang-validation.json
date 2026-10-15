@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "checks": {
+    "all_client_rc_zero": true,
+    "all_requests_exact": true,
+    "all_summaries_success": true,
+    "formal_three_blocks_each": true,
+    "formal_cv_le_5_pct": true,
+    "comparable_stability_protocol": true,
+    "comparable_stability_1024_of_1024": true,
+    "extension_skipped_only_after_60m": true,
+    "correctness_pre_12_of_12": true,
+    "correctness_post_12_of_12": true,
+    "supplemental_long_context_1024_of_1024": true,
+    "supplemental_post_12_of_12": true,
+    "telemetry_present": true,
+    "owned_container_stopped_cleanly": true
+  },
+  "errors": []
+}

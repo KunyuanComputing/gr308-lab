@@ -1,0 +1,11 @@
+--- a/src/sglang_fant_platform/fant_chunk_delta_h.py
++++ b/src/sglang_fant_platform/fant_chunk_delta_h.py
+@@ -232,7 +232,7 @@
+     v_new = torch.empty_like(u) if save_new_value else None
+ 
+     # GCU hardware limits
+-    major, _ = torch.gcu.get_device_capability("gcu")
++    major, _ = torch.fant.get_device_capability()
+     if major == 3:
+         GCU_NUM_GRID = 24
+     else:

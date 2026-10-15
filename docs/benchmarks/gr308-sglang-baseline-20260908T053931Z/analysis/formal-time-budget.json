@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "basis": "rapid output throughput with 0.70 shape factor",
+  "rapid_output_tokens_per_s": {
+    "1": 2.5733794767209552,
+    "8": 9.503565169293774,
+    "16": 11.907836207495276,
+    "32": 13.306088409476073,
+    "64": 14.34098206120505
+  },
+  "per_concurrency": {
+    "1": {
+      "requests": 12,
+      "estimated_measurement_s": 1705.3728252171431,
+      "reserved_s": 2646.4473902605714
+    },
+    "8": {
+      "requests": 16,
+      "estimated_measurement_s": 615.7087858285714,
+      "reserved_s": 1338.8505429942857
+    },
+    "16": {
+      "requests": 32,
+      "estimated_measurement_s": 982.7862038857144,
+      "reserved_s": 1779.343444662857
+    },
+    "32": {
+      "requests": 64,
+      "estimated_measurement_s": 1759.0229048114288,
+      "reserved_s": 2710.8274857737147
+    },
+    "64": {
+      "requests": 128,
+      "estimated_measurement_s": 3264.1717541828575,
+      "reserved_s": 4517.006105019429
+    }
+  },
+  "repeat_orders": {
+    "r1": [
+      1,
+      8,
+      64,
+      16,
+      32
+    ],
+    "r3": [
+      16,
+      32,
+      8,
+      64,
+      1
+    ],
+    "r5": [
+      64,
+      1,
+      32,
+      8,
+      16
+    ]
+  }
+}

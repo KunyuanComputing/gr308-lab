@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package grserve.model.v1;
+
+message ModelManifest {
+  optional uint32 schema_version = 1;
+  optional string model_id = 2;
+  optional uint32 model_format_version = 3;
+  optional string topology = 4;
+  optional string dtype = 5;
+  optional uint32 vocab_size = 6;
+  optional uint32 hidden_size = 7;
+  optional uint32 max_context_tokens = 8;
+  optional string weight_sha256 = 9;
+  optional uint32 golden_version = 10;
+  optional uint32 hal_abi_major = 11;
+  optional uint32 hal_abi_minor = 12;
+  optional string required_capability = 13;
+}

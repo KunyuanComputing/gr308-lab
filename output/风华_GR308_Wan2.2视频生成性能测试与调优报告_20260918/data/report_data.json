@@ -1,0 +1,180 @@
+{
+  "report_date": "2026-09-18",
+  "model": "Wan2.2-TI2V-5B-Diffusers",
+  "framework": "SGLang Diffusers",
+  "short_workload": {
+    "width": 1280,
+    "height": 704,
+    "requested_frames": 1,
+    "effective_frames": 5,
+    "steps": 3,
+    "seed": 42,
+    "guidance_scale": 5.0,
+    "scheduler": "UniPC",
+    "topology": "TP2 / 2 physical GR308 cards"
+  },
+  "full_workload": {
+    "width": 1280,
+    "height": 704,
+    "frames": 121,
+    "steps": 20,
+    "seed": 42,
+    "guidance_scale": 5.0,
+    "flow_shift": 5.0,
+    "scheduler": "UniPC"
+  },
+  "baseline_repeats": {
+    "total_seconds": [1195.235, 1193.349, 1190.960, 1190.163],
+    "decode_seconds": [1147.835, 1145.528, 1146.278, 1146.206]
+  },
+  "short_results": [
+    {
+      "id": "FP32 baseline",
+      "configuration": "VAE FP32-effective; TP2; VAE CPU offload",
+      "total_seconds": 1190.202,
+      "text_seconds": 20.644,
+      "denoise_seconds": 21.900,
+      "decode_seconds": 1144.412,
+      "peak_allocated_mb": 25178.23,
+      "quality": "reference",
+      "status": "valid"
+    },
+    {
+      "id": "Global FP16",
+      "configuration": "VAE decode FP16; all decoder blocks",
+      "total_seconds": 377.143,
+      "text_seconds": 20.800,
+      "denoise_seconds": 22.056,
+      "decode_seconds": 333.470,
+      "peak_allocated_mb": 27595.00,
+      "quality": "rejected",
+      "status": "performance-valid-quality-invalid"
+    },
+    {
+      "id": "M0",
+      "configuration": "FP16 early path only; 0 up blocks",
+      "total_seconds": 1184.336,
+      "text_seconds": 23.276,
+      "denoise_seconds": 22.221,
+      "decode_seconds": 1138.274,
+      "peak_allocated_mb": 24667.27,
+      "status": "valid"
+    },
+    {
+      "id": "M1",
+      "configuration": "FP16 early path + 1 up block",
+      "total_seconds": 1151.724,
+      "text_seconds": 22.297,
+      "denoise_seconds": 22.036,
+      "decode_seconds": 1106.832,
+      "peak_allocated_mb": 24312.24,
+      "status": "valid"
+    },
+    {
+      "id": "M2",
+      "configuration": "FP16 early path + 2 up blocks",
+      "total_seconds": 1029.457,
+      "text_seconds": 19.360,
+      "denoise_seconds": 21.965,
+      "decode_seconds": 987.540,
+      "peak_allocated_mb": 24068.71,
+      "status": "valid"
+    },
+    {
+      "id": "M3",
+      "configuration": "FP16 early path + 3 up blocks; final stage FP32",
+      "total_seconds": 756.036,
+      "text_seconds": 21.042,
+      "denoise_seconds": 21.973,
+      "decode_seconds": 712.445,
+      "peak_allocated_mb": 22195.20,
+      "quality": "accepted-on-one-frame",
+      "status": "valid"
+    },
+    {
+      "id": "S1",
+      "configuration": "M3 + final block last 1 residual unit FP16",
+      "total_seconds": 710.019,
+      "text_seconds": 19.051,
+      "denoise_seconds": 21.944,
+      "decode_seconds": 668.042,
+      "peak_allocated_mb": 24410.05,
+      "status": "valid"
+    },
+    {
+      "id": "S2",
+      "configuration": "M3 + final block last 2 residual units FP16",
+      "total_seconds": 672.329,
+      "text_seconds": 19.000,
+      "denoise_seconds": 22.051,
+      "decode_seconds": 630.309,
+      "peak_allocated_mb": 24403.30,
+      "quality": "accepted-on-one-frame",
+      "status": "selected-short-test"
+    }
+  ],
+  "quality_results": {
+    "Global FP16": {
+      "psnr_db": 14.2542,
+      "ssim_luma": 0.7019,
+      "ssim_rgb_mean": 0.5996,
+      "mae_0_255": 38.5037,
+      "p95_abs_error": 103.0
+    },
+    "M3": {
+      "psnr_db": 39.3763,
+      "ssim_luma": 0.9745,
+      "ssim_rgb_mean": 0.9624,
+      "mae_0_255": 1.6587,
+      "p95_abs_error": 6.0
+    },
+    "S2": {
+      "psnr_db": 39.3606,
+      "ssim_luma": 0.9743,
+      "ssim_rgb_mean": 0.9617,
+      "mae_0_255": 1.6640,
+      "p95_abs_error": 6.0
+    }
+  },
+  "confirmed_failures": [
+    {
+      "id": "F1/F2 and Wave6 selective Conv3D",
+      "workload": "short 1280x704, effective 5 frames, 3 steps",
+      "failure": "VAE decode HIP OOM while requesting a 5.80 GiB allocation despite about 29-31 GiB reported free",
+      "interpretation": "FP16 high-resolution Conv3D workspace / virtual-address allocation boundary"
+    },
+    {
+      "id": "Full S2 TP2",
+      "workload": "1280x704, 121 frames, 20 steps",
+      "failure": "FANT DMA and firmware semaphore timeout during denoise",
+      "interpretation": "long-sequence distributed execution / firmware synchronization failure"
+    },
+    {
+      "id": "Full S2 SP2",
+      "workload": "1280x704, 121 frames, 20 steps",
+      "failure": "denoise step 0 HIP OOM; 160 MiB requested with about 23.34 GiB reported free",
+      "interpretation": "allocator or address-space failure rather than nominal capacity exhaustion"
+    },
+    {
+      "id": "Full S2 SP4",
+      "workload": "1280x704, 121 frames, 20 steps",
+      "failure": "denoise step 0 HIP OOM; 80 MiB requested with about 23.15 GiB reported free",
+      "interpretation": "greater parallelism reduced request size but did not remove allocator failure"
+    },
+    {
+      "id": "Full SP8 ring",
+      "workload": "1280x704, 121 frames, 20 steps",
+      "failure": "native Diffusers fallback cannot honor sp_degree=8/ring_degree=8; Fantasy adapter permits only Torch SDPA",
+      "interpretation": "software capability boundary before execution"
+    }
+  ],
+  "reference_5090": {
+    "source": "user-provided prior test record",
+    "hardware": "8 x RTX 5090",
+    "workload": "1280x704, 121 frames, 3 steps",
+    "u8_cfg1_seconds": 57.206420,
+    "u4_cfg2_seconds": 37.222211,
+    "speedup": 1.536889,
+    "comparability": "GR308 has no completed result at this workload; do not compute a speed ratio"
+  }
+}

@@ -1,0 +1,7 @@
+-r requirements-dev.txt
+numpy
+scipy
+Pillow
+matplotlib
+reportlab
+pypdf

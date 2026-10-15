@@ -1,0 +1,43 @@
+{
+  "private_host_count": 4,
+  "text_files_changed": [
+    "run_sglang_post.sh",
+    "build_three_baseline_pdf.py",
+    "run_fant_graph_baseline.sh",
+    "projects/gr308-three-card-mtp1-graph32/docs/superpowers/plans/2026-09-07-grserve-mac-mvp.md",
+    "projects/gr308-three-card-mtp1-graph32/docs/superpowers/plans/2026-09-15-qwen36-35b-two-card-tps-tuning.md",
+    "projects/gr308-three-card-mtp1-graph32/docs/superpowers/specs/2026-09-14-gr308-three-card-mtp1-graph32-design.md",
+    "projects/grserve-mac-mvp/tests/python/test_evidence.py",
+    "projects/grserve-mac-mvp/docs/superpowers/plans/2026-09-10-qwen36-vllm-throughput-tuning.md",
+    "projects/grserve-mac-mvp/docs/superpowers/plans/2026-09-07-grserve-mac-mvp.md",
+    "projects/grserve-mac-mvp/docs/superpowers/plans/2026-09-10-grserve-vllm-bridge.md",
+    "projects/grserve-mac-mvp/docs/superpowers/specs/2026-09-10-qwen36-vllm-throughput-tuning-design.md",
+    "projects/grserve-mac-mvp/docs/reports/GRSERVE_MAC_MVP_ACCEPTANCE_ZH.md",
+    "projects/h3-sglang-gr308/docs/benchmarks/gr308-third-party-report-repro-20260910/REPORT_ZH.md",
+    "projects/h3-sglang-gr308/docs/superpowers/plans/2026-09-07-grserve-mac-mvp.md",
+    "projects/h3-sglang-gr308/docs/superpowers/plans/2026-09-10-h3-sglang-gr308.md",
+    "projects/h3-sglang-gr308/docs/superpowers/specs/2026-09-22-h3-sglang-compat-e2e-design.md",
+    "projects/h3-sglang-gr308/docs/superpowers/specs/2026-09-10-h3-sglang-gr308-design.md",
+    "projects/qwen-image21-omni-fant/docs/superpowers/plans/2026-09-07-grserve-mac-mvp.md",
+    "projects/qwen-image21-omni-fant/docs/superpowers/specs/2026-09-14-gr308-three-card-mtp1-graph32-design.md",
+    "docs/QWEN_IMAGE_21_GR308_TEST_20260921.md",
+    "docs/design-history/plans/2026-09-07-grserve-mac-mvp.md",
+    "docs/design-history/plans/2026-09-07-gr308-vllm-baseline.md",
+    "docs/design-history/specs/2026-09-14-gr308-three-card-mtp1-graph32-design.md",
+    "docs/benchmarks/GR308_TEST_HANDOFF_20260907_ZH.md",
+    "docs/benchmarks/gr308-handoff-20260907/local-cpu-regression-513.json",
+    "docs/benchmarks/gr308-handoff-20260907/EVIDENCE_INDEX.json",
+    "docs/benchmarks/gr308-handoff-20260907/network-at-delivery-20260907.json",
+    "docs/benchmarks/gr308-handoff-20260907/README_ZH.md",
+    "sglang-fant-adaptation/remote-src/server_args.py",
+    "sglang-fant-adaptation/scripts/run_sglang_baseline_rapid.sh",
+    "sglang-fant-adaptation/scripts/run_sglang_formal.sh"
+  ],
+  "pdf_redactions": [
+    {
+      "file": "docs/benchmarks/GR308_THREE_BASELINE_REPORT_20260910/GR308_Qwen3.8-27B_\u4e09Baseline\u5bf9\u6bd4\u62a5\u544a.pdf",
+      "redactions": 3
+    }
+  ],
+  "note": "Private hosts replaced with RFC 5737 documentation addresses. Original mappings are not included. Historical source hashes refer to the pre-sanitized local originals."
+}
